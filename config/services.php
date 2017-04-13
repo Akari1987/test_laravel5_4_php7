@@ -34,5 +34,25 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
-
+    
+    /*
+    |--------------------
+    |For Social Auth
+    |--------------------
+    */
+    'github' => [
+        'client_id' => env('GITHUB_ID'),
+        'client_secret' =>  env('GITHUB_SECRET'),
+        'redirect' =>  env('GITHUB_URL')
+    ],
+    'twitter' => [
+        'client_id' => env('TWITTER_ID'),
+        'client_secret' =>  env('TWITTER_SECRET'),
+        'redirect' =>  env('TWITTER_URL')
+    ],
+    'google' => [
+        'client_id' => env('GOOGLE_ID'),
+        'client_secret' =>  env('GOOGLE_SECRET'),
+        'redirect' =>  env('GOOGLE_URL')
+    ],
 ];

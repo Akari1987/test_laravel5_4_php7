@@ -13,4 +13,19 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
+
+Route::get('/example', function () {
+    return view('welcome'); 
+})->middleware('auth');
+
+/*-------------------
+|  For Socialite
+---------------------*/
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

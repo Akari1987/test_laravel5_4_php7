@@ -82,7 +82,14 @@
                     <div class="title m-b-md">
                         Laravel
                     </div>
-                    <example></example>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <router-link to="/example">Show Example</router-link> |
+                            <router-link to="/">Hide Example</router-link>
+                            <router-view></router-view>
+                        </div>
+                    </div>
+                    
                     <div class="links">
                         <a href="https://laravel.com/docs">Documentation</a>
                         <a href="https://laracasts.com">Laracasts</a>
