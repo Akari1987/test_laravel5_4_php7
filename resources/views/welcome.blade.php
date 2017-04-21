@@ -66,6 +66,19 @@
     </head>
     <body>
         <div id="app">
+            @component('components.jumbotron')
+              @slot('title')
+                Welcome DevMarketers!
+              @endslot
+
+              This is an awesome tutorial about all the new features that have arrived in Laravel 5.4. I recommend leaving a like if you enjoyed this video and a comment about what you want to learn next! Thanks so much for your support. Go DevMarketers!
+
+              @slot('button')
+                Click Like!
+              @endslot
+    @endcomponent
+            <topnavbar></topnavbar>
+            <example></example>
             <div class="flex-center position-ref full-height">
                 @if (Route::has('login'))
                     <div class="top-right links">

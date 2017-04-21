@@ -29,3 +29,10 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+/*----------------------
+| For Vue Components
+------------------------*/
+Route::get('/user', function(){
+    return Auth::user(); 
+})->middleware('auth'); 

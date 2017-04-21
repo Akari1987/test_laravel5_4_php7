@@ -14,9 +14,14 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 import VueRouter from 'vue-router';
+//import store from './store/store';
+
+
 import Example from './components/Example.vue';
+
 Vue.use(VueRouter);
-//Vue.component('example', require('./components/Example.vue'));
+Vue.component('example', require('./components/Example.vue'));
+Vue.component('sidenavbar', require('./components/Sidenavbar/Sidenavbar.vue'));
 
 const routes = [
     { path: '/example', component: Example}
@@ -29,5 +34,11 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    router: router,
+    //store,
+    router: router,/*
+    created() {
+            axios.get('/user').then(response => {
+                console.log(response);
+            });
+    }*/
 });
