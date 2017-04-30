@@ -14,17 +14,36 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 import VueRouter from 'vue-router';
-//import store from './store/store';
+//import Jquery from 'jquery';
+import store from './store/store';
 
 
 import Example from './components/Example.vue';
+import Stream from './components/sidenavbar/streambox/stream/Stream.vue';
+import Email from './components/sidenavbar/streambox/email/Email.vue';
+import Streamboxnavbar from './components/sidenavbar/streambox/Streamboxnavbar.vue';
+
 
 Vue.use(VueRouter);
+//Vue.use(Jquery);
+
 Vue.component('example', require('./components/Example.vue'));
-Vue.component('sidenavbar', require('./components/Sidenavbar/Sidenavbar.vue'));
+
+Vue.component('sidenavbar', require('./components/sidenavbar/Sidenavbar.vue'));
+Vue.component('streambox', require('./components/sidenavbar/streambox/Streambox.vue'));
+//Vue.component('stream', require('./components/sidenavbar/streambox/stream/Stream.vue'));
+//Vue.component('email', require('./components/sidenavbar/streambox/email/Email.vue'));
+
+//Vue.component('streamboxnavbar', require('./components/sidenavbar/streambox/Streamboxnavbar.vue'));
 
 const routes = [
-    { path: '/example', component: Example}
+    { path: '/example', component: Example},
+    { path: '/stream', components: { default: Stream,
+                                     streamboxnavbar: Streamboxnavbar}
+    },
+    { path: '/email', components: { default: Email,
+                                    streamboxnavbar: Streamboxnavbar}
+    },
 ];
 
 const router = new VueRouter({
@@ -34,7 +53,7 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    //store,
+    store,
     router: router,/*
     created() {
             axios.get('/user').then(response => {

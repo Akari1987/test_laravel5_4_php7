@@ -11,8 +11,14 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    <link href="{{ asset('css/inspinia/plugins/summernote/summernote.css') }}" rel="stylesheet">
+    <link href="{{ asset('csss/inspinia/plugins/summernote/summernote-bs3.css') }}" rel="stylesheet">
+    <link href="{{ asset('csss/inspinia/plugins/iCheck/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+
+
     <!--<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">-->
 
     <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
@@ -171,12 +177,44 @@
             </div>
         </div>
     </div>
-    <!-- Scripts -->
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Main Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/inspinia.js') }}"></script>
+    <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>    
+    <script src="{{ asset('js/jquery-2.1.1.js') }}"></script>
+    
+    <script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+    <!---->
+    
+<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    
+    
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    -->
+
     <script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
     <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+    
+    <script src="{{ asset('js/inspinia.js') }}"></script>
     <script src="{{ asset('js/plugins/pace/pace.min.js') }}"></script>
+    
+    <!-- iCheck -->
+    <script src="{{ asset('js/plugins/iCheck/icheck.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/summernote/summernote.min.js') }}"></script>
+    <!-- SUMMERNOTE 
+    <script type="text/javascript" src="https://cdn.bootcss.com/summernote/0.8.1/summernote.js"></script>
+    -->
+    
 </body>
 </html>

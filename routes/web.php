@@ -36,3 +36,11 @@ Route::get('/home', 'HomeController@index');
 Route::get('/user', function(){
     return Auth::user(); 
 })->middleware('auth'); 
+
+Route::get('/stream', function(){
+    return view('home');
+})->middleware('auth'); 
+
+Route::get('/email', function(){
+    return view('home');
+})->middleware('auth'); 

@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+ 
+        <router-view name="streamboxnavbar"></router-view>
+    <router-view></router-view>
+    
+    
     <div class="row">
         <div class="col-lg-12">
             <div class="wrapper wrapper-content">
