@@ -231,11 +231,22 @@
 </template>
 
 <script>
+    import {mapActions} from 'vuex';
+
     export default {
         data() {
             return {
                 user: $("#auth_user a:first").text(),
             };
+        },
+        methods: {
+            ...mapActions({
+                setUser: 'setUser'    
+            })
+        },
+        created() {
+            const user = this.user.replace(/^\s+|\s+$/g,'');
+            this.setUser(user);
         },
     };
 </script>

@@ -1,16 +1,22 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import * as getters from './getters';
+import user from './modules/user.js';
+import stream from './modules/stream.js';
 
 Vue.use(Vuex);
 
+// const getters = {
+//     user: state => {
+//         return state.user;
+//     }
+// };
+
 export default new Vuex.Store({
-    state: {
-        user: ""
-    },
+    //state,
+    //getters,
     modules: {
-        
+        user,
+        stream
     }
-    
 });

@@ -14,7 +14,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 import VueRouter from 'vue-router';
-//import Jquery from 'jquery';
+//import VueHtmlEditor from 'vue-html-editor';
 import store from './store/store';
 
 
@@ -23,9 +23,11 @@ import Stream from './components/sidenavbar/streambox/stream/Stream.vue';
 import Email from './components/sidenavbar/streambox/email/Email.vue';
 import Streamboxnavbar from './components/sidenavbar/streambox/Streamboxnavbar.vue';
 
+//import Summernote from 'summernote';
 
 Vue.use(VueRouter);
-//Vue.use(Jquery);
+//Vue.use(VueHtmlEditor);
+//Vue.use(Summernote);
 
 Vue.component('example', require('./components/Example.vue'));
 
@@ -33,7 +35,7 @@ Vue.component('sidenavbar', require('./components/sidenavbar/Sidenavbar.vue'));
 Vue.component('streambox', require('./components/sidenavbar/streambox/Streambox.vue'));
 //Vue.component('stream', require('./components/sidenavbar/streambox/stream/Stream.vue'));
 //Vue.component('email', require('./components/sidenavbar/streambox/email/Email.vue'));
-
+Vue.component('app-vue-html-editor', require('vue-html-editor'));
 //Vue.component('streamboxnavbar', require('./components/sidenavbar/streambox/Streamboxnavbar.vue'));
 
 const routes = [
@@ -54,10 +56,5 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     store,
-    router: router,/*
-    created() {
-            axios.get('/user').then(response => {
-                console.log(response);
-            });
-    }*/
+    router: router,
 });

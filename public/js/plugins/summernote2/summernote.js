@@ -5187,7 +5187,7 @@
           ui.button({
             className: 'dropdown-toggle',
             contents: ui.icon(options.icons.magic) + ' ' + ui.icon(options.icons.caret, 'span'),
-            //tooltip: lang.style.style,
+            tooltip: lang.style.style,
             data: {
               toggle: 'dropdown'
             }

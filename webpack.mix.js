@@ -40,5 +40,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/style.scss','public/css');*/
    
 mix.copy('node_modules/jquery/dist/jquery.js', 'public/js/jquery.js');
-mix.copy('node_modules/summernote/dist/', 'resources/assets/js/plugins/summernote2');
+    //.copy('node_modules/summernote/dist/', 'resources/assets/js/plugins/summernote2/');
 //mix.copy('node_modules/jquery/dist/', 'public/js/jquery.min.map');

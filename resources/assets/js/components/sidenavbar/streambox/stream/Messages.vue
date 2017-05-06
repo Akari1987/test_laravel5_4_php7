@@ -7,28 +7,37 @@
             
             <div class="mail-tools tooltip-demo m-t-md">
                 <h5>
-                    <span class="pull-right font-noraml">10:15AM 02 FEB 2014</span>
-                    <span class="font-noraml">From: </span>alex.smith@corporation.com
+                    <span class="pull-right font-noraml">10:15AM 2 EB2014</span>
+                    <span class="font-noraml">Stream with: </span>{{ StreamGroup }}
                 </h5>
             </div>
         </div>
         <div class="mail-box">
-            <app-balloon></app-balloon>
+            <app-balloon v-for="message in messages" :message="message" :key="message.id"></app-balloon>
             <app-message-composer></app-message-composer>
         </div>
     </div>
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
+    
     import Balloon from './Balloon.vue';
     import MessageComposer from './MessageComposer.vue';
-    import Test from './Test.vue';
-    
+    //import Test from './Test.vue';
     export default {
+        computed: {
+            ...mapGetters({
+                messages: 'messageLogs'    
+            })    
+        },
+        // getters: {
+        //     messages: 'messageLogs'    
+        // },
         components: {
             'app-balloon': Balloon,
             'app-message-composer': MessageComposer,
-            'app-test': Test,
+            // 'app-test': Test,
             
         }
     }
