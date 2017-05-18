@@ -13,11 +13,11 @@
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('auth');
+});
 
 Route::get('/example', function () {
     return view('welcome'); 
-})->middleware('auth');
+});
 
 /*-------------------
 |  For Socialite
@@ -30,17 +30,71 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-/*----------------------
-| For Vue Components
-------------------------*/
-Route::get('/user', function(){
-    return Auth::user(); 
-})->middleware('auth'); 
 
-Route::get('/stream', function(){
-    return view('home');
-})->middleware('auth'); 
+Route::group(['middleware' => ['auth']], function() {
+    /*----------------------
+    | For Vue Components REST
+    ------------------------*/
+    
+    Route::get('/user', function(){
+        return Auth::user(); 
+    });
+    
+    Route::get('/profile', function() {
+        return view('home');
+    });
+    
+    Route::get('/follow', function() {
+        return view('home');
+    });
+    
+    Route::get('/activity', function() {
+        return view('home');
+    });
+    
+    Route::get('/stream', function(){
+        return view('home');
+    });
+    
+    Route::get('/members', 'UserController@member');
+    
+    Route::get('/email', function(){
+        return view('home');
+    });
+    
+    /*-------------------------------
+    | For Vue Components ajax Request
+    --------------------------------*/
+    Route::get('/messages', function() {
+        return App\Message::all();
+    });
+    
+    /*-------------------------------
+    | For Social Functionality
+    --------------------------------*/
+    Route::get('/users', 'FollowController@index');
+    Route::post('/follow/{user}', 'FollowController@follow');
+    Route::delete('/unfollow/{user}', 'FollowController@unfollow');
+});
+// Route::get('/user', function(){
+//     return Auth::user(); 
+// })->middleware('auth'); 
 
-Route::get('/email', function(){
-    return view('home');
-})->middleware('auth'); 
+// Route::get('/stream', function(){
+//     return view('home');
+// })->middleware('auth'); 
+
+// Route::get('/member', function(){
+//     return view('home');
+// })->middleware('auth'); 
+
+// Route::get('/email', function(){
+//     return view('home');
+// })->middleware('auth'); 
+
+/*-------------------------------
+| For Vue Components ajax Request
+--------------------------------*/
+// Route::get('/messages', function() {
+//     return App\Message::all();
+// })->middleware('auth');

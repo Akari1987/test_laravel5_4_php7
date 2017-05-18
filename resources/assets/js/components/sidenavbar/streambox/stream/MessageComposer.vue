@@ -1,7 +1,7 @@
 <template>
     <div class="vue-message-composer">
             <div class="balloon">
-                <div class="box" :class="{danger: noMessage}">
+                <div class="box" :class="{danger: noMessage, animated: noMessage, rubberBand: noMessage}">
                     <div class="vue-message">
                        <input type="text" v-model="messageText" @keyup.enter="sendMessage" :placeholder="placeholder":class="{danger: noMessage}" />
                     </div>
@@ -73,10 +73,8 @@
             sendMessage() {
                 const message = {
                     messageText: this.messageText,
-                    // user: state => {
-                    //     return getters.user.name;
-                    // }
-                    user: this.$store.state.user.user.name
+                    user: this.$store.state.user.user.name,
+                    avatar: this.$store.state.user.user.avatar
                 };
                 if (this.messageText) {
                     this.callSendMessage(message);

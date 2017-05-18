@@ -1,22 +1,14 @@
 const state = {
-    streamGroup: [],
-    messages: [
-        {
-        message: 'hey!        --demo',
-        user: "あかり"
-        },
-        {
-        message: 'oops!        --demo',
-        user: "なぎさ"
-        }
-    ]
+    streamId: 0,
+    messages: []
 };
 
 const mutations = {
-    'SEND_MESSAGE' (state, {messageText, user}) {
+    'SEND_MESSAGE' (state, {messageText, user, avatar}) {
         state.messages.push({
             message: messageText,
-            user: user
+            user: user,
+            avatar: avatar
         });
     }
 };
@@ -28,16 +20,11 @@ const actions = {
 };
 
 const getters = {
-    // messageLogs (state, getters) {
-    //     return state.messages.map(message => {
-    //         return {
-    //             message: message.message,
-    //             user: message.user,
-    //         }
-    //     });
-    // }
     messageLogs: state => {
-        return state.messages
+        return state.messages;
+    },
+    streamId: state => {
+        return state.streamId;
     }
 };
 

@@ -5,7 +5,7 @@
                 <li class="nav-header">
                     <div class="dropdown profile-element"> 
                         <span>
-                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                            <img alt="image" class="img-circle" :src="avatar" />
                          </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear">
@@ -16,7 +16,7 @@
                             </span> 
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="profile.html">Profile</a></li>
+                            <li><router-link to="/profile">Profile</router-link></li>
                             <li><a href="contacts.html">Contacts</a></li>
                             <li><a href="mailbox.html">Mailbox</a></li>
                             <li><router-link to="/stream">Stream</router-link></li>
@@ -232,11 +232,13 @@
 
 <script>
     import {mapActions} from 'vuex';
+    import axios from 'axios';
 
     export default {
         data() {
             return {
-                user: $("#auth_user a:first").text(),
+                 user: "",
+                 avatar: ""
             };
         },
         methods: {
@@ -245,8 +247,19 @@
             })
         },
         created() {
-            const user = this.user.replace(/^\s+|\s+$/g,'');
-            this.setUser(user);
+            axios.get('/user').then(response => {
+                console.log(response);
+                this.user = response.data.name;
+                this.avatar = response.data.avatar;
+                const user = response.data;
+                this.setUser(user);
+            });
+            // const user = this.user.replace(/^\s+|\s+$/g,'');
+            // this.setUser(user);
+            
+            // axios.get('/members').then(response => {
+            //     console.log(response);
+            // });
         },
     };
 </script>

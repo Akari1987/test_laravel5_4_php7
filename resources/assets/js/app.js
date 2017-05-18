@@ -17,9 +17,12 @@ import VueRouter from 'vue-router';
 //import VueHtmlEditor from 'vue-html-editor';
 import store from './store/store';
 
-
+import Profile from './components/profile/Profile.vue';
+import Follows from './components/profile/Follows.vue';
+import Activity from './components/profile/Activity.vue';
 import Example from './components/Example.vue';
 import Stream from './components/sidenavbar/streambox/stream/Stream.vue';
+import Member from './components/sidenavbar/streambox/member/Members.vue';
 import Email from './components/sidenavbar/streambox/email/Email.vue';
 import Streamboxnavbar from './components/sidenavbar/streambox/Streamboxnavbar.vue';
 
@@ -39,8 +42,21 @@ Vue.component('app-vue-html-editor', require('vue-html-editor'));
 //Vue.component('streamboxnavbar', require('./components/sidenavbar/streambox/Streamboxnavbar.vue'));
 
 const routes = [
+    { path: '/profile', component: Profile,
+        children: [
+            {
+                path: '/follow', component: Follows,    
+            },
+            {
+                path: '/activity', component: Activity
+            }    
+        ]
+    },
     { path: '/example', component: Example},
     { path: '/stream', components: { default: Stream,
+                                     streamboxnavbar: Streamboxnavbar}
+    },
+    { path: '/member', components: { default: Member,
                                      streamboxnavbar: Streamboxnavbar}
     },
     { path: '/email', components: { default: Email,

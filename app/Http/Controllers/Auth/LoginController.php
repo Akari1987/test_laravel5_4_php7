@@ -82,10 +82,13 @@ class LoginController extends Controller
             $name = 'nickname';
         } 
         return User::create([
+            
             'name'     => $user->$name,
             'email'    => $user->email,
+            // 'icon' => $user-
             'provider' => $provider,
-            'provider_id' => $user->id
+            'provider_id' => $user->id,
+            'avatar' => $user->getAvatar(),
         ]);
     }
 }
