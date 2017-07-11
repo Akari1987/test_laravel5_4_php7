@@ -3,11 +3,19 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use App\Traits\Friendable;
+use App\Traits\Followable;
+use App\Follow;
+use App\Test2;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    
+    use Friendable;
+    
+    use Followable;
 
     /**
      * The attributes that are mass assignable.
@@ -35,18 +43,37 @@ class User extends Authenticatable
         return $this->hasOne(UserDetail::class);
     }
     
-    /*-------------------------------
-    | For Social Functionality
-    --------------------------------*/
-    public function follows() {
+    public function follows()
+    {
         return $this->hasMany(Follow::class);
     }
     
-    public function isFollowing($target_id)
+    public function followPaginations()
     {
-        return (bool)$this->follows()->where('target_id', $target_id)->first(['id']);
+        return $this->hasMany(FollowPagination::class);
     }
     
+    public function test2s()
+    {
+        return $this->belongsToMany(Test2::class);    
+    }
+    
+    /*-------------------------------
+    | For Social Functionality
+    --------------------------------*/
+    
+    
+    
+    
+    public function getNameAttribute($value) 
+    {
+        return $value;
+    }
+    
+    public function setNameAttribute($value) 
+    {
+        $this->attributes['name'] = strtoupper($value);
+    }
     /*-------------------------------
     | For Streambox
     --------------------------------*/
@@ -59,4 +86,6 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Stream::class);
     }
+    
+
 }
