@@ -1,0 +1,11 @@
+@mixin atSmall {
+    max-width: 350px;
+}
+
+@mixin atMedium {
+    max-width: 768px;
+}
+
+@mixin atLarge {
+    min-width: 768px;
+}
