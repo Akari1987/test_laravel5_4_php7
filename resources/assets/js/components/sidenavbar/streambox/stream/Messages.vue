@@ -4,7 +4,6 @@
             <div class="pull-right tooltip-demo">
                 <button title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm btn-white"><i class="fa fa-trash-o"></i> Remove</button>
             </div>
-            
             <div class="mail-tools tooltip-demo m-t-md">
                 <h5>
                     <span class="font-noraml">Stream with: {{ streamId }}</span>
@@ -33,7 +32,6 @@
         computed: {
             ...mapGetters({
                 messages: 'messageLogs',
-                
             })    
         },
         components: {

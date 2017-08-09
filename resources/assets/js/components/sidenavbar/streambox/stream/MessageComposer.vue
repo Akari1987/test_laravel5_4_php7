@@ -96,6 +96,10 @@
 <style scoped lang="scss">
     $balloon-composer-color:#CEE7F7;
     
+    .vue-message {
+        padding: 15px;
+    }
+    
    .hide {
        display: none;
    }

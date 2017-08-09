@@ -3,11 +3,11 @@
         <li>
             <div class="dropdown-messages-box">
                 <a href="profile.html" class="pull-left">
-                    <img alt="image" class="img-circle" src="../../../../img/a1.jpg">
+                    <img alt="image" class="img-circle" src="../../../../img/1.jpg">
                 </a>
                 <div class="media-body">
                     <small class="pull-right">46h ago</small>
-                    <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+                    <strong>哲也</strong> started following <strong>愛子</strong>. <br>
                     <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
                 </div>
             </div>
@@ -17,11 +17,11 @@
         <li>
             <div class="dropdown-messages-box">
                 <a href="profile.html" class="pull-left">
-                    <img alt="image" class="img-circle" src="../../../../img/a2.jpg">
+                    <img alt="image" class="img-circle" src="../../../../img/2.jpg">
                 </a>
                 <div class="media-body ">
                     <small class="pull-right text-navy">5h ago</small>
-                    <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                    <strong>太郎</strong> started following <strong>次郎</strong>. <br>
                     <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
                 </div>
             </div>
@@ -31,11 +31,11 @@
         <li>
             <div class="dropdown-messages-box">
                 <a href="profile.html" class="pull-left">
-                    <img alt="image" class="img-circle" src="../../../../img/a3.jpg">
+                    <img alt="image" class="img-circle" src="../../../../img/3.jpg">
                 </a>
                 <div class="media-body ">
                     <small class="pull-right">23h ago</small>
-                    <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
+                    <strong>次郎</strong> love <strong>三郎</strong>. <br>
                     <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
                 </div>
             </div>
