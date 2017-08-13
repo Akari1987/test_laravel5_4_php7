@@ -31,6 +31,7 @@
 
 .navbar {
   border: 0;
+  margin-bottom: 11px;
 }
 
 .navbar-default {
@@ -557,4 +558,17 @@ body.canvas-menu nav.navbar-static-side {
 body.canvas-menu.mini-navbar nav.navbar-static-side {
   display: block;
   width: 220px;
+}
+
+.navbar-fixed {
+  // position: absolute;
+  position: sticky;
+  // top: 0;
+  right: 0;
+  
+}
+
+.navbar-header {
+  position: relative;
+  left: 300px;
 }

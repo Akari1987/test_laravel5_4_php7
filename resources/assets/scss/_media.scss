@@ -1,4 +1,4 @@
-@media (min-width: 768px) {    // atLarge
+@media (min-width: 1024px) {    // atLarge
   #page-wrapper {
 	position: inherit;
 	margin: 0 0 0 220px;
@@ -18,8 +18,12 @@
   }
 }
 
-@media (max-width: 768px) {    // atMedium
+@media (max-width: 1024px) {    // atMedium for ipad-pro
 
+	// .atLarge {
+	// 	display: none;
+	// }
+	
   #page-wrapper {
 	position: inherit;
 	margin: 0 0 0 0;
@@ -27,7 +31,7 @@
   }
 
   .body-small .navbar-static-side {
-	display: none;
+	// display: none;
 	z-index: 2001;
 	position: absolute;
 	width: 220px;
@@ -79,7 +83,7 @@
 	display: block;
   }
 
-  .navbar-static-side { display: none; }
+  //.navbar-static-side { display: none; }
 
   body:not(.mini-navbar) {
 	-webkit-transition: background-color 500ms linear;
@@ -94,6 +98,10 @@
 
 @media (max-width: 350px) {    // atSmall
 
+	.atLarge {
+		display: none;
+	}
+	
   .timeline-item .date {
 	text-align: left;
 	width: 110px;

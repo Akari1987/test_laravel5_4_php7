@@ -1,5 +1,6 @@
 body {
-    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    // font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #2f4050;
     font-size: 13px;
     color: $text-color;
@@ -1408,4 +1409,12 @@ body.mini-navbar.fixed-sidebar .logo-element {
 
 .fullscreen-video .animated {
   animation: none;
+}
+
+.swiper-wrapper {
+        align-items: flex-start;
+    }
+
+.swiper-container {
+    overflow: visible !important;
 }

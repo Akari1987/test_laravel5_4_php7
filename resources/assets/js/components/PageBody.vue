@@ -68,14 +68,14 @@
         /*float: left;*/
         /*width: 50%;*/
     /*}*/
-    /*.swiper-slide {*/
-    /*    -webkit-flex-shrink: 0;*/
-    /*    -ms-flex: 0 0 auto;*/
-    /*    flex-shrink: 0;*/
-    /*    width: 100%;*/
-    /*    height: 100%;*/
-    /*    position: relative;*/
-    /*}*/
+    .swiper-slide {
+        -webkit-flex-shrink: 0;
+        -ms-flex: 0 0 auto;
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        flex: none;
+    }
     
     .menu {
         min-width: 100px;
@@ -83,11 +83,23 @@
         max-width: 220px;
         top: 0px;
         /*left: 220px;*/
-        /*position: fixed;*/
+        position: sticky;
         /*flex-direction: column;*/
         /*position: relative;*/
         /*background-color: #2C8DFB!important;*/
         /*color: #fff;*/
+    }
+    
+    .navbar-static-side {
+        flex: none;
+        position: sticky;
+        bottom: 0;
+    }
+    
+    div.menu::after {
+        content: "";
+        height: 100%;
+        width: 1px;
     }
     
   .content {
