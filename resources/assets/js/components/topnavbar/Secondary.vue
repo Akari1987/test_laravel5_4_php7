@@ -122,3 +122,10 @@
 	<!--</nav>-->
     </div>
 </template>
+
+<style scoped>
+    .secondary {
+        position: relative;
+        /*top: 0px;*/
+    }
+</style>

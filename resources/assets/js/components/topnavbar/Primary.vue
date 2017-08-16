@@ -1,5 +1,8 @@
 <template>
     <nav class="cd-primary-nav">
+        <div class="large-sidenavbar-button" v-if="isLarge === true">
+            <a class="navbar-minimalize  btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+        </div>
 		<a href="#cd-navigation" class="nav-trigger">
 			<span>
 				<em aria-hidden="true"></em>
@@ -40,3 +43,33 @@
 		</ul>
 	</nav> <!-- .cd-primary-nav -->
 </template>
+
+<script>
+    export default {
+        data() {
+            return {
+                atLarge: true
+            }
+        },
+        computed: {
+            isLarge() {
+                if(window.matchMedia('(min-width: 1024px)').matches)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
+        }
+    }
+</script>
+
+<style>
+    .large-sidenavbar-button {
+        float: left;
+        position: relative;
+        top: 21px;
+        left: 15px;
+    }
+</style>

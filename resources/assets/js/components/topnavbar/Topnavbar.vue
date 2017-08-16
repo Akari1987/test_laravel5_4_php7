@@ -18,3 +18,12 @@
         }
     }
 </script>
+
+<style scoped>
+    .topnavbar {
+        position: sticky;
+        top: 0px;
+        width: 100%;
+        z-index: 10000;
+    }
+</style>

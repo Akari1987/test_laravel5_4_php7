@@ -1,13 +1,5 @@
 $primary-height: 60px;
 
-.cd-auto-hide-header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: $primary-height;
-    transition: transform .5s;
-}
 .cd-auto-hide-header.is-hidden {
     transform: translateY(-100%);
 }
@@ -15,17 +7,10 @@ $primary-height: 60px;
 
 .cd-secondary-nav.fixed {
     position: fixed;
-    top: 60px;
+    top: $primary-height;
 }
 .cd-secondary-nav.slide-up {
     transform: translateY(-60px);
-}
-
-.cd-primary-nav {
-    display: inline-block;
-    float: right;
-    height: 100%;
-    padding-right: 5%;
 }
 
 /* -------------------------------- 
@@ -39,16 +24,16 @@ $primary-height: 60px;
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: $primary-height;
   background-color: #ffffff;
   /* Force Hardware Acceleration */
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
   will-change: transform;
-  -webkit-transition: -webkit-transform .5s;
-  transition: -webkit-transform .5s;
-  transition: transform .5s;
-  transition: transform .5s, -webkit-transform .5s;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
 }
 .cd-auto-hide-header::after {
   clear: both;
@@ -162,14 +147,14 @@ $primary-height: 60px;
 
 .cd-primary-nav {
   display: inline-block;
-  float: right;
+  // float: right;
   height: 100%;
   padding-right: 5%;
 }
 .cd-primary-nav > ul {
   position: absolute;
   z-index: 2;
-  top: 60px;
+  top: $primary-height;
   left: 0;
   width: 100%;
   background-color: #ffffff;

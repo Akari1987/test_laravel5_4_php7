@@ -16,7 +16,6 @@
 <!--  </v-parallax>-->
 <!--</template>-->
     <!--<home-center></home-center>-->
-    <!--<sidenavbar></sidenavbar>-->
     <page-body></page-body>
     <!--<router-view></router-view>-->
 @endsection

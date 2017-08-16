@@ -1,26 +1,55 @@
 <template>
     <div id="page-body">
-        <nav class="navbar navbar-static-top navbar-left" role="navigation">
-            <app-large-sidenavbar-button></app-large-sidenavbar-button>
-        </nav>
         <swiper :options="swiperOption" ref="swiper">
-        <swiper-slide class="menu">
-            <sidenavbar></sidenavbar>
-        </swiper-slide>
-        <swiper-slide class="content">
-            <nav class="navbar navbar-static-top navbar-left" role="navigation">
-                <div class="menu-button" @click="toggleMenu">
-                    <div class="navbar-header">
-                        <a class="navbar-minimalize　minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <swiper-slide class="menu">
+                <sidenavbar></sidenavbar>
+            </swiper-slide>
+            <swiper-slide class="content">
+                <topnavbar></topnavbar>
+                <main class="cd-main-content">
+                <nav class="navbar navbar-static-top navbar-left" role="navigation">
+                    <div class="menu-button" @click="toggleMenu">
+                        <div class="navbar-header">
+                            <a class="navbar-minimalize　minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                        </div>
                     </div>
-                </div>
-            </nav>
-            <router-view name="streamboxnavbar"></router-view>
-            <router-view></router-view>
-        </swiper-slide>
-      </swiper>
+                </nav>
+                <router-view name="streamboxnavbar"></router-view>
+                <router-view></router-view>
+                </main>
+            </swiper-slide>
+        </swiper>
     </div>
 </template>
+
+<!--<template>-->
+<!--    <div id="page-body">-->
+<!--        <topnavbar></topnavbar>-->
+<!--        <nav class="navbar navbar-static-top navbar-left" role="navigation">-->
+<!--            <app-large-sidenavbar-button></app-large-sidenavbar-button>-->
+<!--        </nav>-->
+<!--        <main class="cd-main-content">-->
+<!--        <swiper :options="swiperOption" ref="swiper">-->
+<!--        <swiper-slide class="menu">-->
+<!--            <sidenavbar></sidenavbar>-->
+<!--        </swiper-slide>-->
+<!--        <swiper-slide class="content">-->
+<!--            <main class="cd-main-content">-->
+<!--            <nav class="navbar navbar-static-top navbar-left" role="navigation">-->
+<!--                <div class="menu-button" @click="toggleMenu">-->
+<!--                    <div class="navbar-header">-->
+<!--                        <a class="navbar-minimalize　minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </nav>-->
+<!--            <router-view name="streamboxnavbar"></router-view>-->
+<!--            <router-view></router-view>-->
+<!--            </main>-->
+<!--        </swiper-slide>-->
+<!--      </swiper>-->
+<!--      </main>-->
+<!--    </div>-->
+<!--</template>-->
 
 <script>
     import LargeSidenavbarButton from './sidenavbar/LargeSidenavbarButton.vue';
@@ -115,22 +144,5 @@
     transition: .3s;
     /*margin: 14px;
     border-radius: 5px;*/
-  }
-  .menu-button .bar:nth-of-type(1) {
-    margin-top: 0px;
-  }
-  .menu-button .bar:nth-of-type(3) {
-    margin-bottom: 0px;
-  }
-  .bar {
-    position: relative;
-    display: block;
-    width: 50px;
-    height: 5px;
-    margin: 10px auto;
-    background-color: #fff;
-    border-radius: 10px;
-    -webkit-transition: .3s;
-    transition: .3s;
   }
 </style>
