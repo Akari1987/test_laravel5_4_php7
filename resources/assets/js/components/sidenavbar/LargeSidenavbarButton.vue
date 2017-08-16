@@ -28,7 +28,7 @@
 <style scoped>
     .large-sidenavbar-button {
         position: fixed;
-        z-index: 1001
+        z-index: 10001
     }
     
     .navbar-minimalize {

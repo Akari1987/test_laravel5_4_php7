@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'provider', 'provider_id', 'avatar',
+        'id_st', 'name', 'auth_name', 'email', 'password', 'provider', 'provider_id', 'avatar',
     ];
 
     /**
@@ -51,6 +51,11 @@ class User extends Authenticatable
     public function followPaginations()
     {
         return $this->hasMany(FollowPagination::class);
+    }
+    
+    public function followeds()
+    {
+        return $this->belongsToMany(Followed::class);
     }
     
     public function test2s()

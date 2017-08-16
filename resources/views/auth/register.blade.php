@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
 <div class="container">
@@ -9,7 +9,7 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
-
+                        <!--name-->
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
@@ -23,7 +23,35 @@
                                 @endif
                             </div>
                         </div>
+                        <!--nick_name-->
+                        <div class="form-group{{ $errors->has('nick_name') ? ' has-error' : '' }}">
+                            <label for="nick_name" class="col-md-4 control-label">Nickname</label>
 
+                            <div class="col-md-6">
+                                <input id="nick_name" type="text" class="form-control" name="nick_name" value="{{ old('nick_name') }}" required autofocus>
+
+                                @if ($errors->has('nick_name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('nick_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <!--id-->
+                        <div class="form-group{{ $errors->has('id') ? ' has-error' : '' }}">
+                            <label for="id" class="col-md-4 control-label">ID</label>
+
+                            <div class="col-md-6">
+                                <input id="id" type="text" class="form-control" name="id" value="{{ old('id') }}" required autofocus>
+
+                                @if ($errors->has('id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <!--email-->
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 

@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -66,19 +65,19 @@
     </head>
     <body>
         <div id="app">
-            @component('components.jumbotron')
-                  @slot('title')
-                    Welcome DevMarketers!
-                  @endslot
+            <!--@component('components.jumbotron')-->
+            <!--      @slot('title')-->
+            <!--        Welcome DevMarketers!-->
+            <!--      @endslot-->
         
-                  This is an awesome tutorial about all the new features that have arrived in Laravel 5.4. I recommend leaving a like if you enjoyed this video and a comment about what you want to learn next! Thanks so much for your support. Go DevMarketers!
+            <!--      This is an awesome tutorial about all the new features that have arrived in Laravel 5.4. I recommend leaving a like if you enjoyed this video and a comment about what you want to learn next! Thanks so much for your support. Go DevMarketers!-->
         
-                  @slot('button')
-                    Click Like!
-                  @endslot
-            @endcomponent
-            <topnavbar></topnavbar>
-            <example></example>
+            <!--      @slot('button')-->
+            <!--        Click Like!-->
+            <!--      @endslot-->
+            <!--@endcomponent-->
+            <!--<example></example>-->
+            <!--<home-center></home-center>-->
             <div class="flex-center position-ref full-height">
                 @if (Route::has('login'))
                     <div class="top-right links">
@@ -92,13 +91,15 @@
                 @endif
     
                 <div class="content">
+                    <h2>右上よりテストユーザーにてログイン、もしくは新規ユーザーを登録してください。</h2>
                     <div class="title m-b-md">
                         Laravel
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <router-link to="/example">Show Example</router-link> |
-                            <router-link to="/">Hide Example</router-link>
+                            <router-link to="/profile/akari1987">Show Example</router-link>
+                            <!--<router-link to="/example">Show Example</router-link> |-->
+                            <!--<router-link to="/">Hide Example</router-link>-->
                             <router-view></router-view>
                         </div>
                     </div>
@@ -113,6 +114,10 @@
                 </div>
             </div>    
         </div>
+        <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
         <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>
