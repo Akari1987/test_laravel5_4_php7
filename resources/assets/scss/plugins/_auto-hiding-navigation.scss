@@ -1,4 +1,9 @@
 $primary-height: 60px;
+$secondary-height: 62px;
+
+.cd-main-content {
+    padding-top: $secondary-height;
+}
 
 .cd-auto-hide-header.is-hidden {
     transform: translateY(-100%);
@@ -124,7 +129,7 @@ $primary-height: 60px;
 }
 @media only screen and (min-width: 1024px) {
   .cd-auto-hide-header .nav-trigger {
-    display: none;
+    // display: none;
   }
 }
 
@@ -146,7 +151,7 @@ $primary-height: 60px;
 }
 
 .cd-primary-nav {
-  display: inline-block;
+  // display: inline-block;
   // float: right;
   height: 100%;
   padding-right: 5%;
@@ -238,7 +243,7 @@ $primary-height: 60px;
   z-index: 1;
   clear: both;
   width: 100%;
-  height: 50px;
+  height: $secondary-height;
   background-color: #25283D;
   /* Force Hardware Acceleration */
   -webkit-transform: translateZ(0);
@@ -309,7 +314,7 @@ $primary-height: 60px;
 }
 @media only screen and (min-width: 1024px) {
   .cd-secondary-nav {
-    height: 70px;
+    height: 2.625rem;
     overflow: visible;
   }
   .cd-secondary-nav ul {

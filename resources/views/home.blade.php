@@ -7,6 +7,38 @@
 @endsection
 
 @section('content')
+    <!--<div class="absolute">-->
+    <!--    <nav>-->
+    <!--        <ul id="cd-navigation">-->
+    <!--            <li class="dropdown">-->
+    <!--                @if (Auth::guest())-->
+    <!--                    <li><a href="{{ route('login') }}">Login</a></li>-->
+    <!--                    <li><a href="{{ route('register') }}">Register</a></li>-->
+    <!--                @else-->
+    <!--                    <li class="dropdown" id="auth_user">-->
+    <!--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">-->
+    <!--                            {{ Auth::user()->name }} <span class="caret"></span>-->
+    <!--                        </a>-->
+        
+    <!--                        <ul class="dropdown-menu" role="menu">-->
+    <!--                            <li>-->
+    <!--                                <a href="{{ route('logout') }}"-->
+    <!--                                    onclick="event.preventDefault();-->
+    <!--                                             document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i>-->
+    <!--                                    Logout-->
+    <!--                                </a>-->
+        
+    <!--                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">-->
+    <!--                                    {{ csrf_field() }}-->
+    <!--                                </form>-->
+    <!--                            </li>-->
+    <!--                        </ul>-->
+    <!--                    </li>-->
+    <!--                @endif-->
+    <!--            </li>-->
+    <!--        </ul>-->
+    <!--    </nav>-->
+    <!--</div>-->
 <!--<template>-->
 <!--    <v-parallax src="/static/doc-images/vbanner.jpg">-->
 <!--    <v-layout column align-center justify-center>-->

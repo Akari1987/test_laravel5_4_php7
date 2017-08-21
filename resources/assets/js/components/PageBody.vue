@@ -1,58 +1,35 @@
 <template>
     <div id="page-body">
         <swiper :options="swiperOption" ref="swiper">
-            <swiper-slide class="menu">
+            <swiper-slide class="menu" v-if="isNotLarge === true">
                 <sidenavbar></sidenavbar>
             </swiper-slide>
             <swiper-slide class="content">
-                <topnavbar></topnavbar>
+                <div class="isLarge" v-if="isNotLarge == false">
+                    <app-large-topbar></app-large-topbar>
+                </div>
+                <div class="isNotLarge" v-if="isNotLarge == true">
+                    <topnavbar></topnavbar>
+                </div>
                 <main class="cd-main-content">
-                <nav class="navbar navbar-static-top navbar-left" role="navigation">
-                    <div class="menu-button" @click="toggleMenu">
-                        <div class="navbar-header">
-                            <a class="navbar-minimalize　minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    <nav class="navbar navbar-static-top navbar-left" role="navigation">
+                        <div class="menu-button" @click="toggleMenu">
+                            <div class="navbar-header">
+                                <a class="navbar-minimalize　minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                            </div>
                         </div>
-                    </div>
-                </nav>
-                <router-view name="streamboxnavbar"></router-view>
-                <router-view></router-view>
+                    </nav>
+                    <router-view name="streamboxnavbar"></router-view>
+                    <router-view></router-view>
                 </main>
             </swiper-slide>
         </swiper>
     </div>
 </template>
 
-<!--<template>-->
-<!--    <div id="page-body">-->
-<!--        <topnavbar></topnavbar>-->
-<!--        <nav class="navbar navbar-static-top navbar-left" role="navigation">-->
-<!--            <app-large-sidenavbar-button></app-large-sidenavbar-button>-->
-<!--        </nav>-->
-<!--        <main class="cd-main-content">-->
-<!--        <swiper :options="swiperOption" ref="swiper">-->
-<!--        <swiper-slide class="menu">-->
-<!--            <sidenavbar></sidenavbar>-->
-<!--        </swiper-slide>-->
-<!--        <swiper-slide class="content">-->
-<!--            <main class="cd-main-content">-->
-<!--            <nav class="navbar navbar-static-top navbar-left" role="navigation">-->
-<!--                <div class="menu-button" @click="toggleMenu">-->
-<!--                    <div class="navbar-header">-->
-<!--                        <a class="navbar-minimalize　minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </nav>-->
-<!--            <router-view name="streamboxnavbar"></router-view>-->
-<!--            <router-view></router-view>-->
-<!--            </main>-->
-<!--        </swiper-slide>-->
-<!--      </swiper>-->
-<!--      </main>-->
-<!--    </div>-->
-<!--</template>-->
-
 <script>
-    import LargeSidenavbarButton from './sidenavbar/LargeSidenavbarButton.vue';
+    // import LargeSidenavbarButton from './sidenavbar/LargeSidenavbarButton.vue';
+    import LargeTopbar from './topnavbar/LargeTopnavbar.vue';
     
     export default {
         data() {
@@ -70,6 +47,24 @@
         computed: {
             swiper() {
                 return this.$refs.swiper.swiper
+            },
+            // istLarge() {
+            //     if(window.matchMedia('(min-width: 1024px)').matches)
+            //     {
+            //         return true;
+            //     } else
+            //     {
+            //         return false;
+            //     }
+            // },
+            isNotLarge() {
+                if(window.matchMedia('(max-width: 1024px)').matches)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
             }
         },
         methods: {
@@ -78,7 +73,8 @@
             }
         },
         components: {
-            'app-large-sidenavbar-button' : LargeSidenavbarButton
+            // 'app-large-sidenavbar-button' : LargeSidenavbarButton,
+            'app-large-topbar': LargeTopbar
         }
     }
 </script>
@@ -145,4 +141,18 @@
     /*margin: 14px;
     border-radius: 5px;*/
   }
+  
+    .isLarge {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        z-index: 10002;
+    }
+    
+    .isNotLarge {
+        position: sticky;
+        top: 0px;
+        width: 100%;
+        z-index: 10000;
+    }
 </style>
