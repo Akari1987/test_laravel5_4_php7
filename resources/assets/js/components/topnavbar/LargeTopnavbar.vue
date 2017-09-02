@@ -120,7 +120,7 @@
                     Logout
                 </a>
                 <form id="logout-form" action="/logout" method="POST" style="display: none;">
-                    <input type="hidden" name="_token" :value="csrf_token">
+                    <input type="hidden" name="_token" :value="token">
                 </form>
                 <li>
                     <a class="right-sidebar-toggle">
@@ -140,11 +140,7 @@
         data() {
             return {
                 token: csrf_token
-            }
+            };
         }
     }
 </script>
-
-<style scoped>
-
-</style>
