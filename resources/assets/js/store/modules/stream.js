@@ -3,6 +3,15 @@ const state = {
     messages: []
 };
 
+const getters = {
+    messageLogs: state => {
+        return state.messages;
+    },
+    streamId: state => {
+        return state.streamId;
+    }
+};
+
 const mutations = {
     'SEND_MESSAGE' (state, {messageText, user, avatar}) {
         state.messages.push({
@@ -16,15 +25,6 @@ const mutations = {
 const actions = {
     sendMessage({ commit }, message) {
         commit('SEND_MESSAGE', message);
-    }
-};
-
-const getters = {
-    messageLogs: state => {
-        return state.messages;
-    },
-    streamId: state => {
-        return state.streamId;
     }
 };
 

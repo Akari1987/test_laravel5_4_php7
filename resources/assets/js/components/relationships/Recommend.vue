@@ -4,6 +4,9 @@
             <td clphpass="table-text">
                 <img :src='getPic(r.avatar)' class="img-circle" alt="profile" width="45px" >
             </td>
+            <router-link :to="'/user/' + r.id_st">
+                <img :src="getPic(r.avatar)" class="img-circle" alt="profile" width="80px" @click="loadProfile(r.id_st)">
+            </router-link>
             <td clphpass="table-text">
                 {{ r.name }}
             </td>
@@ -23,8 +26,11 @@
 
 <script>
     import axios from 'axios';
+    import {mapActions} from 'vuex';
+    import { getUserPicMixin } from '../../mixins/getUserPicMixin';
     
     export default {
+        mixins: [getUserPicMixin],
         props: ['r'],
         data() {
             return {
@@ -34,9 +40,9 @@
             }
         },
         methods: {
-            getPic(path) {
-                return '/' + path;
-            },
+            ...mapActions({
+                loadUser: 'loadUser',
+            }),
             reqFollow() {
                 axios.post('/follow/' + this.r.id);
                 this.no = this.yes;

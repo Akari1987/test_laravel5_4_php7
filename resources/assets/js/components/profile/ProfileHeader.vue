@@ -7,17 +7,15 @@
                     <div class="edit" :class="{ inactive: !no }">
                         <app-edit></app-edit>
                     </div>
-                    <!--<img :src="imgUrl(user.avatar)" class="img-circle circle-border m-b-md" alt="profile" :class="{ inactive: no }" >-->
-                    <img :src="getPic(user.avatar)" class="img-circle circle-border m-b-md" alt="profile" :class="{ inactive: no }">
-                    <!--<img :src="imgUrl(user.avatar)" class="img-circle circle-border m-b-md" alt="profile" :class="{ inactive: no }" >-->
+                    <img :src="getUserPic(loadedUser.avatar)" class="img-circle circle-border m-b-md" alt="profile" :class="{ inactive: no }">
                 </div>
                 <div class="profile-info">
                     <div class="">
                         <div>
                             <h2 class="no-margins">
-                                {{ user.name }}
+                                {{ loadedUser.name }}
                             </h2>
-                            <div>
+                            <div v-if="isMyProf">
                                 <a class="editMode" @click="no = yes"  :class="{ inactive: no}"><li class="fa fa-wrench">edit</li></a>
                                 <a class="removeEdit" @click="no = !no" :class="{ inactive: !no }"><li class="fa fa-wrench">save</li></a>
                             </div>
@@ -39,7 +37,6 @@
                         <td>
                             <strong>22</strong> Followers
                         </td>
-
                     </tr>
                     <tr>
                         <td>
@@ -70,41 +67,33 @@
 </template>
 
 <script>
-
+    import { getUserPicMixin } from '../../mixins/getUserPicMixin';
+    
     import Edit from './Edit.vue';
     
     export default {
+        mixins: [getUserPicMixin],
         components: {
             'app-edit': Edit    
         },
         data() {
             return {
                 yes: true,
-                no: false
+                no: false,
+                // id: this.$route.params.id
             }
         },
-        computed: {
-            user() {
-                return this.$store.state.user.user;
-            }
-        },
+        // computed: {
+        //     loadedUser() {
+        //         // return this.$store.state.profile.loadedUser;
+        //         // return this.$store.getters.loadedUser(id);
+        //         // return this.id;
+        //         return this.$store.getters.loadedUser(this.id);
+        //     },
+        // },
         methods: {
             editMode() {
-                console.log('edit mode');
             },
-            getPic(path) {
-                var match = String(path).match(/http/);
-                if(match)
-                {
-                    return path;
-                } else if(path == null)
-                {
-                    return '/users/avatar/default.png';
-                } else
-                {
-                    return '/' + path;
-                }
-            }
         }
     }
 </script>

@@ -23,7 +23,7 @@ import VueCoreImageUpload  from 'vue-core-image-upload';
 import store from './store/store';
 
 import Profile from './components/profile/Profile.vue';
-import Follows from './components/profile/Follows.vue';
+import Follows from './components/relationships/Follows.vue';
 import Activity from './components/profile/Activity.vue';
 
 import Home from './components/home/Home.vue';
@@ -36,7 +36,7 @@ import Streamboxnavbar from './components/sidenavbar/streambox/Streamboxnavbar.v
 Vue.use(VueRouter);
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueCoreImageUpload);
-Vue.use(Vuetify);
+// Vue.use(Vuetify);
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('vuetify', require('./components/Vuetify.vue'));
@@ -54,7 +54,9 @@ Vue.component('sidenavbar', require('./components/sidenavbar/Sidenavbar.vue'));
 
 
 const routes = [
-    { path: '/user/:userName', component: Profile,
+    { path: '/user/:id',
+      props: true,
+      component: Profile,
         children: [
             {
                 path: '', component: Activity,

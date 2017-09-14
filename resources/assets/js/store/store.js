@@ -1,24 +1,24 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import user from './modules/user.js';
 import activity from './modules/activity.js';
+import follows from './modules/follows.js';
+import profile from './modules/profile.js';
+import recommend from './modules/recommend.js';
 import stream from './modules/stream.js';
+import user from './modules/user.js';
 
 Vue.use(Vuex);
-
-// const getters = {
-//     user: state => {
-//         return state.user;
-//     }
-// };
 
 export default new Vuex.Store({
     //state,
     //getters,
     modules: {
-        user,
         activity,
-        stream
+        follows,
+        profile,
+        recommend,
+        stream,
+        user,
     }
 });

@@ -12,15 +12,16 @@ trait Friendable
                 return 0;
             }
             
-            if($this->has_pending_friend_request_sent_to($user_requested_id) === 1)
+            if($this->has_pending_friend_request_sent_to($user_requested_id) === 1)  // kazi #14
             {
                 return "already sent a friend request";
             }
             
-            if($this->is_friends_with($user_requested_id) == 1)
+            if($this->is_friends_with($user_requested_id) == 1)  // kazi #14
             {
                 return "already friends";
             }
+            
             
             // リクエストをすでに受けているので承認
             if($this->has_pending_friend_request_from($user_requested_id) === 1)
@@ -28,11 +29,14 @@ trait Friendable
                 return $this->accept_friend($user_requested_id);
             }
             
+            // creating friendship data to the table
             $friendship = Friendship::create([
-                'requester' => $this->id, // Auth\User->id()
+                'requester' => $this->id, // User calling this method
                 'user_requested' => $user_requested_id
             ]);
             
+            
+            // check if friendship already exists
             if($friendship)
             {
                 return response()->json($friendship, 200);
@@ -40,6 +44,7 @@ trait Friendable
             
             return response()->json('fail', 501);
         }
+        
         
         public function accept_friend($requester)
         {
@@ -49,10 +54,14 @@ trait Friendable
                 return 0;
             }
             
+            
+            // リクエストを特定
             $friendship = Friendship::where('requester', $requester)
                                             ->where('user_requested', $this->id)
                                             ->first();
-                                            
+             
+             
+            // リクエストを承認                               
             if($friendship)
             {
                 $friendship->update([
@@ -64,7 +73,8 @@ trait Friendable
             return response()->json('fail', 501);
         }
         
-        public function friends()
+        
+        public function friends()  // kati #11
         {
             $friends = array();  // こちらがリクエストしたUser
             
@@ -94,12 +104,13 @@ trait Friendable
         }
         
         
-        public function friends_ids()
+        public function friends_ids() // kati #13
         {
             return collect($this->friends())->pluck('id')->toArray(); // create Laravel collection instance
         }
         
-        public function is_friends_with($user_id)
+        
+        public function is_friends_with($user_id) // kati #13
         {
             if(in_array($user_id, $this->friends_ids()))
             {
@@ -112,7 +123,7 @@ trait Friendable
         }
         
         
-        public function pending_friends_requests()
+        public function pending_friends_requests() // kati #13
         {
             $users = array(); // リクエストを保留しているUser
             
@@ -128,24 +139,12 @@ trait Friendable
             return $users;
         }
         
-        public function pending_friends_requests_ids()
+        public function pending_friends_requests_ids() // kati #14
         {
             return collect($this->pending_friends_requests())->pluck('id')->toArray();
         }
         
-        public function has_pending_friend_request_from($user_id)
-        {
-            if(in_array($user_id, $this->pending_friends_requests_ids()))
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-        
-        public function pending_friends_requests_sent()
+        public function pending_friends_requests_sent()  // kati #14
         {
             $users = array(); // リクエストを保留されているUser
             
@@ -160,12 +159,24 @@ trait Friendable
             return $users;
         }
         
-        public function pending_friends_requests_sent_ids()
+        public function pending_friends_requests_sent_ids()  // kati #14
         {
             return collect($this->pending_friends_requests_sent())->pluck('id')->toArray();
         }
         
-        public function has_pending_friend_request_sent_to($user_id)
+        public function has_pending_friend_request_from($user_id) // kati #14
+        {
+            if(in_array($user_id, $this->pending_friends_requests_ids()))
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        
+        public function has_pending_friend_request_sent_to($user_id) // kati #14
         {
             if(in_array($user_id, $this->pending_friends_requests_sent_ids()))
             {

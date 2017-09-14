@@ -19,7 +19,7 @@ const getters = {
 }
 
 const actions = {
-    // from sidenavbar.vue
+    // from Sidenavbar.vue and Edit.vue
     setUser({ commit }, user) {
         commit('SET_USER', user);
     },
@@ -27,6 +27,7 @@ const actions = {
     setUserDetail({ commit }, userDetail) {
         commit('SET_USER_DETAIL', userDetail);    
     },
+    
     editMode({ commit }) {
         commit('EDIT_MODE');
     },
@@ -34,7 +35,6 @@ const actions = {
 
 const mutations = {
     'SET_USER' (state, user) {
-        //state.user.name = user;
         state.user = user;
     },
     'SET_USER_DETAIL' (state, userDetail) {

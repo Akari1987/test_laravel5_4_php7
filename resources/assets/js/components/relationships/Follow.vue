@@ -1,13 +1,9 @@
 <template>
     <div class="follow">
         <tr>
-            <td clphpass="table-text">
-                <img :src="getPic(f.avatar)" class="img-circle" alt="profile" width="80px" >
-            </td>
-            <!--<td clphpass="table-text">-->
-            <!--    {{ f.name }}-->
-            <!--</td>-->
-            <!--<td @hover="isHovering = !isFollowing">-->
+            <router-link :to="'/user/' + f.id">
+                <img :src="getUserPic(f.avatar)" class="img-circle" alt="profile" width="80px" @click="loadProfile(f.id)">
+            </router-link>
             <td>
                 <!--<form action="{{secure_url('unfollow/' . $user->id)}}" method="POST">-->
                     <!--<button type="submit" id="delete-follow-{{ $user->target_id }}" class="btn btn-danger">-->
@@ -28,9 +24,12 @@
 
 <script>
     import axios from 'axios';
+    import {mapActions} from 'vuex';
+    import {getUserPicMixin} from '../../mixins/getUserPicMixin';
     
     export default {
         props: ['f'],
+        mixins: [getUserPicMixin],
         data() {
             return {
                 no: false,
@@ -39,19 +38,9 @@
             }
         },
         methods: {
-            getPic(path) {
-                var match = String(path).match(/http/);
-                if(match)
-                {
-                    return path;
-                } else if(path == null)
-                {
-                    return '/users/avatar/default.png';
-                } else
-                {
-                    return '/' + path;
-                }
-            },
+            ...mapActions({
+                loadUser: 'loadUser'
+            }),
             reqUnfollow() {
                 var id = this.f.id;
                 axios.delete('/unfollow/' + this.f.id);
