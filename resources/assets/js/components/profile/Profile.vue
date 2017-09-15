@@ -37,22 +37,22 @@
                 status: "",
             }
         },
-        computed: {
-              loadedUser() {
-            // return this.$store.state.profile.loadedUser;
-            // return this.$store.getters.loadedUser(this.$route.params.id);
-            return this.$store.getters.loadedUser(this.$route.params.id);
-        }, 
-        },
+        // computed: {
+        //     loadedUser() {
+        //     // return this.$store.state.profile.loadedUser;
+        //     // return this.$store.getters.loadedUser(this.$route.params.id);
+        //         return this.$store.getters.loadedUser(this.$route.params.id);
+        //     }, 
+        // },
         created() {
-            // this.loadProfile(this.$route.params.userName);
-            axios.get("/user/info/" + this.$route.params.id).then(response => {
-                const user = response.data;
-                console.log(response);
-                this.loadUser(user);
-            });
+            /* Get current user from URL */
+            this.loadProfile(this.$route.params.id); // @getUserPicMixin.js
+            // axios.get("/user/info/" + this.$route.params.id).then(response => {
+            //     const user = response.data;
+            //     console.log(response);
+            //     this.loadUser(user);
+            // });
             axios.get('/check_relationship_status/' + this.$route.params.id).then(response => {
-                console.log(response);
                 this.status = response.data.status;
             });
         },

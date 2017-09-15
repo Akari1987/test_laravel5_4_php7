@@ -5,9 +5,9 @@
                 <li class="nav-header">
                     <div class="dropdown profile-element"> 
                         <span>
-                            <router-link :to="'/user/' + user.name">
+                            <router-link :to="'/user/' + user.id">
                             <!--<router-link :to= "{ name: 'activity', params: { userName: user.name } }">-->
-                                <img alt="image" class="img-circle"  :src="getPic(user.avatar)" width="96px"/>
+                                <img alt="image" class="img-circle"  :src="getUserPic(user.avatar)" width="96px" @click="loadProfile(user.id)"/>
                             </router-link>
                         </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -225,17 +225,17 @@
 </template>
 
 <script>
-    import {mapActions} from 'vuex';
     import axios from 'axios';
+    import {mapActions} from 'vuex';
+    import {getUserPicMixin} from '../../mixins/getUserPicMixin';
     
     import HomeLink from '../../components/home/HomeLink.vue';
     import Streambox from './streambox/Streambox.vue';
 
     export default {
+        mixins: [getUserPicMixin],
         data() {
             return {
-                //  user: "",
-                //  avatar: "",
                  editable: false
             };
         },
@@ -250,25 +250,12 @@
         },
         methods: {
             ...mapActions({
-                setUser: 'setUser'    
+                setUser: 'setUser',
+                loadUser: 'loadUser',
             }),
-            getPic(path) {
-                var match = String(path).match(/http/);
-                if(match)
-                {
-                    return path;
-                } else if(path == null) {
-                    return '/users/avatar/default.png';
-                } else {
-                    return '/' + path;
-                }
-            }
         },
         created() {
             axios.get('/user').then(response => {
-                console.log(response);
-                this.user = response.data.name;
-                this.avatar = response.data.avatar;
                 const user = response.data;
                 this.setUser(user);
             });

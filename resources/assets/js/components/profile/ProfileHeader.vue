@@ -80,17 +80,8 @@
             return {
                 yes: true,
                 no: false,
-                // id: this.$route.params.id
             }
         },
-        // computed: {
-        //     loadedUser() {
-        //         // return this.$store.state.profile.loadedUser;
-        //         // return this.$store.getters.loadedUser(id);
-        //         // return this.id;
-        //         return this.$store.getters.loadedUser(this.id);
-        //     },
-        // },
         methods: {
             editMode() {
             },
