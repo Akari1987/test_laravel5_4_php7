@@ -26,7 +26,7 @@
                     <div class="feed-activity-list">
                         <div class="feed-element" v-for="activity in activities">
                             <div class="media-body">
-                                <img :src="getPic(user.avatar)" class="img-circle" alt="profile" width="80px">
+                                <img :src="getUserPic(user.avatar)" class="img-circle" alt="profile" width="80px">
                                 <strong v-text=activity.who></strong><br />
                                 <span v-text="activity.activity"></span>
                             </div>
@@ -179,7 +179,7 @@
             }
         },
         methods: {
-            getPic(path) {
+            getUserPic(path) {
                 var match = String(path).match(/http/);
                 if(match)
                 {

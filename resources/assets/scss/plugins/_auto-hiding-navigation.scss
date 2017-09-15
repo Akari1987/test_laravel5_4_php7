@@ -5,11 +5,6 @@ $secondary-height: 62px;
     padding-top: $secondary-height;
 }
 
-.cd-auto-hide-header.is-hidden {
-    transform: translateY(-100%);
-}
-
-
 .cd-secondary-nav.fixed {
     position: fixed;
     top: $primary-height;
@@ -24,7 +19,9 @@ $secondary-height: 62px;
 
 -------------------------------- */
 .cd-auto-hide-header {
-  position: sticky;
+  // position: sticky;
+  // position: -webkit-sticky;
+    position: sticky;
   z-index: 2;
   top: 0;
   left: 0;
@@ -156,7 +153,8 @@ $secondary-height: 62px;
   height: 100%;
   padding-right: 5%;
 }
-.cd-primary-nav > ul {
+// .cd-primary-nav > ul {
+.cd-primary-nav #cd-navigation {
   position: absolute;
   z-index: 2;
   top: $primary-height;
@@ -169,7 +167,7 @@ $secondary-height: 62px;
 .cd-primary-nav > ul a {
   /* target primary-nav links */
   display: block;
-  height: 50px;
+  height: $primary-height;
   line-height: 50px;
   padding-left: 5%;
   color: #25283D;

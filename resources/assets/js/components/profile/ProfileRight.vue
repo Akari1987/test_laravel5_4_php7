@@ -6,8 +6,8 @@
 </template>
 
 <script>
-    import Friends from './Friends.vue';
-    import Follows from './Follows.vue';
+    import Friends from '../relationships/Friends.vue';
+    import Follows from '../relationships/Follows.vue';
     
     export default {
         components: {

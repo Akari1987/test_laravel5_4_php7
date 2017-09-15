@@ -34,7 +34,7 @@
                             
                         <!--    <tr>-->
                                 <!--<td clphpass="table-text">-->
-                                <!--    <img :src='getPic(r.avatar)' class="img-circle" alt="profile" width="45px" >-->
+                                <!--    <img :src='getUserPic(r.avatar)' class="img-circle" alt="profile" width="45px" >-->
                                 <!--</td>-->
                         <!--        <td clphpass="table-text">-->
                                     <!--<span v-text="recommend.name"></span>-->

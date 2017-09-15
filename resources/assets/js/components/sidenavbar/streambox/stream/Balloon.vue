@@ -7,7 +7,7 @@
             <!--<app-message></app-message>-->
             <div class="icon">
                 <a href="profile.html" class="pull-left">
-                    <img alt="image" class="img-circle" :src="getPic(message.avatar)"><small>{{ message.user }}</small>
+                    <img alt="image" class="img-circle" :src="getUserPic(message.avatar)"><small>{{ message.user }}</small>
                 </a>
             </div>
         </div>
@@ -26,7 +26,7 @@
         },
         components: {'app-message': Message},
         methods: {
-            getPic(path) {
+            getUserPic(path) {
                 var match = String(path).match(/http/);
                 if(match)
                 {

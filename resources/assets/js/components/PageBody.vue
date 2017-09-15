@@ -48,15 +48,15 @@
             swiper() {
                 return this.$refs.swiper.swiper
             },
-            // istLarge() {
-            //     if(window.matchMedia('(min-width: 1024px)').matches)
-            //     {
-            //         return true;
-            //     } else
-            //     {
-            //         return false;
-            //     }
-            // },
+            istLarge() {
+                if(window.matchMedia('(min-width: 1024px)').matches)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            },
             isNotLarge() {
                 if(window.matchMedia('(max-width: 1024px)').matches)
                 {

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use App\Traits\Friendable;
 use App\Traits\Followable;
+use App\Traits\Recommendation;
 use App\Follow;
 use App\Test2;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,6 +17,8 @@ class User extends Authenticatable
     use Friendable;
     
     use Followable;
+    
+    use Recommendation;
 
     /**
      * The attributes that are mass assignable.
@@ -66,10 +69,6 @@ class User extends Authenticatable
     /*-------------------------------
     | For Social Functionality
     --------------------------------*/
-    
-    
-    
-    
     public function getNameAttribute($value) 
     {
         return $value;

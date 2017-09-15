@@ -7,7 +7,7 @@
       :url = "url"
       :data = "token"
       inputOfFile = "image">
-        <img :src="getPic(user.avatar)" width="160" class="img-circle circle-border m-b-md" alt="profile">
+        <img :src="getUserPic(user.avatar)" width="160" class="img-circle circle-border m-b-md" alt="profile">
     </vue-core-image-upload>
 </template>
 
@@ -16,8 +16,10 @@
     import VueCoreImageUpload  from 'vue-core-image-upload';
     import {mapActions} from 'vuex';
     import axios from 'axios';
+    import { getUserPicMixin } from '../../mixins/getUserPicMixin';
     
     export default {
+        mixins: [getUserPicMixin],
         data() {
             return {
                 token: {
@@ -29,40 +31,19 @@
         components: {
             'vue-core-image-upload': VueCoreImageUpload
         },
-        computed: {
-            user() {
-                return this.$store.state.user.user;
-            }
-        },
         methods: {
             ...mapActions({
                 setUser: 'setUser'
             }),
             imageuploaded(res) {
-                // if (res.errcode == 0) {
-                //     this.src = 'http://img1.vued.vanthink.cn/vued751d13a9cb5376b89cb6719e86f591f3.png';
-                // }
                 axios.get('/user').then(response => {
-                    console.log(response);
+                    // console.log(response);
                     // this.user = response.data.name;
                     this.user.avatar = response.data.avatar;
                     const user = response.data;
                     this.setUser(user);
                 });
             },
-            getPic(path) {
-                var match = String(path).match(/http/);
-                if(match)
-                {
-                    return path;
-                } else if(path == null)
-                {
-                    return '/users/avatar/default.png';
-                } else
-                {
-                    return '/' + path;
-                }
-            }
         }
     }
 </script>

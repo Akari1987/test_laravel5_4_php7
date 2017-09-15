@@ -5,7 +5,7 @@
  *
 */
 // Google Fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+// @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 
 // // Variables, Mixins
 @import "variables";
@@ -29,10 +29,10 @@
 @import "landing";
 
 // RTL Support
-@import "rtl";
+// @import "rtl";
 
 // For demo only - config box style
-@import "theme-config";
+// @import "theme-config";
 
 // INSPINIA Skins
 @import "skins";
@@ -46,16 +46,16 @@
 @import "custom";
 
 // Clear layout on print mode
-@media print {
-  nav.navbar-static-side {
-    display: none;
-  }
-  body { overflow: visible !important; }
+// @media print {
+//   nav.navbar-static-side {
+//     display: none;
+//   }
+//   body { overflow: visible !important; }
 
-  #page-wrapper {
-    margin: 0;
-  }
-}
+//   #page-wrapper {
+//     margin: 0;
+//   }
+// }
 
 // Plugins
 @import "./plugins/auto-hiding-navigation";

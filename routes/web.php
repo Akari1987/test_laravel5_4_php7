@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*-------------
+|  For Testing
+--------------*/
 Route::get('/ch', function() {
     return App\FollowPagination::where('requester', Auth::user()->id)->get();
 });
@@ -49,7 +52,6 @@ Route::group(['middleware' => ['auth']], function() {
     /*----------------------
     | For Vue Components REST
     ------------------------*/
-    
     Route::get('/user', function(){
         return Auth::user(); 
     });
@@ -58,11 +60,18 @@ Route::group(['middleware' => ['auth']], function() {
         return view('home');
     });
     
-    Route::get('user/{username?}', function() {
+    Route::get('user/{user_id?}', function() {
         return view('home');
-    });
+    });    
+    /*----------------------
+    | For Vue Components API
+    ------------------------*/
+    // from Profile.vue
+    Route::get('user/info/{id}', [
+        'uses' => 'ProfileController@index'
+    ]);
     
-    Route::get('user/{username?}/{status?}', function() {
+    Route::get('user/{user_id?}/{status?}', function() {
         return view('home');
     });
     
@@ -122,7 +131,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/follow/{user}', 'FollowController@follow');
     Route::delete('/unfollow/{user}', 'FollowController@unfollow');
     
-    //Friendship system //
+    /* Friendship system */
+    // from Profile.vue
     Route::get('/check_relationship_status/{id}', [
         'uses' => 'FriendshipsController@check',
         'as' => 'check'
@@ -137,16 +147,16 @@ Route::group(['middleware' => ['auth']], function() {
     ]);
     
     // Friendship Testing
-    Route::get('/add_friend', function() {
-        return \App\User::find(6)->add_friend(3);
+    Route::get('/add', function() {
+        return \App\User::find(1)->add_friend(3);
     });
     
-    Route::get('/accept_friend', function() {
-        return \App\User::find(3)->accept_friend(6); 
+    Route::get('/accept', function() {
+        return \App\User::find(3)->accept_friend(1); 
     });
     
     Route::get('/friends', function() {
-        return App\User::find(4)->friends();
+        return App\User::find(3)->friends();
     });
     
     Route::get('/pending_friends', function() {
@@ -154,7 +164,7 @@ Route::group(['middleware' => ['auth']], function() {
     });
     
     Route::get('/ids', function() {
-        return App\User::find(4)->friends_ids();
+        return App\User::find(1)->friends_ids();
     });
     
     Route::get('/is', function() {
@@ -173,6 +183,11 @@ Route::group(['middleware' => ['auth']], function() {
     
     Route::get('/res_recommend', function() {
         return Auth::user()->res_recommend();
+    });
+    
+    // return recomend user to VUe component
+    Route::get('/res_recommends/{id}', function($id) {
+        return \App\user::find($id)->res_recommends();
     });
     
     Route::get('/res_follow_page', 'FollowController@res_followPage');

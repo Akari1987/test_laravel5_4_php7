@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700);/*
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700);/*
  *
  *   INSPINIA - Responsive Admin Theme
  *   version 2.6.2
@@ -632,7 +632,14 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 
 .navbar-header {
   position: relative;
-  left: 300px;
+  left: 10px;
+}
+
+.absolute {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10002;
 }
 
 .top-navigation #page-wrapper {
@@ -5515,10 +5522,6 @@ body.mini-navbar.fixed-sidebar .logo-element {
           animation: none;
 }
 
-.cd-main-content {
-  padding-top: 150px;
-}
-
 .swiper-wrapper {
   -webkit-box-align: start;
       -ms-flex-align: start;
@@ -8844,407 +8847,6 @@ body.landing-page {
   }
 }
 
-body.rtls {
-  /* Theme config */
-}
-
-body.rtls #page-wrapper {
-  margin: 0 220px 0 0;
-}
-
-body.rtls .nav-second-level li a {
-  padding: 7px 35px 7px 10px;
-}
-
-body.rtls .ibox-title h5 {
-  float: right;
-}
-
-body.rtls .pull-right {
-  float: left !important;
-}
-
-body.rtls .pull-left {
-  float: right !important;
-}
-
-body.rtls .ibox-tools {
-  float: left;
-}
-
-body.rtls .stat-percent {
-  float: left;
-}
-
-body.rtls .navbar-right {
-  float: left !important;
-}
-
-body.rtls .navbar-top-links li:last-child {
-  margin-left: 40px;
-  margin-right: 0;
-}
-
-body.rtls .minimalize-styl-2 {
-  float: right;
-  margin: 14px 20px 5px 5px;
-}
-
-body.rtls .feed-element > .pull-left {
-  margin-left: 10px;
-  margin-right: 0;
-}
-
-body.rtls .timeline-item .date {
-  text-align: left;
-}
-
-body.rtls .timeline-item .date i {
-  left: 0;
-  right: auto;
-}
-
-body.rtls .timeline-item .content {
-  border-right: 1px solid #e7eaec;
-  border-left: none;
-}
-
-body.rtls .theme-config {
-  left: 0;
-  right: auto;
-}
-
-body.rtls .spin-icon {
-  border-radius: 0 20px 20px 0;
-}
-
-body.rtls .toast-close-button {
-  float: left;
-}
-
-body.rtls #toast-container > .toast:before {
-  margin: auto -1.5em auto 0.5em;
-}
-
-body.rtls #toast-container > div {
-  padding: 15px 50px 15px 15px;
-}
-
-body.rtls .center-orientation .vertical-timeline-icon i {
-  margin-left: 0;
-  margin-right: -12px;
-}
-
-body.rtls .vertical-timeline-icon i {
-  right: 50%;
-  left: auto;
-  margin-left: auto;
-  margin-right: -12px;
-}
-
-body.rtls .file-box {
-  float: right;
-}
-
-body.rtls ul.notes li {
-  float: right;
-}
-
-body.rtls .chat-users,
-body.rtls .chat-statistic {
-  margin-right: -30px;
-  margin-left: auto;
-}
-
-body.rtls .dropdown-menu > li > a {
-  text-align: right;
-}
-
-body.rtls .b-r {
-  border-left: 1px solid #e7eaec;
-  border-right: none;
-}
-
-body.rtls .dd-list .dd-list {
-  padding-right: 30px;
-  padding-left: 0;
-}
-
-body.rtls .dd-item > button {
-  float: right;
-}
-
-body.rtls .theme-config-box {
-  margin-left: -220px;
-  margin-right: 0;
-}
-
-body.rtls .theme-config-box.show {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-body.rtls .spin-icon {
-  right: 0;
-  left: auto;
-}
-
-body.rtls .skin-setttings {
-  margin-right: 40px;
-  margin-left: 0;
-}
-
-body.rtls .skin-setttings {
-  direction: ltr;
-}
-
-body.rtls .footer.fixed {
-  margin-right: 220px;
-  margin-left: 0;
-}
-
-@media (max-width: 992px) {
-  body.rtls .chat-users,
-  body.rtls .chat-statistic {
-    margin-right: 0;
-  }
-}
-
-body.rtls.mini-navbar .footer.fixed,
-body.body-small.mini-navbar .footer.fixed {
-  margin: 0 70px 0 0;
-}
-
-body.rtls.mini-navbar.fixed-sidebar .footer.fixed,
-body.body-small.mini-navbar .footer.fixed {
-  margin: 0 0 0 0;
-}
-
-body.rtls.top-navigation .navbar-toggle {
-  float: right;
-  margin-left: 15px;
-  margin-right: 15px;
-}
-
-.body-small.rtls.top-navigation .navbar-header {
-  float: none;
-}
-
-body.rtls.top-navigation #page-wrapper {
-  margin: 0;
-}
-
-body.rtls.mini-navbar #page-wrapper {
-  margin: 0 70px 0 0;
-}
-
-body.rtls.mini-navbar.fixed-sidebar #page-wrapper {
-  margin: 0 0 0 0;
-}
-
-body.rtls.body-small.fixed-sidebar.mini-navbar #page-wrapper {
-  margin: 0 220px 0 0;
-}
-
-body.rtls.body-small.fixed-sidebar.mini-navbar .navbar-static-side {
-  width: 220px;
-}
-
-.body-small.rtls .navbar-fixed-top {
-  margin-right: 0;
-}
-
-.body-small.rtls .navbar-header {
-  float: right;
-}
-
-body.rtls .navbar-top-links li:last-child {
-  margin-left: 20px;
-}
-
-body.rtls .top-navigation #page-wrapper,
-body.rtls.mini-navbar .top-navigation #page-wrapper,
-body.rtls.mini-navbar.top-navigation #page-wrapper {
-  margin: 0;
-}
-
-body.rtls .top-navigation .footer.fixed,
-body.rtls.top-navigation .footer.fixed {
-  margin: 0;
-}
-
-@media (max-width: 768px) {
-  body.rtls .navbar-top-links li:last-child {
-    margin-left: 20px;
-  }
-
-  .body-small.rtls #page-wrapper {
-    position: inherit;
-    margin: 0 0 0 0;
-    min-height: 1000px;
-  }
-
-  .body-small.rtls .navbar-static-side {
-    display: none;
-    z-index: 2001;
-    position: absolute;
-    width: 70px;
-  }
-
-  .body-small.rtls.mini-navbar .navbar-static-side {
-    display: block;
-  }
-
-  .rtls.fixed-sidebar.body-small .navbar-static-side {
-    display: none;
-    z-index: 2001;
-    position: fixed;
-    width: 220px;
-  }
-
-  .rtls.fixed-sidebar.body-small.mini-navbar .navbar-static-side {
-    display: block;
-  }
-}
-
-.rtls .ltr-support {
-  direction: ltr;
-}
-
-.rtls.mini-navbar .nav-second-level,
-.rtls.mini-navbar li.active .nav-second-level {
-  left: auto;
-  right: 70px;
-}
-
-.rtls #right-sidebar {
-  left: -260px;
-  right: auto;
-}
-
-.rtls #right-sidebar.sidebar-open {
-  left: 0;
-}
-
-/*
- *
- *   This is style for skin config
- *   Use only in demo theme
- *
-*/
-
-.theme-config {
-  position: absolute;
-  top: 90px;
-  right: 0;
-  overflow: hidden;
-}
-
-.theme-config-box {
-  margin-right: -220px;
-  position: relative;
-  z-index: 2000;
-  -webkit-transition-duration: 0.8s;
-          transition-duration: 0.8s;
-}
-
-.theme-config-box.show {
-  margin-right: 0;
-}
-
-.spin-icon {
-  background: #1ab394;
-  position: absolute;
-  padding: 7px 10px 7px 13px;
-  border-radius: 20px 0 0 20px;
-  font-size: 16px;
-  top: 0;
-  left: 0;
-  width: 40px;
-  color: #fff;
-  cursor: pointer;
-}
-
-.skin-setttings {
-  width: 220px;
-  margin-left: 40px;
-  background: #f3f3f4;
-}
-
-.skin-setttings .title {
-  background: #efefef;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 600;
-  display: block;
-  padding: 10px 15px;
-  font-size: 12px;
-}
-
-.setings-item {
-  padding: 10px 30px;
-}
-
-.setings-item.skin {
-  text-align: center;
-}
-
-.setings-item .switch {
-  float: right;
-}
-
-.skin-name a {
-  text-transform: uppercase;
-}
-
-.setings-item a {
-  color: #fff;
-}
-
-.default-skin,
-.blue-skin,
-.ultra-skin,
-.yellow-skin {
-  text-align: center;
-}
-
-.default-skin {
-  font-weight: 600;
-  background: #283A49;
-}
-
-.default-skin:hover {
-  background: #1e2e3d;
-}
-
-.blue-skin {
-  font-weight: 600;
-  background: url(/images/header-profile-skin-1.png?8b9bd1f85d3212c6fe40fc08872b02e7) repeat scroll 0 0;
-}
-
-.blue-skin:hover {
-  background: #0d8ddb;
-}
-
-.yellow-skin {
-  font-weight: 600;
-  background: url(/images/header-profile-skin-3.png?d1e73552813b105605953adaaa32dfbd) repeat scroll 0 100%;
-}
-
-.yellow-skin:hover {
-  background: #ce8735;
-}
-
-.ultra-skin {
-  padding: 20px 10px;
-  font-weight: 600;
-  background: url(/images/3.png?7ef980b6e363ddc6cb55951e210bbd1f) repeat scroll 0 0;
-}
-
-.ultra-skin:hover {
-  background: url(/images/4.png?728868eeca3644062134348ef3274e10) repeat scroll 0 0;
-}
-
 /*
  *
  *   SKIN 1 - INSPINIA - Responsive Admin Theme
@@ -10242,23 +9844,8 @@ body.md-skin {
   }
 }
 
-@media print {
-  nav.navbar-static-side {
-    display: none;
-  }
-
-  body {
-    overflow: visible !important;
-  }
-
-  #page-wrapper {
-    margin: 0;
-  }
-}
-
-.cd-auto-hide-header.is-hidden {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
+.cd-main-content {
+  padding-top: 62px;
 }
 
 .cd-secondary-nav.fixed {
@@ -10393,12 +9980,6 @@ body.md-skin {
   transform: translateY(6px);
 }
 
-@media only screen and (min-width: 1024px) {
-  .cd-auto-hide-header .nav-trigger {
-    display: none;
-  }
-}
-
 .cd-auto-hide-header.nav-open .nav-trigger em {
   /* transform menu icon into a 'X' icon */
   background-color: rgba(255, 255, 255, 0);
@@ -10417,12 +9998,11 @@ body.md-skin {
 }
 
 .cd-primary-nav {
-  display: inline-block;
   height: 100%;
   padding-right: 5%;
 }
 
-.cd-primary-nav > ul {
+.cd-primary-nav #cd-navigation {
   position: absolute;
   z-index: 2;
   top: 60px;
@@ -10437,7 +10017,7 @@ body.md-skin {
 .cd-primary-nav > ul a {
   /* target primary-nav links */
   display: block;
-  height: 50px;
+  height: 60px;
   line-height: 50px;
   padding-left: 5%;
   color: #25283D;
@@ -10522,7 +10102,7 @@ body.md-skin {
   z-index: 1;
   clear: both;
   width: 100%;
-  height: 50px;
+  height: 62px;
   background-color: #25283D;
   /* Force Hardware Acceleration */
   -webkit-transform: translateZ(0);
@@ -10604,7 +10184,7 @@ body.md-skin {
 
 @media only screen and (min-width: 1024px) {
   .cd-secondary-nav {
-    height: 70px;
+    height: 2.625rem;
     overflow: visible;
   }
 
@@ -10636,4 +10216,140 @@ body.md-skin {
 3. Auto-Hiding Navigation - with Sub Nav + Hero Image
 
 -------------------------------- */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 

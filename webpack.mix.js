@@ -39,10 +39,4 @@ mix.js('resources/assets/js/app.js', 'public/js');
 mix.sass('resources/assets/scss/app.scss', 'public/css')
     .sass('resources/assets/scss/style.scss', 'public/css')
     // .sourceMaps()
-    // .options({
-    //     postCss: [
-    //         require('postcss-mixins')(),
-    //         require('postcss-nested')()
-    //     ]
-    // })
     ;
