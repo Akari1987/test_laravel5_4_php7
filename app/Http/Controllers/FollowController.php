@@ -54,9 +54,10 @@ class FollowController extends Controller
     /*---------------------------------
     | For Social Functionality from Vue
     ----------------------------------*/
-    public function res_follows_array()
+    public function res_follows_array($id)
     {
-        $fs = Auth::user()->follows()->get();
+        $user = User::where('id', $id)->first();
+        $fs = $user->follows()->get();
         $follows = array();
         foreach($fs as $f) {
             array_push($follows, User::find($f->target_id));

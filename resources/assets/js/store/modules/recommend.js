@@ -1,5 +1,5 @@
 const state = {
-    recommends: "",
+    recommendedUsers: [],
 }
 
 const actions = {
@@ -10,7 +10,7 @@ const actions = {
 
 const mutations = {
     'LOAD_RECOMMENDS' (state, recommends) {
-        state.recommends = recommends;
+        state.recommendedUsers = state.recommendedUsers.concat(recommends);
     }
 }
 
