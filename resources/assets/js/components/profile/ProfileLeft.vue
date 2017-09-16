@@ -1,7 +1,7 @@
 <template>
     <div class="profile-left">
         <app-profile-detail></app-profile-detail>
-        <!--<app-user-recommendation></app-user-recommendation>-->
+        <app-user-recommendation></app-user-recommendation>
     </div>
 </template>
 
@@ -12,7 +12,7 @@
     export default {
         components: {
             'app-profile-detail': ProfileDetail,
-            // 'app-user-recommendation': UserRecommendation
+            'app-user-recommendation': UserRecommendation
         }
     }
 </script>

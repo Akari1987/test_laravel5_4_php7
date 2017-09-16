@@ -71,6 +71,8 @@ Route::group(['middleware' => ['auth']], function() {
         'uses' => 'ProfileController@index'
     ]);
     
+    Route::get('/res_follows_array/{id}', 'FollowController@res_follows_array');
+    
     Route::get('user/{user_id?}/{status?}', function() {
         return view('home');
     });

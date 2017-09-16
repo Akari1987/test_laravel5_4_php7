@@ -65,7 +65,7 @@
             }
         },
         created() {
-            axios.get('/res_follows_array').then(response => {
+            axios.get('/res_follows_array/' + this.$route.params.id).then(response => {
                 console.log(response);
                 this.follows = response.data;
             });

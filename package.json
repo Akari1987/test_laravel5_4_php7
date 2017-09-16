@@ -22,7 +22,7 @@
     "laravel-mix": "^1.4.3",
     "lodash": "^4.17.4",
     "perfect-scrollbar": "^0.7.1",
-    "vue": "^2.4.3",
+    "vue": "^2.4.4",
     "vuetify": "^0.15.1"
   },
   "dependencies": {
@@ -39,7 +39,7 @@
     "vue-password-strength-meter": "^1.1.0",
     "vue-router": "^2.6.0",
     "vue-scrollbar": "^1.0.4",
-    "vue-template-compiler": "^2.4.3",
+    "vue-template-compiler": "^2.4.4",
     "vuex": "^2.4.0",
     "yarn": "1.0.2",
     "zxcvbn": "^4.4.2"

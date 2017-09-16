@@ -70,9 +70,7 @@
            }
         },
         created() {
-            axios.get('/res_follows_array').then(response => {
-                console.log(response);
-                // this.follows = response.data;
+            axios.get('/res_follows_array/' + this.$route.params.id).then(response => {
                 this.setFollows(response.data);
             });
         },
@@ -82,7 +80,7 @@
             }),
             onInfinite() {
                 setTimeout(() => {
-                    axios.get('/res_follows_array').then(response => {
+                    axios.get('/res_follows_array/' + this.$route.params.id).then(response => {
                         this.list.push(response.data);
                     });
                     console.log(this.list);
