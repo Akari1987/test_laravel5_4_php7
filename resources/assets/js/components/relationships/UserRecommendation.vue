@@ -31,7 +31,7 @@
                 </section>
                 <div class="clearfix":class="{emitter: no}"></div>
             </p>
-            <infinite-loading :on-infinite="onInfinite_recommend" ref="infiniteLoading"></infinite-loading>
+            <infinite-loading @infinite="infiniteHandler"></infinite-loading>
         </div>
     </div>
 </template>
@@ -90,18 +90,33 @@
                 loadUser: 'loadUser',
                 clearRecommends: 'clearRecommends',
             }),
-            onInfinite_recommend() {
+            // onInfinite_recommend() {
+            //     axios.get('/res_recommends/' + this.$route.params.id + '?page=' + this.page).then(response => {
+            //         if(response.data.data.length) {
+            //             const recommends = response.data.data;
+            //             this.loadRecommends(recommends); // @recommend.js
+            //             this.page++;
+            //             this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
+            //             this.$nextTick(() => {
+            //                 Ps.update(this.$refs.scrollWrapper);
+            //             });
+            //         } else {
+            //             this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
+            //         }
+            //     });
+            // },
+           infiniteHandler($state) {
                 axios.get('/res_recommends/' + this.$route.params.id + '?page=' + this.page).then(response => {
                     if(response.data.data.length) {
                         const recommends = response.data.data;
                         this.loadRecommends(recommends); // @recommend.js
                         this.page++;
-                        this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
+                        $state.loaded();
                         this.$nextTick(() => {
                             Ps.update(this.$refs.scrollWrapper);
                         });
                     } else {
-                        this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
+                        $state.complete();
                     }
                 });
             },
