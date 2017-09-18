@@ -13,7 +13,7 @@
             <p class="infinite" v-for="(rec, key) in list">
                 <section class="user_card col-sm-12">    
                     <router-link :to="'/user/' + rec.id">
-                        <img :src="getUserPic(rec.avatar)" class="img-circle" alt="profile" width="80px" @click="loadProfile(rec.id)">
+                        <img :src="getUserPic(rec.avatar)" class="img-circle" alt="profile" width="80px" @click="[loadProfile(rec.id), changeFilter()]">
                     </router-link>
                     <section class="col-sm-8">
                         <section>
@@ -31,7 +31,7 @@
                 </section>
                 <div class="clearfix":class="{emitter: no}"></div>
             </p>
-            <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+            <infinite-loading @infinite="infiniteHandler" ref="infiniteLoading"></infinite-loading>
         </div>
     </div>
 </template>
@@ -90,22 +90,7 @@
                 loadUser: 'loadUser',
                 clearRecommends: 'clearRecommends',
             }),
-            // onInfinite_recommend() {
-            //     axios.get('/res_recommends/' + this.$route.params.id + '?page=' + this.page).then(response => {
-            //         if(response.data.data.length) {
-            //             const recommends = response.data.data;
-            //             this.loadRecommends(recommends); // @recommend.js
-            //             this.page++;
-            //             this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
-            //             this.$nextTick(() => {
-            //                 Ps.update(this.$refs.scrollWrapper);
-            //             });
-            //         } else {
-            //             this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
-            //         }
-            //     });
-            // },
-           infiniteHandler($state) {
+            infiniteHandler($state) {
                 axios.get('/res_recommends/' + this.$route.params.id + '?page=' + this.page).then(response => {
                     if(response.data.data.length) {
                         const recommends = response.data.data;
@@ -120,11 +105,12 @@
                     }
                 });
             },
+            /* reset infinite loading */
             changeFilter() {
-                this.list = [];
+                this.page = 1;
                 this.$nextTick(() => {
-                this.$refs.infiniteLoading.$emit('$InfiniteLoading:reset');
-              });
+                    this.$refs.infiniteLoading.$emit('$InfiniteLoading:reset');
+                });
             },
             reqFollow(rec) {
                 axios.post('/follow/' + rec.id);

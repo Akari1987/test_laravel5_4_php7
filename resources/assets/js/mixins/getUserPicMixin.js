@@ -1,10 +1,6 @@
 /* GET user avatar, Auth User and Loaded user state management */
 
 export const getUserPicMixin = {
-    props: ['id'],
-    data() {
-        // id: this.$route.params.id
-    },
     computed: {
         /* Get auth user */
         user() {
@@ -54,8 +50,10 @@ export const getUserPicMixin = {
                 this.loadUser(user);  // @profile.js
             });
             /* Clear previous state */
-            
-            
+            this.clearRecommends();  // @recommend.js
+            // this.$nextTick(() => {
+            //     this.$refs.infiniteLoading.$emit('$InfiniteLoading:reset');
+            // });
         },
     }
 }
