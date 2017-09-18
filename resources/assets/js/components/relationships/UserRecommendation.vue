@@ -12,8 +12,8 @@
             <!--<h3>ユーザーのフォローと無限スクロール</h3>-->
             <p class="infinite" v-for="(rec, key) in list">
                 <section class="user_card col-sm-12">    
-                    <router-link :to="'/user/' + rec.id_st">
-                        <img :src="getUserPic(rec.avatar)" class="img-circle" alt="profile" width="80px" @click="loadProfile(rec.id_st)">
+                    <router-link :to="'/user/' + rec.id">
+                        <img :src="getUserPic(rec.avatar)" class="img-circle" alt="profile" width="80px" @click="loadProfile(rec.id)">
                     </router-link>
                     <section class="col-sm-8">
                         <section>
@@ -31,7 +31,7 @@
                 </section>
                 <div class="clearfix":class="{emitter: no}"></div>
             </p>
-            <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading"></infinite-loading>
+            <infinite-loading :on-infinite="onInfinite_recommend" ref="infiniteLoading"></infinite-loading>
         </div>
     </div>
 </template>
@@ -88,8 +88,9 @@
                 callSendActivity: 'sendActivity',
                 loadRecommends: 'loadRecommends',
                 loadUser: 'loadUser',
+                clearRecommends: 'clearRecommends',
             }),
-            onInfinite() {
+            onInfinite_recommend() {
                 axios.get('/res_recommends/' + this.$route.params.id + '?page=' + this.page).then(response => {
                     if(response.data.data.length) {
                         const recommends = response.data.data;
