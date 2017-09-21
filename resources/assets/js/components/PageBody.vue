@@ -28,12 +28,15 @@
 </template>
 
 <script>
+    import {displayMixin} from '../mixins/displayMixin';
+    
     // import LargeSidenavbarButton from './sidenavbar/LargeSidenavbarButton.vue';
     import LargeTopbar from './topnavbar/LargeTopnavbar.vue';
     
     export default {
+        mixins: [displayMixin],
         data() {
-           let self = this
+            let self = this
             return {
                 menuCross: false,
                 swiperOption: {
@@ -48,24 +51,6 @@
             swiper() {
                 return this.$refs.swiper.swiper
             },
-            istLarge() {
-                if(window.matchMedia('(min-width: 1024px)').matches)
-                {
-                    return true;
-                } else
-                {
-                    return false;
-                }
-            },
-            isNotLarge() {
-                if(window.matchMedia('(max-width: 1024px)').matches)
-                {
-                    return true;
-                } else
-                {
-                    return false;
-                }
-            }
         },
         methods: {
             toggleMenu() {
