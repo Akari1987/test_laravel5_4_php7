@@ -5,23 +5,10 @@
 </template>
 
 <script>
+    import {displayMixin} from '../../mixins/displayMixin';
+    
     export default {
-        data() {
-            return {
-                atLarge: true
-            }
-        },
-        computed: {
-            isLarge() {
-                if(window.matchMedia('(min-width: 1024px)').matches)
-                {
-                    return true;
-                } else
-                {
-                    return false;
-                }
-            }
-        }
+        mixins: [displayMixin],
     }
 </script>
 
