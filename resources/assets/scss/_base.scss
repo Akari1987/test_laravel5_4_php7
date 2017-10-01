@@ -912,11 +912,11 @@ a.close-canvas-menu:hover {
 }
 
 .modal-backdrop {
-  z-index: 2040 !important;
+  z-index: 9999 !important;
 }
 
 .modal {
-  z-index: 2050 !important;
+  z-index: 10002 !important;
 }
 
 .spiner-example {
@@ -1414,7 +1414,7 @@ body.mini-navbar.fixed-sidebar .logo-element {
 // customized
 
 .swiper-wrapper {
-        align-items: flex-start;
+        display: flex;
     }
 
 .swiper-container {

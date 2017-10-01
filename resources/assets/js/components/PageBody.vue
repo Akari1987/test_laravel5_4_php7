@@ -5,10 +5,10 @@
                 <sidenavbar></sidenavbar>
             </swiper-slide>
             <swiper-slide class="content">
-                <div class="isLarge" v-if="isNotLarge == false">
+                <div class="isLarge z-index-10002" v-if="isNotLarge == false">
                     <app-large-topbar></app-large-topbar>
                 </div>
-                <div class="isNotLarge" v-if="isNotLarge == true">
+                <div class="isNotLarge z-index-10000" v-if="isNotLarge == true">
                     <topnavbar></topnavbar>
                 </div>
                 <main class="cd-main-content">
@@ -74,10 +74,7 @@
     .navbar-left {
         float: left;
     }
-    /*.navbar-left {*/
-        /*float: left;*/
-        /*width: 50%;*/
-    /*}*/
+
     .swiper-slide {
         -webkit-flex-shrink: 0;
         -ms-flex: 0 0 auto;
@@ -85,6 +82,11 @@
         width: 100%;
         height: 100%;
         flex: none;
+        z-index: 10003;
+    }
+    
+    .swiper-container {
+        z-index: 10000;
     }
     
     .menu {
