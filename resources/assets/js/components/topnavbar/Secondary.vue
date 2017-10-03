@@ -2,34 +2,38 @@
     <div class="secondary">
         <nav class="cd-secondary-nav navbar navbar-static-top navbar-fixed" role="navigation">
             <ul>
-                <router-link to="/stream" activeClass="active" tag="li"><a>Streams</a></router-link>
-    			<router-link to="/member" activeClass="active" tag="li"><a>Member</a></router-link>
-    			<router-link to="/email" activeClass="active" tag="li"><a>Mail Box</a></router-link>
+                <li v-for="list in currentNav">
+                    <router-link :to="list[0]" activeClass="active" >{{ list[1] }}</router-link>
+                </li>
             </ul>
-      <!--     <ul>-->
-    		<!--	<li><a class="active" href="#0">Intro</a></li>-->
-    		<!--	<li><a href="#0">Features</a></li>-->
-    		<!--	<li><a href="#0">Photos</a></li>-->
-    		<!--	<li><a href="#0">Videos</a></li>-->
-    		<!--	<li><a href="#0">Specs</a></li>-->
-    		<!--	<li><a href="#0">Support</a></li>-->
-    		<!--	<li><a href="#0">Compare</a></li>-->
-    		<!--	<li><a href="#0">Buy</a></li>-->
-    		<!--</ul>-->
         </nav>
- <!--       	<nav class="navbar navbar-default">-->
-	<!--    <div class="container-fluid">-->
-	<!--	    <div class="nav navbar-top-links">-->
-		   <!--     <ul class="nav navbar-nav">-->
-		   <!--     	<router-link to="/stream" activeClass="active" tag="li"><a>Streams</a></router-link>-->
-					<!--<router-link to="/member" activeClass="active" tag="li"><a>Member</a></router-link>-->
-					<!--<router-link to="/email" activeClass="active" tag="li"><a>Mail Box [BETA]</a></router-link>-->
-		   <!--     </ul>-->
-	<!--	    </div><!-- /.navbar-collapse -->
-	<!--    </div><!-- /.container-fluid -->
-	<!--</nav>-->
     </div>
 </template>
+
+<script>
+    import secondary from './data/secondary.js';
+    
+    export default {
+        computed: {
+            currentNav() {
+                const path = this.$route.path;
+                if(String(path).match(/home/))
+                {
+                    return this.secondary[0];
+                }
+                else if(String(path).match(/user/))
+                {
+                    return this.secondary[1];
+                }
+            }
+        },
+        data() {
+            return {
+                secondary
+            }
+        }
+    }
+</script>
 
 <style scoped>
     .secondary {
@@ -37,13 +41,24 @@
     }
     
     .cd-secondary-nav {
-        /*width: 100%;*/
         height: 100%;
         vertical-align: middle;
     }
     
+    ul {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        padding: 0;
+    }
+    
     .cd-secondary-nav li {
-        width: 33.3%;
+        display: table-cell;
         text-align: center;
+        float: none;
+    }
+    
+    .cd-secondary-nav ul::after {
+        display: none;
     }
 </style>
