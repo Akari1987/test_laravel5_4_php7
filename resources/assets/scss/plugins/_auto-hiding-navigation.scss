@@ -1,5 +1,5 @@
 $primary-height: 60px;
-$secondary-height: 62px;
+$secondary-height: 50px;
 
 .cd-main-content {
     padding-top: $secondary-height;
@@ -49,7 +49,7 @@ $secondary-height: 62px;
 }
 @media only screen and (min-width: 1024px) {
   .cd-auto-hide-header {
-    height: 80px;
+    // height: 80px;
   }
 }
 
@@ -273,6 +273,7 @@ $secondary-height: 62px;
 }
 .cd-secondary-nav ul, .cd-secondary-nav li, .cd-secondary-nav a {
   height: 100%;
+  vertical-align: middle;
 }
 .cd-secondary-nav ul {
   /* enables a flex context for all its direct children */
@@ -312,7 +313,6 @@ $secondary-height: 62px;
 }
 @media only screen and (min-width: 1024px) {
   .cd-secondary-nav {
-    height: 2.625rem;
     overflow: visible;
   }
   .cd-secondary-nav ul {
@@ -328,7 +328,7 @@ $secondary-height: 62px;
             flex-shrink: 1;
   }
   .cd-secondary-nav a {
-    line-height: 70px;
+    line-height: $secondary-height;
   }
   .cd-secondary-nav a.active {
     box-shadow: inset 0 -3px #8F3985;
