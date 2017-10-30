@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Auth;
+use Auth;
+use Session;
 use App\User;
 use App\Follow;
+// use App\FollowPagination;
 
 class FollowController extends Controller
 {
@@ -23,15 +25,19 @@ class FollowController extends Controller
     public function follow(User $user)
     {
         if (!Auth::user()->isFollowing($user->id)) {
-            // Create a new follow instance for the authenticated user
-            Auth::user()->follows()->create([
-                'target_id' => $user->id,
-            ]);
+            /* Create a new follow instance for the authenticated user */
+                Auth::user()->follows()->create([
+                    'target_id' => $user->id,
+                ]);
             // create a new followPagination instance for follow pagination
-            $target = \App\User::find($user->id);
-            $target->followPaginations()->create([
-                'requester' => Auth::user()->id
-            ]);
+            // $target = \App\User::find($user->id);
+            // $target->followPaginations()->create([
+            //     'requester' => Auth::user()->id
+            // ]);
+            /* Send a notification from Auth user to $user->id
+               Passing user follows
+            */
+                User::find($user->id)->notify( new \App\Notifications\NewFriendNotification(Auth::user()) );
             return back()->with('success', 'You are now friends with '. $user->name);
         } else {
             return back()->with('error', 'You are already following this person');

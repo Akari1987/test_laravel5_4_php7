@@ -51,10 +51,10 @@ class User extends Authenticatable
         return $this->hasMany(Follow::class);
     }
     
-    public function followPaginations()
-    {
-        return $this->hasMany(FollowPagination::class);
-    }
+    // public function followPaginations()
+    // {
+    //     return $this->hasMany(FollowPagination::class);
+    // }
     
     public function followeds()
     {

@@ -18,12 +18,12 @@
         <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/inspinia/animate.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/perfect-scrollbar.css') }}" rel="stylesheet">
-        <!--<link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet" type="text/css">-->
     
     
         <!--<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">-->
     
         <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
+        <!--<link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">-->
         <!-- Scripts -->
         <script>
         if(window.matchMedia('(min-width: 1024px)').matches)
@@ -46,6 +46,9 @@
                 @yield('sidebar')
                 <div id="page-wrapper" class="gray-bg">
                         @yield('content')
+                        @if(Auth::check())
+                            <notification :id="{{ Auth::id() }}"></notification>
+                        @endif
                 </div>
             </div>
         <!-- Main Scripts -->
@@ -60,5 +63,16 @@
         <script src="{{ secure_asset('js/plugins/pace/pace.min.js') }}"></script>
         <!-- iCheck -->
         <script src="{{ secure_asset('js/plugins/iCheck/icheck.min.js') }}"></script>
+        <!--noty-->
+        <script>        
+            @if(Session::has('success'))
+                new noty({
+                    type: 'success',
+                    layout: 'bottomLeft',
+                    text: '{{ Session::get('success') }}'
+                    // text: 'noty ready'
+                }).show();
+            @endif
+        </script>
     </body>
 </html>

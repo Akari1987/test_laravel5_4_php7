@@ -83,7 +83,6 @@
                     axios.get('/res_follows_array/' + this.$route.params.id).then(response => {
                         this.list.push(response.data);
                     });
-                    console.log(this.list);
                     this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
                 }, 1000);
                 this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');

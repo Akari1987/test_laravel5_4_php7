@@ -5,10 +5,11 @@
                 <sidenavbar></sidenavbar>
             </swiper-slide>
             <swiper-slide class="content">
-                <div class="isLarge z-index-10002" v-if="isNotLarge == false">
-                    <app-large-topbar></app-large-topbar>
-                </div>
-                <div class="isNotLarge z-index-10000" v-if="isNotLarge == true">
+                <!--<div class="isLarge z-index-10002" v-if="isNotLarge == false">-->
+                <!--    <app-large-topbar></app-large-topbar>-->
+                <!--</div>-->
+                <!--<div class="isNotLarge z-index-10000" v-if="isNotLarge == true">-->
+                <div class="isNotLarge z-index-10000">
                     <topnavbar></topnavbar>
                 </div>
                 <main class="cd-main-content">
@@ -19,17 +20,20 @@
                             </div>
                         </div>
                     </nav>
-                    <router-view name="streamboxnavbar"></router-view>
-                    <router-view></router-view>
+                    <!--<router-view name="streamboxnavbar"></router-view>-->
+                    <div class="wrapper wrapper-content">
+                        <router-view></router-view>
+                    </div>
                 </main>
             </swiper-slide>
         </swiper>
+        <!--<notification :id=user.id></notification>-->
+        <!--<notification></notification>-->
     </div>
 </template>
 
 <script>
     import {displayMixin} from '../mixins/displayMixin';
-    
     // import LargeSidenavbarButton from './sidenavbar/LargeSidenavbarButton.vue';
     import LargeTopbar from './topnavbar/LargeTopnavbar.vue';
     
@@ -44,13 +48,16 @@
                     initialSlide: 1,
                     resistanceRatio: .00000000000001,
                     slideToClickedSlide: true
-                }
+                },
             }
         },
         computed: {
             swiper() {
                 return this.$refs.swiper.swiper
             },
+            user() {
+               return this.$store.state.user.user;
+           }
         },
         methods: {
             toggleMenu() {
@@ -60,7 +67,7 @@
         components: {
             // 'app-large-sidenavbar-button' : LargeSidenavbarButton,
             'app-large-topbar': LargeTopbar
-        }
+        },
     }
 </script>
 

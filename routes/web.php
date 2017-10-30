@@ -11,6 +11,8 @@
 |
 */
 
+use App\Events\FriendRequested;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,6 +20,14 @@ Route::get('/', function () {
 /*-------------
 |  For Testing
 --------------*/
+Route::get('/example', function() {
+    return view('test');
+});
+
+Route::get('/test', function() {
+    return view('test');
+});
+
 Route::get('/ch', function() {
     return App\FollowPagination::where('requester', Auth::user()->id)->get();
 });
@@ -49,9 +59,9 @@ Route::get('/home', 'HomeController@index');
 
 
 Route::group(['middleware' => ['auth']], function() {
-    /*----------------------
-    | For Vue Components REST
-    ------------------------*/
+/*----------------------
+| For Vue Components REST
+------------------------*/
     Route::get('/user', function(){
         return Auth::user(); 
     });
@@ -62,10 +72,10 @@ Route::group(['middleware' => ['auth']], function() {
     
     Route::get('user/{user_id?}', function() {
         return view('home');
-    });    
-    /*----------------------
-    | For Vue Components API
-    ------------------------*/
+    })->name('profile');    
+/*----------------------
+| For Vue Components API
+------------------------*/
     // from Profile.vue
     Route::get('user/info/{id}', [
         'uses' => 'ProfileController@index'
@@ -113,69 +123,72 @@ Route::group(['middleware' => ['auth']], function() {
     
     
     
-    /*-------------------
-    |  For User-Edit
-    ---------------------*/
+/*-------------------
+|  For User-Edit
+---------------------*/
     Route::post('/postEdit', 'UserController@editAvatar');
     
-    /*-------------------------------
-    | For Vue Components ajax Request
-    --------------------------------*/
+/*-------------------------------
+| For Vue Components ajax Request
+--------------------------------*/
     Route::get('/messages', function() {
         return App\Message::all();
     });
     
-    /*-------------------------------
-    | For Social Functionality
-    --------------------------------*/
+/*-------------------------------
+| For Social Functionality
+--------------------------------*/
     // Follow system //
-    Route::get('/userss', 'FollowController@index');
-    Route::post('/follow/{user}', 'FollowController@follow');
-    Route::delete('/unfollow/{user}', 'FollowController@unfollow');
+        Route::get('/userss', 'FollowController@index');
+        Route::post('/follow/{user}', 'FollowController@follow');
+        Route::post('/unfollow/{user}', 'FollowController@unfollow');
     
     /* Friendship system */
     // from Profile.vue
-    Route::get('/check_relationship_status/{id}', [
-        'uses' => 'FriendshipsController@check',
-        'as' => 'check'
-    ]);
-    Route::get('/add_friend/{id}', [
-        'uses' => 'FriendshipsController@add_friend',
-        'as' => 'add_friend'
-    ]);
-    Route::get('/accept_friend/{id}', [
-        'uses' => 'FriendshipsController@accept_friend',
-        'as' => 'accept_friend'
-    ]);
+        Route::get('/check_relationship_status/{id}', [
+            'uses' => 'FriendshipsController@check',
+            'as' => 'check'
+        ]);
+        Route::get('/add_friend/{id}', [
+            'uses' => 'FriendshipsController@add_friend',
+            'as' => 'add_friend'
+        ]);
+        Route::get('/accept_friend/{id}', [
+            'uses' => 'FriendshipsController@accept_friend',
+            'as' => 'accept_friend'
+        ]);
+        
+    // Announce Friendship request has been sent
+        event(new FriendRequested());
     
     // Friendship Testing
-    Route::get('/add', function() {
-        return \App\User::find(1)->add_friend(3);
-    });
+        Route::get('/add', function() {
+            return \App\User::find(1)->add_friend(3);
+        });
+        
+        Route::get('/accept', function() {
+            return \App\User::find(3)->accept_friend(1); 
+        });
+        
+        Route::get('/friends', function() {
+            return App\User::find(3)->friends();
+        });
+        
+        Route::get('/pending_friends', function() {
+            return App\User::find(4)->pending_friends_requests();
+        });
+        
+        Route::get('/ids', function() {
+            return App\User::find(1)->friends_ids();
+        });
     
-    Route::get('/accept', function() {
-        return \App\User::find(3)->accept_friend(1); 
-    });
+        Route::get('/is', function() {
+            return App\User::find(1)->is_friends_with(2);
+        });
     
-    Route::get('/friends', function() {
-        return App\User::find(3)->friends();
-    });
-    
-    Route::get('/pending_friends', function() {
-        return App\User::find(4)->pending_friends_requests();
-    });
-    
-    Route::get('/ids', function() {
-        return App\User::find(1)->friends_ids();
-    });
-    
-    Route::get('/is', function() {
-        return App\User::find(1)->is_friends_with(2);
-    });
-    
-    /*-----------------------------------
-    | For Social Functionality from Vue
-    ------------------------------------*/
+/*-----------------------------------
+| For Social Functionality from Vue
+------------------------------------*/
     Route::get('/res_follows_array', 'FollowController@res_follows_array');
     // Route::get('/res_recommend', 'FollowController@res_recommend');
     
@@ -188,20 +201,20 @@ Route::group(['middleware' => ['auth']], function() {
     });
     
     // return recomend user to VUe component
-    Route::get('/res_recommends/{id}', function($id) {
-        return \App\user::find($id)->res_recommends();
-    });
-    
-    Route::get('/res_follow_page', 'FollowController@res_followPage');
+        Route::get('/res_recommends/{id}', function($id) {
+            return \App\user::find($id)->res_recommends();
+        });
         
-    /*-------------------------------
-    | CRUD Application
-    --------------------------------*/
+        Route::get('/res_follow_page', 'FollowController@res_followPage');
+        
+/*-------------------------------
+| CRUD Application
+--------------------------------*/
     //Route::resource('/posts', 'postController');
     
-    /*-------------------
-    |  For Image-Gallery
-    ---------------------*/
+/*-------------------
+|  For Image-Gallery
+---------------------*/
     Route::get('image-gallery', 'ImageGalleryController@index');
     Route::post('image-gallery', 'ImageGalleryController@upload');
     Route::delete('image-gallery/{id}', 'ImageGalleryController@destroy');
@@ -215,11 +228,6 @@ Route::group(['middleware' => ['auth']], function() {
 /*-------------------------------
 | For Vue Components ajax Request
 --------------------------------*/
-Route::get('/messages', function() {
-    return App\Message::paginate(1);
-})->middleware('auth');
-
-
-Route::get('/test', function() {
-    return view('test');
-});
+    Route::get('/messages', function() {
+        return App\Message::paginate(1);
+    })->middleware('auth');

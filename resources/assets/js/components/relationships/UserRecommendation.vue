@@ -20,12 +20,21 @@
                             <span v-text="rec.name"></span>
                             @ <span v-text="rec.id_st"></span>
                         </section>
-                        <button class="btn btn-success" @click="reqFollow(rec), no = !no"  :class="{inactive: rec.no}">Follow</button>
-                        <button class="btn btn-primary a-btn" @click="reqUnfollow(rec), no = !no" :class="{ inactive: !(rec.no) }">
+                        
+                        <button class="btn btn-success" @click="reqFollow(rec), no = !no"  :class="{inactive: rec.follow}">Follow</button>
+                        <button class="btn btn-primary a-btn" @click="reqUnfollow(rec), no = !no" :class="{ inactive: !(rec.follow) }">
                             <span></span>
                             <span>Following</span>
                             <span>Unfollow</span>
                         </button>
+                        
+                        <button class="btn btn-success" @click="sendFriendRequest(rec), no = !no"  :class="{inactive: rec.friend}">Send Friend Request</button>
+                        <button class="btn btn-primary a-btn" @click="reqUnfollow(rec), no = !no" :class="{ inactive: !(rec.friend) }">
+                            <span></span>
+                            <span>Friend Requested</span>
+                            <span>Send Cancel Request</span>
+                        </button>
+                        
                         <span v-text="rec.profile"></span>
                     </section>
                 </section>
@@ -54,10 +63,11 @@
             return {
                 yes: true,
                 no: false,
+                follow: false,
+                friend: false,
                 isFollowing: false,
                 password: null,
                 recommends: [],
-                // list: [],
                 page: 1,
             }
         },
@@ -94,6 +104,7 @@
                 axios.get('/res_recommends/' + this.$route.params.id + '?page=' + this.page).then(response => {
                     if(response.data.data.length) {
                         const recommends = response.data.data;
+                        console.log(recommends);
                         this.loadRecommends(recommends); // @recommend.js
                         this.page++;
                         $state.loaded();
@@ -114,26 +125,50 @@
             },
             reqFollow(rec) {
                 axios.post('/follow/' + rec.id);
-                rec.no = true;
+                rec.follow = !rec.follow;
                 const activity = {
                     who: 'あなたは',
                     activity: rec.name + 'をフォローしました。'
                 };
+                new noty({
+                    type: 'success',
+                    layout: 'bottomLeft',
+                    text: 'You follow ' + rec.name + '.'
+                    
+                }).show();
                 this.callSendActivity(activity);
             },
             reqUnfollow(rec) {
-                axios.delete('/unfollow/' + this.list[0].id);
-                rec.no = !(rec.no);
-            }
+                // axios.post('/unfollow/' + this.list[0].id);
+                axios.post('/unfollow/' + rec.id);
+                rec.follow = !(rec.follow);
+                new noty({
+                    type: 'info',
+                    layout: 'bottomLeft',
+                    text: 'You unfollow ' + rec.name + '.'
+                    
+                }).show();
+            },
+            sendFriendRequest(rec) {
+                axios.get('/add_friend/' + rec.id);
+                rec.friend = !rec.friend;
+                new noty({
+                    type: 'success',
+                    layout: 'bottomLeft',
+                    text: 'Friend request sent to ' + rec.name + '.'
+                    
+                }).show();
+            },
         }
     }
 </script>
 
 <style scoped>
     #container {
-        height: 600px;
+        height: 1000px;
+        /*bottom: 200px;*/
     }
-
+    
      /*------------------ 
     | For Follow Button
     -------------------*/
@@ -182,6 +217,7 @@
     .ibox-content {
         padding-left: 0;
         padding-right: 0;
+        bottom: 0;
     }
     
     h3 {
