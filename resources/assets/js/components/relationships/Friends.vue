@@ -32,10 +32,10 @@
                                     <!--    <img :src='getUserPic(follow[key].avatar)' class="img-circle" alt="profile" width="45px" >-->
                                     <!--</p>-->
                                     <!--<infinite-loading :on-infinite="onInfinite" ref="infiniteLoading"></infinite-loading>-->
-                                    <!--<app-follow-->
-                                    <!--    v-for="follow in follows"-->
-                                    <!--    :f="follow"-->
-                                    <!--    :key="follow"></app-follow>-->
+                                    <app-friend
+                                        v-for="friend in friends"
+                                        :f="friend"
+                                        :key="friend.id"></app-friend>
                                 </tbody>
                             </div>
                         </div>
@@ -52,22 +52,24 @@
     
     import InfiniteLoading from 'vue-infinite-loading';
     
+    import Friend from './Friend.vue';
     
     export default {
         components: {
-            InfiniteLoading
+            // InfiniteLoading
+            'app-friend': Friend
         },
         data() {
             return {
-                follows: [],
+                friends: [],
                 list: [],
                 
             }
         },
         created() {
-            axios.get('/res_follows_array/' + this.$route.params.id).then(response => {
+            axios.get('/res_friends_array/' + this.$route.params.id).then(response => {
                 console.log(response);
-                this.follows = response.data;
+                this.friends = response.data;
             });
         },
         methods: {

@@ -81,11 +81,13 @@ Route::group(['middleware' => ['auth']], function() {
         'uses' => 'ProfileController@index'
     ]);
     
-    Route::get('/res_follows_array/{id}', 'FollowController@res_follows_array');
-    
     Route::get('user/{user_id?}/{status?}', function() {
         return view('home');
     });
+    
+    Route::get('/res_follows_array/{id}', 'FollowController@res_follows_array');
+    
+    Route::get('/res_friends_array/{id}', 'FriendshipsController@res_friends_array');
     
     // Route::get('/{userName?}', function() {
     //     return view('home');

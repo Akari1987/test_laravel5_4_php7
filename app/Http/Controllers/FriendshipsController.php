@@ -48,6 +48,11 @@ class FriendshipsController extends Controller
     public function res_friends_array($id)
     {
         $user = User::where('id', $id)->first();
-        
+        $fs = $user->friends();
+        $friends = array();
+        foreach($fs as $f) {
+            array_push($friends, User::find($f->id));
+        }
+        return $friends;
     }
 }

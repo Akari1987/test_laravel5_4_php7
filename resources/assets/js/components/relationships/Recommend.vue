@@ -12,8 +12,8 @@
             </td>
             <td>
                 <div>
-                    <button class="btn btn-success" @click="reqFollow"  :class="{ inactive: no}">Follow</button>
-                    <button class="btn btn-primary a-btn" @click="reqUnfollow" :class="{ inactive: !no }">
+                    <button class="btn btn-success" @click="reqFollow(r.id)"  :class="{ inactive: no}">Follow</button>
+                    <button class="btn btn-primary a-btn" @click="reqUnfollow(r.id)" :class="{ inactive: !no }">
                         <span></span>
                         <span>Following</span>
                         <span>Unfollow</span>
@@ -43,12 +43,20 @@
             ...mapActions({
                 loadUser: 'loadUser',
             }),
-            reqFollow() {
-                axios.post('/follow/' + this.r.id);
+            // reqFollow() {
+            //     axios.post('/follow/' + this.r.id);
+            //     this.no = this.yes;
+            // },
+            // reqUnfollow() {
+            //     axios.post('/unfollow/' + this.r.id);
+            //     this.no = !this.no;
+            // }
+            reqFollow(id) {
+                axios.post('/follow/' + id);
                 this.no = this.yes;
             },
-            reqUnfollow() {
-                axios.delete('/unfollow/' + this.r.id);
+            reqUnfollow(id) {
+                axios.post('/unfollow/' + id);
                 this.no = !this.no;
             }
         }
