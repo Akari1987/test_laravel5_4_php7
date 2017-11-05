@@ -1,7 +1,7 @@
 .nav > li > a {
   color: $nav-text-color;
   font-weight: 600;
-  padding: 14px 20px 14px 25px;
+  padding: 14px 20px 14px 22px;
 }
 
 .nav.navbar-right > li > a {
@@ -414,7 +414,7 @@ body.fixed-nav.fixed-nav-basic.fixed-sidebar.mini-navbar.body-small .navbar-fixe
 }
 
 body.mini-navbar .navbar-static-side {
-  width: 70px;
+  width: $sidebar-mininavbar-width;
 }
 
 body.mini-navbar .profile-element, body.mini-navbar .nav-label, body.mini-navbar .navbar-default .nav li a span {
@@ -451,7 +451,7 @@ body.canvas-menu .nav-header {
 }
 
 body.mini-navbar #page-wrapper {
-  margin: 0 0 0 70px;
+  margin: 0 0 0 $sidebar-mininavbar-width;
 }
 
 body.fixed-sidebar.mini-navbar .footer,
