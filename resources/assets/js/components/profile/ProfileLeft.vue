@@ -16,3 +16,9 @@
         }
     }
 </script>
+
+<style type="text/css">
+    .profile-left {
+        padding-right: 0px;
+    }
+</style>

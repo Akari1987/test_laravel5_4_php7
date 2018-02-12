@@ -1,5 +1,5 @@
 <template>
-    <div class="profileLeft">
+    <div class="profile-right">
         <app-friends></app-friends>  
         <app-follows></app-follows>
     </div>
@@ -16,3 +16,9 @@
         }
     }
 </script>
+
+<style type="text/css">
+    .profile-right {
+        padding-left: 0;
+    }
+</style>

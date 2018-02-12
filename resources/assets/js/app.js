@@ -6,6 +6,10 @@
  */
 window.$ = window.jQuery = require('jquery');
 window.Laravel = { csrfToken: $('meta[name=csrf-token]').attr("content") };
+
+// var mongoose = require('mongoose');
+// mongoose.connect('https://test-laravel5-4-php7-akariozora.c9users.io/:27017/messages');
+
 require('./bootstrap');
 require('./plugins/auto-hiding-navigation/auto-hiding-navigation');
 
@@ -15,7 +19,7 @@ require('./plugins/auto-hiding-navigation/auto-hiding-navigation');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 import VueRouter from 'vue-router';
-import Vuetify from 'vuetify';
+// import Vuetify from 'vuetify';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import VueCoreImageUpload  from 'vue-core-image-upload';
 // import Password from 'vue-password-strength-meter'
@@ -36,10 +40,8 @@ import Streamboxnavbar from './components/sidenavbar/streambox/Streamboxnavbar.v
 Vue.use(VueRouter);
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueCoreImageUpload);
-// Vue.use(Vuetify);
-
-Vue.component('example', require('./components/Example.vue'));
-Vue.component('vuetify', require('./components/Vuetify.vue'));
+Vue.component('example', require('./components/Example.vue'))
+Vue.component('notification', require('./components/modules/Notification.vue'));
 Vue.component('topnavbar', require('./components/topnavbar/Topnavbar.vue'));
 Vue.component('large-sidenavbar', require('./components/sidenavbar/LargeSidenavbar.vue'));
 Vue.component('page-body', require('./components/PageBody.vue'));
@@ -48,14 +50,16 @@ Vue.component('feed', require('./components/home/home_center/Feed.vue'));
 Vue.component('home-center', require('./components/home/home_center/HomeCenter.vue'));
 Vue.component('profile-detail', require('./components/profile/ProfileDetail.vue'));
 
+
+
 Vue.component('sidenavbar', require('./components/sidenavbar/Sidenavbar.vue'));
 //Vue.component('app-vue-html-editor', require('vue-html-editor'));
-
+// Vue.component('SweetModal');
+// Vue.component('SweetModalTab');
 
 
 const routes = [
     { path: '/user/:id',
-      props: true,
       component: Profile,
         children: [
             {

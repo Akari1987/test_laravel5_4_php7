@@ -6,25 +6,9 @@ export const getUserPicMixin = {
         user() {
             return this.$store.state.user.user;
         },
-        /* To display current user profile */
+        /* To get current user */
         loadedUser() {
             return this.$store.state.profile.loadedUser; 
-        },
-        /* Get current user from URL */
-        // loadedUser() {
-        //     // return this.$store.state.profile.loadedUser;
-        //     return this.$store.getters.loadedUser(this.$route.params.id);
-        //     // return this.$store.getters.loadedUser(this.id);
-        // },
-        /* If isMyProf show something */
-        isMyProf() {
-            if(this.$store.state.user.user.id === this.loadedUser.id)
-            {
-                return true;
-            }
-            else {
-                return false;
-            }
         },
     },
     methods: {
@@ -51,9 +35,6 @@ export const getUserPicMixin = {
             });
             /* Clear previous state */
             this.clearRecommends();  // @recommend.js
-            // this.$nextTick(() => {
-            //     this.$refs.infiniteLoading.$emit('$InfiniteLoading:reset');
-            // });
         },
     }
 }

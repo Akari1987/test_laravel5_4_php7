@@ -20,9 +20,25 @@ Route::get('/', function () {
 /*-------------
 |  For Testing
 --------------*/
-Route::get('/example', function() {
-    return view('test');
+Route::get('/redis', function()
+{
+    // $redis = app()->make('redis');
+    $redis = Redis::connection();
+    // $redis->set("key1", "testValue");
+    // print_r(app()->make('redis'));
+    // return $redis->get("key1");
 });
+
+// Route::get('/mongo', function()
+// {
+//     $messages = DB::connection('mongodb')->collection('messages')->get();
+    
+//     return $messages;
+// });
+
+Route::get('/mongoInsert', 'TestController@mongoInsert');
+
+Route::get('/mongo', 'MessageController@index');
 
 Route::get('/test', function() {
     return view('test');
@@ -50,13 +66,6 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-
-
-
-// Route::get('/profile/{username?}/{status?}', function() {
-//     return view('test');
-// });
-
 
 Route::group(['middleware' => ['auth']], function() {
 /*----------------------
@@ -209,6 +218,14 @@ Route::group(['middleware' => ['auth']], function() {
         
         Route::get('/res_follow_page', 'FollowController@res_followPage');
         
+/*--------------------------------
+|Private Message urls from Amitav
+---------------------------------*/
+    Route::post('get-private-message-notifications', 'PrivateMessageController@getUserNotifications');
+    Route::post('get-private-messages', 'PrivateMessageController@getPrimateMessages');
+    Route::post('get-private-message', 'PrivateMessageController@getPrivateMessageById');
+    Route::post('get-private-messages-sent', 'PrivateMessageController@getPrivateMessageSent');
+    Route::post('send-private-message', 'PrivateMessageController@sendPrivateMessage');
 /*-------------------------------
 | CRUD Application
 --------------------------------*/

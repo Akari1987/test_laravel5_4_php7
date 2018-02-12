@@ -11,7 +11,8 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js');
+mix.js('resources/assets/js/app.js', 'public/js')
+    // .js('resources/assets/js/app2.js', 'public/js/app2.js');
 //     .sass('resources/assets/sass/_variables.scss','public/css')
 //   .sass('resources/assets/sass/app.scss','public/css')
 //   .sass('resources/assets/sass/_badgets_labels.scss','public/css')
@@ -36,6 +37,8 @@ mix.js('resources/assets/js/app.js', 'public/js');
 //   .sass('resources/assets/sass/_typography.scss','public/css');
 //   .sass('resources/assets/sass/style.scss','public/css');
    // .copy('node_modules/jquery/dist/jquery.js', 'public/js/jquery.js')
+    // .copy('node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.min.js', 'public/js/plugins/perfect-scrollbar.min.js');
+    
 mix.sass('resources/assets/scss/app.scss', 'public/css')
     .sass('resources/assets/scss/style.scss', 'public/css')
     // .sourceMaps()

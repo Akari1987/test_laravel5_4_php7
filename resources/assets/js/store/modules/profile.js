@@ -1,7 +1,3 @@
-// const state = {
-//     loadedUser: []
-// };
-
 // const getters = {
 //     loadedUsers(id_st) {
 //         return state.loadedUser;
@@ -15,31 +11,13 @@
 //     }
 // };
 
-// // const mutations = {
-// //     'LOAD_USER' (state, user) {
-// //         state.loadedUser = user;
-// //     }
-// // };
-// const mutations = {
-//     'LOAD_USER' (state, user) {
-//         state.loadedUser.push(user);
-//     }
-// };
-
-// export default {
-//     state,
-//     getters,
-//     actions,
-//     mutations
-// };
-
 const state = {
     loadedUser: "",
     loadedUsers: []
 };
 
 const getters = {
-    /* Get current user profile from URL */
+    /* Get current user profile from URL @Profile.vue */
     loadedUser(state) {
         return (id) => {
             return state.loadedUsers.find((loadedUser) => {

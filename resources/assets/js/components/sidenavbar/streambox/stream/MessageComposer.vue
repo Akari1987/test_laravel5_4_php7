@@ -32,8 +32,6 @@
 </template>
 
 <script>
-    //import "../../../../plugins/summernote/jquery-2.1.1.js";
-    //import "../../../../plugins/summernote/jquery-ui.js";
     //import "../../../../plugins/summernote/bootstrap.js";
     import "../../../../plugins/summernote2/summernote.js";
 

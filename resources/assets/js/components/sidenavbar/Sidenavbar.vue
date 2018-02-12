@@ -49,9 +49,9 @@
                 <!--    </ul>-->
                 <!--</li>-->
                 <app-streambox></app-streambox>
-                <!--<li>-->
-                <!--    <a href="metrics.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">Metrics</span>  </a>-->
-                <!--</li>-->
+                <li>
+                    <a href="/example"><i class="fa fa-pie-chart"></i> <span class="nav-label">Example</span>  </a>
+                </li>
                 <!--<li>-->
                 <!--    <a href="widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">Widgets</span></a>-->
                 <!--</li>-->
@@ -246,12 +246,14 @@
         computed: {
            user() {
                return this.$store.state.user.user;
-           } 
+           }
         },
         methods: {
             ...mapActions({
                 setUser: 'setUser',
                 loadUser: 'loadUser',
+                loadRecommends: 'loadRecommends',
+                // clearRecommends: 'clearRecommends',
             }),
         },
         created() {

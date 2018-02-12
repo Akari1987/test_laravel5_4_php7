@@ -9,7 +9,7 @@
                 <!--    <app-large-topbar></app-large-topbar>-->
                 <!--</div>-->
                 <!--<div class="isNotLarge z-index-10000" v-if="isNotLarge == true">-->
-                <div class="isNotLarge z-index-10000">
+                <div class="z-index-10000">
                     <topnavbar></topnavbar>
                 </div>
                 <main class="cd-main-content">

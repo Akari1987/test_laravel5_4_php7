@@ -11,7 +11,7 @@
 </template>
 
 <script>
-    import Ps from 'perfect-scrollbar';
+    // import Ps from 'perfect-scrollbar';
     
     import secondary from './data/secondary.js';
     
@@ -38,11 +38,11 @@
                 secondary
             }
         },
-        mounted() {
-            Ps.initialize(this.$refs.scrollWrapper, {
-                // suppressScrollX: true
-            });
-        }
+        // mounted() {
+        //     Ps.initialize(this.$refs.scrollWrapper, {
+        //         // suppressScrollX: true
+        //     });
+        // }
     }
 </script>
 

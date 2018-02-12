@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="stream">
         <app-stream-side-panel></app-stream-side-panel>
         <app-messages></app-messages>
         <!--<app-message-composer></app-message-composer>-->
@@ -20,7 +20,6 @@
             'app-stream-side-panel': StreamSidePanel,
         },
         created() {
-            console.log('created');
             // axios.post('/get_stream',
             // {
                 
@@ -33,8 +32,6 @@
 </script>
 
 <style lang="scss">
-    
-
     .balloon {
         padding: 8px;
         padding-bottom: 28px;

@@ -2,7 +2,7 @@
     <div class="profileHeader">
         <div class="row m-b-lg m-t-lg">
             <div class="col-md-6">
-                <h3 color="green">  プロフィール画像のeditができます</h3>
+                <!--<h3 color="green">  プロフィール画像のeditができます</h3>-->
                 <div class="profile-image editable">
                     <div class="edit" :class="{ inactive: !no }">
                         <app-edit></app-edit>
@@ -15,7 +15,7 @@
                             <h2 class="no-margins">
                                 {{ loadedUser.name }}
                             </h2>
-                            <div v-if="isMyProf">
+                            <div v-if="isMe">
                                 <a class="editMode" @click="no = yes"  :class="{ inactive: no}"><li class="fa fa-wrench">edit</li></a>
                                 <a class="removeEdit" @click="no = !no" :class="{ inactive: !no }"><li class="fa fa-wrench">save</li></a>
                             </div>
@@ -68,11 +68,12 @@
 
 <script>
     import { getUserPicMixin } from '../../mixins/getUserPicMixin';
+    import { isMeMixin } from '../../mixins/isMeMixin';
     
     import Edit from './Edit.vue';
     
     export default {
-        mixins: [getUserPicMixin],
+        mixins: [getUserPicMixin, isMeMixin],
         components: {
             'app-edit': Edit    
         },
@@ -89,12 +90,8 @@
     }
 </script>
 
-<style>
+<style scoped>
     .inactive {
         display: none;
-    }
-    
-    h3 {
-        color: red;
     }
 </style>

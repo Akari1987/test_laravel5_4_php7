@@ -66,7 +66,6 @@
                 follow: false,
                 friend: false,
                 isFollowing: false,
-                password: null,
                 recommends: [],
                 page: 1,
             }
@@ -146,7 +145,6 @@
                     type: 'info',
                     layout: 'bottomLeft',
                     text: 'You unfollow ' + rec.name + '.'
-                    
                 }).show();
             },
             sendFriendRequest(rec) {
@@ -176,7 +174,6 @@
     }
     
     h3 {
-        color: red;
         text-align: center;
     }
     

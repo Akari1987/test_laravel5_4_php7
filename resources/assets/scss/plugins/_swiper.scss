@@ -1,0 +1,12 @@
+.swiper-wrapper {
+        // align-items: flex-start;
+        display: flex;
+    }
+
+.swiper-container {
+    overflow: visible !important;
+}
+
+.swiper-slide-prev .swiper-slide-next {
+    display: none;
+}

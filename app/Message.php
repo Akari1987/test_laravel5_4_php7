@@ -2,13 +2,17 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Model;
+use Moloquent;
 
-class Message extends Model
+class Message extends Moloquent
+// class Message extends Eloquent
 {
-    protected $fillable = ['message', 'receiver_id', 'read'];
+    protected $connection = 'mongodb';
+    protected $collection = 'messages';
     
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = ['message', 'receiver_id', 'read'];
+    // public function user() {
+    //     return $this->belongsTo(User::class);
+    // }
 }

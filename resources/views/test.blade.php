@@ -8,11 +8,23 @@
         <div id="app">
             <vuetify></vuetify>
         </div> 
-    </body>
-    <script
-            src="https://code.jquery.com/jquery-2.2.4.min.js"
-            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        <!-- Main Scripts -->
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+        <!--<script src="{{ secure_asset('js/jquery.min.js') }}"></script>-->
+        <script
+          src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+          integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+          crossorigin="anonymous"></script>
+        <script src="{{ secure_asset('js/app.js') }}"></script>
+        <script src="{{ secure_asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+        <script src="{{ secure_asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+        <script src="{{ secure_asset('js/inspinia.js') }}"></script>
+        <script src="{{ secure_asset('js/plugins/pace/pace.min.js') }}"></script>
+        <!-- iCheck -->
+        <script src="{{ secure_asset('js/plugins/iCheck/icheck.min.js') }}"></script>
+    </body>
 </html>
        
