@@ -40,19 +40,19 @@ import Streamboxnavbar from './components/sidenavbar/streambox/Streamboxnavbar.v
 Vue.use(VueRouter);
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueCoreImageUpload);
-Vue.component('example', require('./components/Example.vue'))
-Vue.component('notification', require('./components/modules/Notification.vue'));
-Vue.component('topnavbar', require('./components/topnavbar/Topnavbar.vue'));
-Vue.component('large-sidenavbar', require('./components/sidenavbar/LargeSidenavbar.vue'));
-Vue.component('page-body', require('./components/PageBody.vue'));
-Vue.component('top-nav-bar', require('./components/modules/TopNavBar.vue'));
-Vue.component('feed', require('./components/home/home_center/Feed.vue'));
-Vue.component('home-center', require('./components/home/home_center/HomeCenter.vue'));
-Vue.component('profile-detail', require('./components/profile/ProfileDetail.vue'));
+Vue.component('example', require('./components/Example.vue').default);
+Vue.component('notification', require('./components/modules/Notification.vue').default);
+Vue.component('topnavbar', require('./components/topnavbar/Topnavbar.vue').default);
+Vue.component('large-sidenavbar', require('./components/sidenavbar/LargeSidenavbar.vue').default);
+Vue.component('page-body', require('./components/PageBody.vue').default);
+Vue.component('top-nav-bar', require('./components/modules/TopNavBar.vue').default);
+Vue.component('feed', require('./components/home/home_center/Feed.vue').deafault);
+Vue.component('home-center', require('./components/home/home_center/HomeCenter.vue').default);
+Vue.component('profile-detail', require('./components/profile/ProfileDetail.vue').default);
 
 
 
-Vue.component('sidenavbar', require('./components/sidenavbar/Sidenavbar.vue'));
+Vue.component('sidenavbar', require('./components/sidenavbar/Sidenavbar.vue').default);
 //Vue.component('app-vue-html-editor', require('vue-html-editor'));
 // Vue.component('SweetModal');
 // Vue.component('SweetModalTab');
