@@ -9,7 +9,7 @@
                 <app-profile-right class="col-md-3"></app-profile-right>
             </div>
         </div>
-        <div class="isNotLarge" v-if="isNotLarge == true" >
+        <div class="isNotLarge swiper2" v-if="isNotLarge == true" >
             <swiper :options="swiperOption" ref="swiper2">
                 <swiper-slide><app-profile-detail></app-profile-detail></swiper-slide>
                 <swiper-slide><app-activity></app-activity></swiper-slide>
@@ -55,8 +55,6 @@
                 swiperOption: {
                     autoplay: false,
                     allowSlidePrev: false,
-                    // // allowSwipeToNext: false,
-                    // slidesPerView: 'auto',
                     loop: true,
                 }
             }
@@ -89,6 +87,6 @@
     }
     
     .swiper-slide-prev {
-        /*display: none;*/
+        visibility:hidden;
     }
 </style>

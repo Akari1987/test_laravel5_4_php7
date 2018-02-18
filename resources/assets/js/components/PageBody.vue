@@ -1,5 +1,5 @@
 <template>
-    <div id="page-body">
+    <div id="page-body" class="swiper1">
         <swiper :options="swiperOption" ref="swiper">
             <swiper-slide class="menu" v-if="isNotLarge === true">
                 <sidenavbar></sidenavbar>
@@ -9,9 +9,7 @@
                 <!--    <app-large-topbar></app-large-topbar>-->
                 <!--</div>-->
                 <!--<div class="isNotLarge z-index-10000" v-if="isNotLarge == true">-->
-                <div class="z-index-10000">
-                    <topnavbar></topnavbar>
-                </div>
+                <topnavbar></topnavbar>
                 <main class="cd-main-content">
                     <nav class="navbar navbar-static-top navbar-left" role="navigation">
                         <div class="menu-button" @click="toggleMenu">
@@ -47,7 +45,7 @@
                     slidesPerView: 'auto',
                     initialSlide: 1,
                     resistanceRatio: .00000000000001,
-                    slideToClickedSlide: true
+                    // slideToClickedSlide: true
                 },
             }
         },
