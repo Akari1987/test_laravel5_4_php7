@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="isNotLarge swiper2" v-if="isNotLarge == true" >
-            <swiper :options="swiperOption" ref="swiper2">
+            <swiper :options="swiper2" ref="swiper2">
                 <swiper-slide><app-profile-detail></app-profile-detail></swiper-slide>
                 <swiper-slide><app-activity></app-activity></swiper-slide>
                 <swiper-slide><app-friends></app-friends></swiper-slide>
@@ -52,10 +52,10 @@
         data() {
             return {
                 status: "",
-                swiperOption: {
-                    autoplay: false,
+                swiper2: {
                     allowSlidePrev: false,
                     loop: true,
+                    spaceBetween: 20,
                 }
             }
         },

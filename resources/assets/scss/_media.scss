@@ -20,9 +20,9 @@
 
 @media (max-width: 1024px) {    // atMedium for ipad-pro
 
-	// .atLarge {
-	// 	display: none;
-	// }
+	.wrapper-content {
+	  	padding: 20px 0px 40px 20px;
+	}
 	
   #page-wrapper, #page-body {
 	position: inherit;
@@ -102,6 +102,10 @@
 
 @media (max-width: 350px) {    // atSmall
 
+	.wrapper-content {
+	  	padding: 20px 0px 40px 20px;
+	}
+	
 	.atLarge {
 		display: none;
 	}
@@ -140,7 +144,4 @@
 	text-align: left;
 	display: inline-block;
   }
-	// .swiper-slide {
-	// 	display: none;
-	// }
 }

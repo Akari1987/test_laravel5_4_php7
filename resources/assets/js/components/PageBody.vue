@@ -1,6 +1,6 @@
 <template>
     <div id="page-body" class="swiper1">
-        <swiper :options="swiperOption" ref="swiper">
+        <swiper :options="swiper1" ref="swiper">
             <swiper-slide class="menu" v-if="isNotLarge === true">
                 <sidenavbar></sidenavbar>
             </swiper-slide>
@@ -41,12 +41,11 @@
             let self = this
             return {
                 menuCross: false,
-                swiperOption: {
+                swiper1: {
                     slidesPerView: 'auto',
                     initialSlide: 1,
                     resistanceRatio: .00000000000001,
-                    // slideToClickedSlide: true
-                },
+                }
             }
         },
         computed: {
