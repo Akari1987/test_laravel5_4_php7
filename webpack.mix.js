@@ -12,7 +12,7 @@ const { mix } = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-    // .js('resources/assets/js/app2.js', 'public/js/app2.js');
+    .js('resources/assets/js2/app2.js', 'public/js/app2.js');
 //     .sass('resources/assets/sass/_variables.scss','public/css')
 //   .sass('resources/assets/sass/app.scss','public/css')
 //   .sass('resources/assets/sass/_badgets_labels.scss','public/css')
