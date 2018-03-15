@@ -26,7 +26,6 @@
 <script>
     var count = 0;
     
-    import axios from 'axios';
     import InfiniteLoading from 'vue-infinite-loading';
     
     export default {

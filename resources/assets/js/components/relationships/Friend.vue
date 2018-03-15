@@ -41,7 +41,6 @@
 </template>
 
 <script>
-    import axios from 'axios';
     import {mapActions} from 'vuex';
     import {getUserPicMixin} from '../../mixins/getUserPicMixin';
     

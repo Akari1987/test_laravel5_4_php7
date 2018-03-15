@@ -309,8 +309,6 @@
 </template>
 
 <script>
-    import axios from 'axios';
-    
     import {displayMixin} from '../../mixins/displayMixin';
     import {isMeMixin}  from '../../mixins/isMeMixin';
     // import {sweetModalMixin} from '../../mixins/sweetModalMixin';

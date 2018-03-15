@@ -35,7 +35,6 @@
 
 <script>
 	var csrf_token = $('meta[name="csrf-token"]').attr('content');
-	import axios from 'axios';
 	
 	export default {
 		computed: {

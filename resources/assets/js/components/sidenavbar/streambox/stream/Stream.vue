@@ -7,8 +7,6 @@
 </template>
 
 <script>
-    import axios from 'axios';
-    
     import Messages from './Messages.vue';
     //import MessageComposer from './MessageComposer.vue';
     import StreamSidePanel from './StreamSidePanel.vue';

@@ -64,7 +64,6 @@
 </template>
 
 <script>
-    import axios from 'axios';
     import InfiniteLoading from 'vue-infinite-loading';
     // import Recommend from './Recommend.vue';
     

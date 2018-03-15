@@ -19,6 +19,7 @@ require('./plugins/auto-hiding-navigation/auto-hiding-navigation');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 import VueRouter from 'vue-router';
+import Axios from 'axios';
 // import Vuetify from 'vuetify';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import VueCoreImageUpload  from 'vue-core-image-upload';
@@ -37,10 +38,12 @@ import Member from './components/sidenavbar/streambox/member/Members.vue';
 import Email from './components/sidenavbar/streambox/email/Email.vue';
 import Streamboxnavbar from './components/sidenavbar/streambox/Streamboxnavbar.vue';
 
+
 Vue.use(VueRouter);
+Vue.use(Axios);
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueCoreImageUpload);
-Vue.component('example', require('./components/Example.vue').default);
+// Vue.component('example', require('./components/Example.vue').default);
 Vue.component('notification', require('./components/modules/Notification.vue').default);
 Vue.component('topnavbar', require('./components/topnavbar/Topnavbar.vue').default);
 Vue.component('large-sidenavbar', require('./components/sidenavbar/LargeSidenavbar.vue').default);
@@ -56,7 +59,6 @@ Vue.component('sidenavbar', require('./components/sidenavbar/Sidenavbar.vue').de
 //Vue.component('app-vue-html-editor', require('vue-html-editor'));
 // Vue.component('SweetModal');
 // Vue.component('SweetModalTab');
-
 
 const routes = [
     { path: '/user/:id',

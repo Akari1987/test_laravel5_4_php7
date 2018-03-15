@@ -15,7 +15,6 @@
     var csrf_token = $('meta[name="csrf-token"]').attr('content');
     import VueCoreImageUpload  from 'vue-core-image-upload';
     import {mapActions} from 'vuex';
-    import axios from 'axios';
     import { getUserPicMixin } from '../../mixins/getUserPicMixin';
     
     export default {

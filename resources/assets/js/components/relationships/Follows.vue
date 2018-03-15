@@ -44,7 +44,6 @@
 </template>
 
 <script>
-    import axios from 'axios';
     import {mapActions} from 'vuex';
     
     import InfiniteLoading from 'vue-infinite-loading';
