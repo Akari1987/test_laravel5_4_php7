@@ -4,7 +4,7 @@ namespace App;
 
 use Moloquent;
 
-use MongoMessage;
+use App\models\mongo_based\MongoMessage;
 
 class MongoUser extends Moloquent
 {

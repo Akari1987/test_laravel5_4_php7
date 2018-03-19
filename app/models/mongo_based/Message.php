@@ -2,11 +2,9 @@
 
 namespace App;
 
-// use Illuminate\Database\Eloquent\Model;
 use Moloquent;
 
 class Message extends Moloquent
-// class Message extends Eloquent
 {
     protected $connection = 'mongodb';
     protected $collection = 'messages';

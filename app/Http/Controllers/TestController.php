@@ -4,10 +4,45 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
 use App\GroupMessage;
+use App\MongoMessage;
+use App\Message;
 
 class TestController extends Controller
 {
+    public function testMongo()
+    {
+        return view('testMongo');
+    }
+    
+    public function messages()
+    {
+        $messages = Message::get();
+        $user_ids = $messages.user_id;
+        
+        return $messags;
+        
+    }
+    
+    public function mongoMessages()
+    {
+        $mongoMessages = MongoMessage::get();
+        $mMessages = array();
+        foreach($mongoMessages as $mongoMessage)
+        {
+            $user_id = $mongoMessage->user_id;
+            $user = User::where('id', $user_id)->first();
+            
+            $avatar["avatar"] = $user->avatar;
+            $mongoArray = $mongoMessage->toArray();
+            $mongoArray += $avatar;
+            
+            array_push($mMessages, $mongoArray);
+        }
+        return $mMessages;
+    }
+    
     public function mongoInsert()
     {
         $array = array(

@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-
+use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\HybridRelations;
 
 use App\Traits\Friendable;
@@ -12,6 +12,7 @@ use App\Traits\Recommendation;
 use App\Follow;
 use App\Test2;
 use App\MongoMessage;
+use App\models\mongo_based\MessageGroup;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -70,10 +71,23 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Test2::class);    
     }
-    
+
+    /**
+     *  Mongo Connection tests
+     **/
     public function mongoMessages()
     {
         return $this->hasMany(MongoMessage::class);
+    }
+    
+    public function messageGroup()
+    {
+        return $this->belongsTo(MessageGroup::class);
+    }
+    
+    public function messageGroups()
+    {
+        return $this->hasMany(MessageGroup::class);
     }
     
     /*-------------------------------
