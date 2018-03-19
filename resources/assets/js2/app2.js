@@ -15,9 +15,9 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import Example from './components/Example.vue';
+// import Example from './components/Example.vue';
 
-// import routes from './routes';
+import routes from './routes';
 import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
@@ -25,13 +25,13 @@ Vue.use(VueRouter);
 Vue.component('example', require('./components/Example.vue').default);
 Vue.component('page-body', require('./components/PageBody.vue').default);
 
-const routes = [
-    { path: 'testMongo', component: Example },
-    { path: '/user/1', redirect: '/user1'}
-]
+// const routes = [
+//     { path: 'testMongo', component: Example },
+//     { path: '/user/1', redirect: '/user1'}
+// ]
 
 const router = new VueRouter({
-    // mode: 'history',
+    mode: 'history',
     routes: routes
 });
 

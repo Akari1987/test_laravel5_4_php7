@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessageGroupsTable extends Migration
+class CreateMongoGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMessageGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::connection('mongodb')->create('message_groups', function (Blueprint $table) {
+        Schema::connection('mongodb')->create('mongo_groups', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateMessageGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mongodb')->drop('message_groups');
+        Schema::connection('mongodb')->drop('mongo_groups');
     }
 }

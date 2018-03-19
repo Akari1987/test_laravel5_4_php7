@@ -31,14 +31,19 @@ Route::get('/redis', function()
 
 // Route::get('/mongo', function()
 // {
+//     // $messages = DB::connection('mongodb')->collection('messages')->get()->toArray();
 //     $messages = DB::connection('mongodb')->collection('messages')->get();
-    
-//     return $messages;
+//     // return $messages[1];
+//     var_dump($messages);
 // });
 
-Route::get('/mongoInsert', 'TestController@mongoInsert');
+Route::get('/testMongo', 'TestController@testMongo');
+
+Route::get('/getMessages', 'TestController@mongoMessages');
 
 Route::get('/mongo', 'MessageController@index');
+
+Route::get('/mongoInsert', 'TestController@mongoInsert');
 
 Route::get('/test', function() {
     return view('test');

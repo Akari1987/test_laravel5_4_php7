@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
          $this->call(Test2Seeder::class);
          $this->call(FollowedSeeder::class);
          $this->call(MongoUserSeeder::class);
+         $this->call(MessageGroupSeeder::class);
+         $this->call(MongoMessageSeeder::class);
     }
 }
