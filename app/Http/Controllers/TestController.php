@@ -34,9 +34,10 @@ class TestController extends Controller
             $user_id = $mongoMessage->user_id;
             $user = User::where('id', $user_id)->first();
             
-            $avatar["avatar"] = $user->avatar;
+            $user_data["avatar"] = $user->avatar;
+            $user_data["name"] = $user->name;
             $mongoArray = $mongoMessage->toArray();
-            $mongoArray += $avatar;
+            $mongoArray += $user_data;
             
             array_push($mMessages, $mongoArray);
         }
