@@ -11,13 +11,13 @@
     "start": "nuxt"
   },
   "devDependencies": {
-    "axios": "^0.17.1",
+    "axios": "0.18",
     "babel": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^5.1.1",
-    "laravel-mix": "2.0.0",
+    "laravel-mix": "2.1.11",
     "lodash": "^4.17.4",
     "perfect-scrollbar": "0.8.1",
     "vue": "^2.5.7",
@@ -38,7 +38,7 @@
     "vue-infinite-loading": "^2.2.0",
     "vue-loader": "^14.1.1",
     "vue-router": "^3.0.1",
-    "vue-template-compiler": "2.5.14",
+    "vue-template-compiler": "2.5.16",
     "vuex": "^3.0.1"
   },
   "version": "3.2.1",
