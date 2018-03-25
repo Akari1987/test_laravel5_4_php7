@@ -17,18 +17,19 @@ window.Vue = require('vue');
 
 // import Example from './components/Example.vue';
 
+/* Http controll */
 import routes from './routes';
 import VueRouter from 'vue-router';
+import Axios from 'axios';
+
+/* Store state management */
+import store from '../js/store/store';
 
 Vue.use(VueRouter);
+Vue.use(Axios);
 
 Vue.component('example', require('./components/Example.vue').default);
 Vue.component('page-body', require('./components/PageBody.vue').default);
-
-// const routes = [
-//     { path: 'testMongo', component: Example },
-//     { path: '/user/1', redirect: '/user1'}
-// ]
 
 const router = new VueRouter({
     mode: 'history',
@@ -37,5 +38,6 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
+    store,
     router: router
 });
