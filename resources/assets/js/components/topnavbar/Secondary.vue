@@ -3,7 +3,7 @@
         <nav class="cd-secondary-nav navbar navbar-static-top navbar-fixed" role="navigation">
             <ul>
                 <li v-for="list in currentNav">
-                    <router-link :to="list[0]" activeClass="active" v-html="list[1]" >{{ list[1] }}</router-link>
+                    <router-link :to=list[0] activeClass="active" v-html="list[1]">{{ list[1] }}</router-link>
                 </li>
             </ul>
         </nav>
@@ -11,8 +11,6 @@
 </template>
 
 <script>
-    // import Ps from 'perfect-scrollbar';
-    
     import secondary from './data/secondary.js';
     
     export default {
@@ -31,6 +29,11 @@
                 {
                     return this.secondary[0];
                 }
+                else if(String(path).match(/testMongo|friends|talkList/))  // testMongo
+                {
+                    return this.secondary[2];
+                }
+                
             }
         },
         data() {
@@ -38,11 +41,6 @@
                 secondary
             }
         },
-        // mounted() {
-        //     Ps.initialize(this.$refs.scrollWrapper, {
-        //         // suppressScrollX: true
-        //     });
-        // }
     }
 </script>
 

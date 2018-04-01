@@ -37,14 +37,6 @@ Route::get('/redis', function()
 //     var_dump($messages);
 // });
 
-Route::get('/testMongo', 'TestController@testMongo');
-
-Route::get('/getMessages', 'TestController@mongoMessages');
-
-Route::get('/mongo', 'MessageController@index');
-
-Route::get('/mongoInsert', 'TestController@mongoInsert');
-
 Route::get('/test', function() {
     return view('test');
 });
@@ -60,6 +52,19 @@ Route::get('/ch2', function() {
 Route::get('/ch3', function() {
     return Auth::user()->res_follows();
 });
+
+/*---------------------
+|  For MongoDB Testing
+----------------------*/
+Route::get('/testMongo/{menu?}', 'TestController@testMongo');
+
+Route::get('/getMessages', 'TestController@mongoMessages');
+
+Route::get('/mongo', 'MessageController@index');
+
+Route::get('/mongoInsert', 'TestController@mongoInsert');
+
+Route::post('/cMongoMessage', 'TestController@cMongoMessage');
 
 /*-------------------
 |  For Socialite
