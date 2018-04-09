@@ -1,11 +1,12 @@
 <?php
 
-namespace App\models\mongo_based;
+namespace App;
 
 use Moloquent;
 
 use App\models\User;
 use App\GroupMessage;
+use App\MongoMessage;
 
 class MessageGroup extends Moloquent
 {
@@ -20,14 +21,19 @@ class MessageGroup extends Moloquent
         return $this->hasMany(User::class);
     }
     
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
     
     public function groupMessages()
     {
         return $this->hasMany(GroupMessage::class);
+    }
+    
+    public function mongoMessages()
+    {
+        return $this->hasMany(MongoMessage::class);
     }
     
 }
