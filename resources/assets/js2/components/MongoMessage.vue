@@ -1,5 +1,5 @@
 <template>
-    <div id="mongo-message">
+    <div id="app-mongo-message">
         <div class="panel panel-default">
             <div class="panel-body">
                 {{ m.body }}

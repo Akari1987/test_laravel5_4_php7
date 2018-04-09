@@ -18,7 +18,7 @@
                 mongoMessages: []
             }
         },
-        created() {
+        mounted() {
             /* Get MongoMessages */
             axios.get('/getMessages').then(response => {
                 this.mongoMessages = response.data;

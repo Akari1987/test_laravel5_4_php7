@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use MongoDB\BSON\ObjectId;
 
 use App\User;
 use App\GroupMessage;
+use App\MessageGroup;
 use App\MongoMessage;
 use App\Message;
 
@@ -23,6 +26,30 @@ class TestController extends Controller
         
         return $messags;
         
+    }
+    
+    public function mongoTalks()
+    {
+        $id = Auth::id();
+    /* return MessageGroups contains auth user */
+        $groups = MessageGroup::whereIn('user_id', [$id])->get();
+    /* return name and avatar of User joining the groups, and latest message */
+        $user_datas = [];
+        $merged_ids = [];
+        foreach($groups as $group)
+        {
+            $user_ids = $group->user_id;
+            $merged_ids = array_merge($merged_ids, $user_ids);
+        }
+        $unique_ids = array_unique($merged_ids);
+        $ids_value = array_values($unique_ids);
+        foreach($ids_value as $id_value)
+            {
+                $user = User::where('id', $id_value)->first();
+                $user = array('name' => $user->name, 'avatar' => $user->avatar);
+                array_push($user_datas, $user);
+            }
+        return $user_datas;
     }
     
     public function mongoMessages()
@@ -63,5 +90,30 @@ class TestController extends Controller
         
         GroupMessage::create($mongoInsert);
     }
-        
+    /* Receive POST request */
+    public function cMongoMessage (Request $request)
+    {
+        return $request;
+        $user = Auth::user();
+        $request = $request->toArray();
+        $user->mongoMessages()->create($request);
+    }
+    
+    // public function testUpdate ()
+    // {
+    //     $messageGroup = MessageGroup::first();
+    //     $messageGroup->update(
+    //         ['oid' => $messageGroup->_id],
+    //         ['$set' => ['user_id' => [1,2,3]]]
+    //     );
+    // }
+    
+    public function testUpdate ()
+    {
+        $mongoMessage = MongoMessage::first();
+        $mongoMessage->update(
+            ['body' => "Seeded sample"],
+            ['$set' => ['body' => "Update succeeded"]]
+        );
+    }
 }

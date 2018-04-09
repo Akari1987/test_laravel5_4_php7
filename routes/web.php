@@ -58,6 +58,8 @@ Route::get('/ch3', function() {
 ----------------------*/
 Route::get('/testMongo/{menu?}', 'TestController@testMongo');
 
+Route::get('/getTalks', 'TestController@mongoTalks');
+
 Route::get('/getMessages', 'TestController@mongoMessages');
 
 Route::get('/mongo', 'MessageController@index');
@@ -65,6 +67,8 @@ Route::get('/mongo', 'MessageController@index');
 Route::get('/mongoInsert', 'TestController@mongoInsert');
 
 Route::post('/cMongoMessage', 'TestController@cMongoMessage');
+
+Route::get('/testtest', 'TestController@testUpdate');
 
 /*-------------------
 |  For Socialite

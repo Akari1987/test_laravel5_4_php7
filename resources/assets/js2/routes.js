@@ -1,24 +1,15 @@
-// import Example from './components/Example.vue';
+import Example from './components/Example.vue';
+import MongoMessages from './components/MongoMessages.vue';
 
 const routes = [
-    // { path: '/testMongo', component: Example },
-    // { path: '/user/1', redirect: '/user/1'}
-    //     component: Profile,
-    //         children: [
-    //             {
-    //                 path: '', component: Activity,
-    //             },
-                
-    //             {
-    //                 path: 'follow', component: Follows    
-    //             },
-                
-    //             {
-    //                 path: 'activity', component: Activity
-    //             }    
-    //         ]
-    // },
-    
-]
+    // { path: '/testMongo', component: PageBody,
+    //     children: [
+    //         { path: 'friends', component: MongoMessages},
+    //         { path: 'talkList', component: MongoMessages}
+    //     ]
+    // }
+    { path: '/testMongo/friends', component: Example },
+    { path: '/testMongo/talkList', component: MongoMessages }
+];
 
 export default routes;
