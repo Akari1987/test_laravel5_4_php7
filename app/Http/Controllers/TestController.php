@@ -33,13 +33,18 @@ class TestController extends Controller
         $id = Auth::id();
     /* return MessageGroups contains auth user */
         $groups = MessageGroup::whereIn('user_id', [$id])->get();
+        
     /* return name and avatar of User joining the groups, and latest message */
+        $mongoGroups = [];
         $user_datas = [];
+        $groups_datas = [];
         $merged_ids = [];
         foreach($groups as $group)
         {
             $user_ids = $group->user_id;
             $merged_ids = array_merge($merged_ids, $user_ids);
+            $withLatest = array('group' => $group, 'latestMessage' => $group->mongoMessages()->latest()->first());
+            array_push($groups_datas, $withLatest);
         }
         $unique_ids = array_unique($merged_ids);
         $ids_value = array_values($unique_ids);
@@ -49,13 +54,16 @@ class TestController extends Controller
                 $user = array('name' => $user->name, 'avatar' => $user->avatar);
                 array_push($user_datas, $user);
             }
-        return $user_datas;
+        $result['users'] = $user_datas;
+        $result['groups'] = $groups_datas;
+        return $result;
     }
     
     public function mongoMessages()
     {
+        // $user_data = [];
         $mongoMessages = MongoMessage::get();
-        $mMessages = array();
+        $mMessages = [];
         foreach($mongoMessages as $mongoMessage)
         {
             $user_id = $mongoMessage->user_id;
