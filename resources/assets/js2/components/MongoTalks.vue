@@ -1,7 +1,8 @@
 <template>
     <div id="mongo-talks">
-        <app-mongo-talk v-for="mongoTalk in mongoTalks"
-            :t="mongoTalk"
+        <app-mongo-talk v-for="mongoTalk in mongoTalks.groups"
+            :tUsers="mongoTalks.users"
+            :tGroup="mongoTalk"
             :key="mongoTalk.id"></app-mongo-talk>
     </div>
 </template>

@@ -1,15 +1,17 @@
 <template>
-    <div id="page-body" class="container">
+    <div id="page-body">
         <nav class="cd-secondary-nav navbar">
             <app-secondary></app-secondary>
         </nav>
-        <div class="row">
-            <app-mongo-form></app-mongo-form>
-            <router-view></router-view>
-            <div class="panel panel-default">
-                <li>
-                    <a href="/user/1">Reload to app.js</a>
-                </li>
+        <div id="content" class="container">
+            <div class="row">
+                <app-mongo-form></app-mongo-form>
+                <router-view></router-view>
+                <div class="panel panel-default">
+                    <li>
+                        <a href="/user/1">Reload to app.js</a>
+                    </li>
+                </div>
             </div>
         </div>
     </div>
@@ -20,13 +22,11 @@
 
     import Secondary from '../../js/components/topnavbar/Secondary.vue';
     import MongoForm from './MongoForm.vue';
-    import MongoMessages from './MongoMessages.vue';
     
     export default {
         components: {
             'app-secondary': Secondary,
             'app-mongo-form': MongoForm,
-            'app-mongo-messages': MongoMessages,
         },
         methods: {
             ...mapActions({
