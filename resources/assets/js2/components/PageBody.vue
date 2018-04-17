@@ -1,18 +1,27 @@
 <template>
     <div id="page-body">
-        <nav class="cd-secondary-nav navbar">
-            <app-secondary></app-secondary>
-        </nav>
-        <div id="content" class="container">
-            <div class="row">
-                <app-mongo-form></app-mongo-form>
-                <router-view></router-view>
-                <div class="panel panel-default">
+        <div id="page-wrapper">
+            <header class="cd-secondary-nav navbar">
+                <app-secondary></app-secondary>
+            </header>
+            <main id="content" class="container-fluid cd-main-content">
+                <div class="row">
+                    <div class="col-sm-6">
+                         <router-view></router-view>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card p-3 mb-3">
+                            <app-log></app-log>
+                        </div>
+                    </div>
+                </div>
+                <!--<app-mongo-form></app-mongo-form>-->
+                <div class="card">
                     <li>
                         <a href="/user/1">Reload to app.js</a>
                     </li>
                 </div>
-            </div>
+            </main>
         </div>
     </div>
 </template>
@@ -22,11 +31,18 @@
 
     import Secondary from '../../js/components/topnavbar/Secondary.vue';
     import MongoForm from './MongoForm.vue';
+    import Log from './Log.vue';
     
     export default {
         components: {
             'app-secondary': Secondary,
             'app-mongo-form': MongoForm,
+            'app-log': Log
+        },
+        data() {
+            return {
+                drawer: null
+            }
         },
         methods: {
             ...mapActions({

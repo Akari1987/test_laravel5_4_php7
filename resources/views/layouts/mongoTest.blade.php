@@ -9,9 +9,13 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         
         <title>{{ config('app.name', 'Laravel') }}</title>
-        
+        <!-- UI Packages -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css"></link>
+        
+        
         <link href="{{ secure_asset('css2/app.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css2/style.css') }}" rel="stylesheet">
         <!--<link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">-->
 
         <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
@@ -27,10 +31,6 @@
             @yield('content')
         </div>
     </body>
-    <script
-        src="https://code.jquery.com/jquery-2.2.4.min.js"
-        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-        crossorigin="anonymous"></script>
     <script src="{{ secure_asset('js/app2.js') }}"></script>
 </html>
 
