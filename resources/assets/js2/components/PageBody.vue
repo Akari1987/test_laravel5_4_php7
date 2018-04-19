@@ -1,28 +1,40 @@
 <template>
     <div id="page-body">
-        <div id="page-wrapper">
+        <v-app dark="true">
             <header class="cd-secondary-nav navbar">
                 <app-secondary></app-secondary>
             </header>
-            <main id="content" class="container-fluid cd-main-content">
-                <div class="row">
-                    <div class="col-sm-6">
-                         <router-view></router-view>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card p-3 mb-3">
-                            <app-log></app-log>
-                        </div>
-                    </div>
-                </div>
+            <v-content>
+                <v-container fluid grid-list-md>
+                    <v-layout row wrap>
+                        <v-flex md6 sm6 xs12>
+                            <router-view></router-view>
+                        </v-flex>
+                        <v-flex md6>
+                            <v-card class="pa-3 mb-3">
+                                <app-log></app-log>
+                            </v-card>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
+            </v-content>
+                <!--<div class="row">-->
+                <!--    <div class="col-sm-6">-->
+                         
+                <!--    </div>-->
+                <!--    <div class="col-sm-6">-->
+                <!--        <div class="card p-3 mb-3">-->
+                            
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--</div>-->
                 <!--<app-mongo-form></app-mongo-form>-->
-                <div class="card">
-                    <li>
-                        <a href="/user/1">Reload to app.js</a>
-                    </li>
-                </div>
-            </main>
-        </div>
+                <!--<div class="card">-->
+                <!--    <li>-->
+                <!--        <a href="/user/1">Reload to app.js</a>-->
+                <!--    </li>-->
+                <!--</div>-->
+        </v-app>
     </div>
 </template>
 
