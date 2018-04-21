@@ -1,6 +1,6 @@
 <template>
     <div id="page-body">
-        <v-app dark="true">
+        <v-app dark>
             <header class="cd-secondary-nav navbar">
                 <app-secondary></app-secondary>
             </header>
@@ -71,7 +71,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .cd-secondary-nav {
         position: relative;
         z-index: 1;
@@ -95,5 +95,9 @@
         opacity: .6;
         line-height: 50px;
         padding: 0 1em;
+    }
+    
+    .card {
+        border-radius: 10px;
     }
 </style>
