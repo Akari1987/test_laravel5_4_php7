@@ -1,22 +1,17 @@
 <template>
     <div id="app-mongo-talk">
         <v-card class="pa-2 mb-3">
-            <table>
-                <tbody>
-                    <tr>
-                        <td rowspan="2">
-                            <v-avatar>
-                                <img :src="getUserPic(tUsers[tGroup.latestMessage.user_id].avatar)">
-                            </v-avatar>
-                        </td>
-                        <td>{{ tGroup.group.user_id }}</td>
-                        <td class="text-xs-right caption">{{ tGroup.latestMessage.updated_at }}</td>
-                    </tr>
-                    <tr>
-                        <td>{{ tGroup.latestMessage.body }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <v-layout row wrap>
+                <v-flex xs12 sm2 md2 child-flex>
+                    <v-avatar size="100%">
+                        <img :src="getUserPic(tUsers[tGroup.latestMessage.user_id].avatar)">
+                    </v-avatar>
+                </v-flex>
+                <v-flex md10 child-flex>
+                    {{ tGroup.group.user_id }}
+                    {{ tGroup.latestMessage.body }}
+                </v-flex>
+            </v-layout>
         </v-card>
     </div>
 </template>
@@ -39,7 +34,6 @@
     .card {
         border-radius: 10px;
         vertical-align: middle;
-        min-height: 95px;
     }
     
     /*table {*/
@@ -47,8 +41,6 @@
     /*}*/
     
     .avatar {
-        width: 38px;
-        margin-right: 10px;
-        min-height: 95px;
+        width: 100%;
     }
 </style>

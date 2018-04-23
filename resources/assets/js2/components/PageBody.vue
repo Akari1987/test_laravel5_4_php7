@@ -7,10 +7,10 @@
             <v-content>
                 <v-container fluid grid-list-md>
                     <v-layout row wrap>
-                        <v-flex md6 sm6 xs12>
+                        <v-flex md6 sm6>
                             <router-view></router-view>
                         </v-flex>
-                        <v-flex md6>
+                        <v-flex sm6 xs12>
                             <v-card class="pa-3 mb-3">
                                 <app-log></app-log>
                             </v-card>
