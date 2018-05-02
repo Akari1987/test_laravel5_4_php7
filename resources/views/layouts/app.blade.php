@@ -22,7 +22,7 @@
     
         <!--<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">-->
     
-        <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
         <!--<link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">-->
         <!-- Scripts -->
         <script>
@@ -52,12 +52,9 @@
                 </div>
             </div>
         <!-- Main Scripts -->
-        <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
         <script src="{{ secure_asset('js/app.js') }}"></script>
-        <script src="{{ secure_asset('js/plugins/inspinia/metisMenu/jquery.metisMenu.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/metismenu"></script>
         <script src="{{ secure_asset('js/plugins/inspinia/slimscroll/jquery.slimscroll.min.js') }}"></script>
         <script src="{{ secure_asset('js/inspinia.js') }}"></script>
         <script src="{{ secure_asset('js/plugins/inspinia/pace/pace.min.js') }}"></script>
