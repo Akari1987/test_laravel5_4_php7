@@ -16,6 +16,7 @@ export const displayMixin = {
         {
             this.isLarge = false;
             this.isNotLarge = true;
+            $("body").removeClass("mini-navbar");
         }
         window.addEventListener('resize', this.screen);
     },
@@ -29,6 +30,7 @@ export const displayMixin = {
             {
                 this.isLarge = false;
                 this.isNotLarge = true;
+                $("body").removeClass("mini-navbar");
             }
         }
     },
