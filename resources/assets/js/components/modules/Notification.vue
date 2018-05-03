@@ -25,11 +25,11 @@
         // },
         methods: {
             listen() {
-                Echo.private('App.User.' + this.id)
-                    .notification( (notification) => {
-                        alert('New Notification');
-                        console.log(notification);
-                    })
+                // Echo.private('App.User.' + this.id)
+                //     .notification( (notification) => {
+                //         alert('New Notification');
+                //         console.log(notification);
+                //     })
             }
         }
     }
