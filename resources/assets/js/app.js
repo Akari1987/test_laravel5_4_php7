@@ -4,13 +4,10 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-window.$ = window.jQuery = require('jquery');
-window.Laravel = { csrfToken: $('meta[name=csrf-token]').attr("content") };
-
+require('./bootstrap');
 // var mongoose = require('mongoose');
 // mongoose.connect('https://test-laravel5-4-php7-akariozora.c9users.io/:27017/messages');
 
-require('./bootstrap');
 require('./plugins/auto-hiding-navigation/auto-hiding-navigation');
 
 /**
@@ -19,10 +16,11 @@ require('./plugins/auto-hiding-navigation/auto-hiding-navigation');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 import VueRouter from 'vue-router';
-import Axios from 'axios';
+// import Axios from 'axios';
 // import Vuetify from 'vuetify';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import VueCoreImageUpload  from 'vue-core-image-upload';
+import VueScrollTO from "vue-scrollto";
 // import Password from 'vue-password-strength-meter'
 
 import store from './store/store';
@@ -40,9 +38,10 @@ import Streamboxnavbar from './components/sidenavbar/streambox/Streamboxnavbar.v
 
 
 Vue.use(VueRouter);
-Vue.use(Axios);
+// Vue.use(Axios);
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueCoreImageUpload);
+Vue.use(VueScrollTO);
 // Vue.component('example', require('./components/Example.vue').default);
 Vue.component('notification', require('./components/modules/Notification.vue').default);
 Vue.component('topnavbar', require('./components/topnavbar/Topnavbar.vue').default);

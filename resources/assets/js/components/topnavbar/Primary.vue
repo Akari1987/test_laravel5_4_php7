@@ -1,7 +1,13 @@
 <template>
     <nav class="cd-primary-nav">
-        <div class="large-sidenavbar-button" v-if="isLarge === true">
-            <a class="navbar-minimalize  btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+        <div class="large-sidenavbar-button">
+            <!--<a class="navbar-minimalize  btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>-->
+            <a class="btn btn-primary" href="#" @click="primeButton"
+                v-scroll-to="{
+                    el: '.content',
+                    x: true,
+                    y: false
+                    }"><i class="fa fa-bars"></i> </a>
         </div>
         <app-message-notification></app-message-notification>
 		<a href="#cd-navigation" class="nav-trigger">
@@ -20,9 +26,12 @@
 </template>
 
 <script>
+    import {displayMixin} from '../../mixins/displayMixin';
+    
     import MessageNotification from './MessageNotification.vue'
 
     export default {
+        mixins: [displayMixin],
         components: {
             'app-message-notification': MessageNotification
         },
@@ -31,14 +40,33 @@
                 atLarge: true
             }
         },
-        computed: {
-            isLarge() {
-                if(window.matchMedia('(min-width: 1024px)').matches)
-                {
-                    return true;
-                } else
-                {
-                    return false;
+        methods: {
+            primeButton () {
+                if (this.isLarge === true) {
+                    // $("body").toggleClass("mini-navbar");
+                    this.SmoothlyMenu();
+                } else if (this.isNotLarge === true) {
+                    $("body").removeClass("mini-navbar");
+                }
+            },
+            SmoothlyMenu() {
+                if (!$('body').hasClass('mini-navbar') || $('body').hasClass('body-small')) {
+                    // Hide menu in order to smoothly turn on when maximize menu
+                    $('#side-menu').hide();
+                    // For smoothly turn on menu
+                    setTimeout(
+                        function () {
+                            $('#side-menu').fadeIn(400);
+                        }, 200);
+                } else if ($('body').hasClass('fixed-sidebar')) {
+                    $('#side-menu').hide();
+                    setTimeout(
+                        function () {
+                            $('#side-menu').fadeIn(400);
+                        }, 100);
+                } else {
+                    // Remove all inline style from jquery fadeIn function to reset menu state
+                    $('#side-menu').removeAttr('style');
                 }
             }
         }
@@ -48,7 +76,6 @@
 <style>
     .cd-primary-nav {
         width: 100%;
-        /*padding-right: 59.56px;*/
     }
 
     .large-sidenavbar-button {
