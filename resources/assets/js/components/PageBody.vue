@@ -11,15 +11,16 @@
                 <!--<div class="isNotLarge z-index-10000" v-if="isNotLarge == true">-->
                 <topnavbar></topnavbar>
                 <main class="cd-main-content">
-                    <nav class="navbar navbar-static-top navbar-left" role="navigation">
-                        <div class="menu-button" @click="toggleMenu">
+                    <!--<router-view name="streamboxnavbar"></router-view>-->
+                    <div class="wrapper wrapper-content">
+                        <nav class="navbar navbar-static-top navbar-left" role="navigation">
+                        <!--<div class="menu-button" @click="toggleMenu">-->
+                        <div class="menu-button">
                             <div class="navbar-header">
                                 <a class="navbar-minimalize　minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                             </div>
                         </div>
                     </nav>
-                    <!--<router-view name="streamboxnavbar"></router-view>-->
-                    <div class="wrapper wrapper-content">
                         <router-view></router-view>
                     </div>
                 </main>
@@ -31,9 +32,8 @@
 </template>
 
 <script>
+    import {mapActions} from 'vuex';
     import {displayMixin} from '../mixins/displayMixin';
-    // import LargeSidenavbarButton from './sidenavbar/LargeSidenavbarButton.vue';
-    import LargeTopbar from './topnavbar/LargeTopnavbar.vue';
     
     export default {
         mixins: [displayMixin],
@@ -45,6 +45,7 @@
                     slidesPerView: 'auto',
                     initialSlide: 1,
                     resistanceRatio: .00000000000001,
+                    debugger: true
                 }
             }
         },
@@ -57,14 +58,26 @@
            }
         },
         methods: {
+            ...mapActions({
+                setSwiper: 'swiper_setSwiper',
+                testFunc2: 'testFunc2'
+            }),
             toggleMenu() {
-                if (this.swiper.previousIndex == 0) this.swiper.slidePrev()
-            }
+                if (this.swiper.activeIndex === 0) {
+                    this.swiper.slideNext()
+                } else {
+                    this.menuCross = false
+                    this.swiper.slidePrev()
+                }
+            },
+            setPageSwiper() {
+                const provide = this.swiper;
+                this.setSwiper(provide);
+            },
         },
-        components: {
-            // 'app-large-sidenavbar-button' : LargeSidenavbarButton,
-            'app-large-topbar': LargeTopbar
-        },
+        mounted() {
+            this.setPageSwiper();
+        }
     }
 </script>
 
@@ -103,7 +116,6 @@
         /*flex-direction: column;*/
         /*position: relative;*/
         /*background-color: #2C8DFB!important;*/
-        /*color: #fff;*/
     }
     
     .navbar-static-side {
@@ -121,17 +133,17 @@
   .content {
     width: 100%;
   }
-  .menu-button {
-    position: fixed;
-    top: -70px; left: 0px;
-    padding: 15px;
-    z-index: 1001;
-    cursor: pointer;
-    -webkit-transition: .3s;
-    transition: .3s;
-    /*margin: 14px;
-    border-radius: 5px;*/
-  }
+  /*.menu-button {*/
+  /*  position: fixed;*/
+  /*  top: -70px; left: 0px;*/
+  /*  padding: 15px;*/
+  /*  z-index: 1001;*/
+  /*  cursor: pointer;*/
+  /*  -webkit-transition: .3s;*/
+  /*  transition: .3s;*/
+  /*  margin: 14px;*/
+  /*  border-radius: 5px;*/
+  /*}*/
   
     .isLarge {
         position: sticky;
