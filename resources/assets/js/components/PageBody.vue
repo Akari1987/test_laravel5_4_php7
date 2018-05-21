@@ -13,14 +13,6 @@
                 <main class="cd-main-content">
                     <!--<router-view name="streamboxnavbar"></router-view>-->
                     <div class="wrapper wrapper-content">
-                        <nav class="navbar navbar-static-top navbar-left" role="navigation">
-                        <!--<div class="menu-button" @click="toggleMenu">-->
-                        <div class="menu-button">
-                            <div class="navbar-header">
-                                <a class="navbar-minimalize　minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                            </div>
-                        </div>
-                    </nav>
                         <router-view></router-view>
                     </div>
                 </main>
@@ -44,8 +36,19 @@
                 swiper1: {
                     slidesPerView: 'auto',
                     initialSlide: 1,
-                    resistanceRatio: .00000000000001,
-                    debugger: true
+                    resistanceRatio: 0,
+                    slidesPerView: 'auto',
+                    slideToClickedSlide: true,
+                    debugger: true,
+                    on: {
+                        slideChange() {
+                          if (this.activeIndex === 0) {
+                            self.menuCross = true
+                          } else {
+                            self.menuCross = false
+                          }
+                        }
+                  }
                 }
             }
         },

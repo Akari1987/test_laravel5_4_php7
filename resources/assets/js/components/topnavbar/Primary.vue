@@ -1,13 +1,8 @@
 <template>
     <nav class="cd-primary-nav">
-        <div class="large-sidenavbar-button">
+        <div>
             <!--<a class="navbar-minimalize  btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>-->
-            <a class="btn btn-primary" href="#" @click="primeButton"
-                v-scroll-to="{
-                    el: '.content',
-                    x: true,
-                    y: false
-                    }"><i class="fa fa-bars"></i> </a>
+            <a class="btn btn-primary" href="#" @click="toggleMenu"><i class="fa fa-bars"></i></a>
         </div>
         <app-message-notification></app-message-notification>
 		<a href="#cd-navigation" class="nav-trigger">
@@ -26,6 +21,7 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
     import {displayMixin} from '../../mixins/displayMixin';
     
     import MessageNotification from './MessageNotification.vue'
@@ -37,7 +33,8 @@
         },
         data() {
             return {
-                atLarge: true
+                atLarge: true,
+                swiper: this.$store.state.swiper
             }
         },
         methods: {
@@ -68,8 +65,17 @@
                     // Remove all inline style from jquery fadeIn function to reset menu state
                     $('#side-menu').removeAttr('style');
                 }
+            },
+            toggleMenu() {
+                if (this.swiper.pageBodySwiper.activeIndex === 0) {
+                    this.swiper.pageBodySwiper.slideNext()
+                    this.swiper.pageBodySwiper.activeIndex = 1
+                } else {
+                    this.menuCross = false
+                    this.swiper.pageBodySwiper.slidePrev()
+                }
             }
-        }
+        },
     }
 </script>
 
