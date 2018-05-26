@@ -6,6 +6,7 @@
 /public/js/plugins
 /public/storage
 /public/hot
+/public
 /storage/*.key
 /vendor
 /.idea
