@@ -53,10 +53,11 @@
             </div>
         <!-- Main Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
-        <script src="{{ secure_asset('js/app.js') }}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/metismenu"></script>
-        <script src="{{ secure_asset('js/plugins/inspinia/slimscroll/jquery.slimscroll.min.js') }}"></script>
         <script src="{{ secure_asset('js/inspinia.js') }}"></script>
+        <script src="{{ secure_asset('js/app.js') }}"></script>
+        <!--<script src="https://cdn.jsdelivr.net/npm/metismenu"></script>-->
+        <script src="{{ secure_asset('js/plugins/inspinia/metisMenu/jquery.metisMenu.js') }}"></script>
+        <script src="{{ secure_asset('js/plugins/inspinia/slimscroll/jquery.slimscroll.min.js') }}"></script>
         <script src="{{ secure_asset('js/plugins/inspinia/pace/pace.min.js') }}"></script>
         <!-- iCheck -->
         <script src="{{ secure_asset('js/plugins/inspinia/iCheck/icheck.min.js') }}"></script>

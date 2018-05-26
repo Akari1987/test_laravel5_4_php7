@@ -20,7 +20,7 @@
     "lodash": "^4.17.4",
     "perfect-scrollbar": "0.8.1",
     "popper.js": "^1.12",
-    "yarn": "^1.4.0"
+    "yarn": "^1.7.0"
   },
   "dependencies": {
     "bootstrap": "^4.0.0",

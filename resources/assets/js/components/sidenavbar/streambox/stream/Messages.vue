@@ -1,5 +1,5 @@
 <template>
-    <div class="vue-messages col-lg-9 animated fadeInRight">
+    <div class="vue-messages col-lg-6 animated fadeInRight">
         <div class="mail-box-header">
             <div class="pull-right tooltip-demo">
                 <button title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm btn-white"><i class="fa fa-trash-o"></i> Remove</button>

@@ -7,8 +7,6 @@
 
 require('../js/bootstrap');
 
-window.Vue = require('vue');
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -25,8 +23,15 @@ import Axios from 'axios';
 /* Store state management */
 import store from '../js/store/store';
 
+/* UI Package*/
+import SuiVue from 'semantic-ui-vue';
+import Vuetify from 'vuetify';
+import 'vuetify/dist/vuetify.min.css';
+
 Vue.use(VueRouter);
 Vue.use(Axios);
+Vue.use(SuiVue);
+Vue.use(Vuetify);
 
 Vue.component('example', require('./components/Example.vue').default);
 Vue.component('page-body', require('./components/PageBody.vue').default);

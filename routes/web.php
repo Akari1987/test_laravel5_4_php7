@@ -53,9 +53,9 @@ Route::get('/ch3', function() {
     return Auth::user()->res_follows();
 });
 
-/*---------------------
-|  For MongoDB Testing
-----------------------*/
+/*------------------------------------------
+|  For MongoDB Testing : testMongo.blade.php
+-------------------------------------------*/
 Route::get('/testMongo/{menu?}', 'TestController@testMongo');
 
 Route::get('/getTalks', 'TestController@mongoTalks');
@@ -225,7 +225,7 @@ Route::group(['middleware' => ['auth']], function() {
         return Auth::user()->res_recommend();
     });
     
-    // return recomend user to VUe component
+    // return recommend user to VUe component
         Route::get('/res_recommends/{id}', function($id) {
             return \App\user::find($id)->res_recommends();
         });

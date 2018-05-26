@@ -2,30 +2,18 @@
     <div class="stream">
         <app-stream-side-panel></app-stream-side-panel>
         <app-messages></app-messages>
-        <!--<app-message-composer></app-message-composer>-->
     </div>
 </template>
 
 <script>
     import Messages from './Messages.vue';
-    //import MessageComposer from './MessageComposer.vue';
     import StreamSidePanel from './StreamSidePanel.vue';
     
     export default {
         components: {
             'app-messages': Messages,
-            //'app-message-composer': MessageComposer,
             'app-stream-side-panel': StreamSidePanel,
         },
-        created() {
-            // axios.post('/get_stream',
-            // {
-                
-            // }).then(response => {
-            //     console.log(response);    
-            // });
-            
-        }
     }
 </script>
 

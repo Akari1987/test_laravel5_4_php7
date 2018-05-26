@@ -175,4 +175,8 @@
       text-align: center;
     }
   }
+  
+  .navbar-top-links {
+      position: absolute;
+  }
 </style>
