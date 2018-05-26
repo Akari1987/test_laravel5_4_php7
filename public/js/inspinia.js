@@ -1,19 +1,94 @@
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 399);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 399:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(400);
+
+
+/***/ }),
+
+/***/ 400:
+/***/ (function(module, exports) {
+
 /*
  *
  *   INSPINIA - Responsive Admin Theme
  *   version 2.6
  *
  */
-
-
 $(document).ready(function () {
-
 
     // Add body-small class if window less than 768px
     if ($(this).width() < 769) {
-        $('body').addClass('body-small')
+        $('body').addClass('body-small');
     } else {
-        $('body').removeClass('body-small')
+        $('body').removeClass('body-small');
     }
 
     // MetsiMenu
@@ -104,18 +179,17 @@ $(document).ready(function () {
     // });
 
     // Minimalize menu
-    $('.navbar-minimalize').on('click', function () {
-        $("body").toggleClass("mini-navbar");
-        SmoothlyMenu();
+    // $('.navbar-minimalize').on('click', function () {
+    //     $("body").toggleClass("mini-navbar");
+    //     SmoothlyMenu();
 
-    });
+    // });
 
     // Tooltips demo
     $('.tooltip-demo').tooltip({
         selector: "[data-toggle=tooltip]",
         container: "body"
     });
-
 
     // Full height of sidebar
     function fix_height() {
@@ -140,7 +214,6 @@ $(document).ready(function () {
                 $('#page-wrapper').css("min-height", $(window).height() - 60 + "px");
             }
         }
-
     }
 
     fix_height();
@@ -170,22 +243,20 @@ $(document).ready(function () {
         }
     });
 
-    $("[data-toggle=popover]")
-        .popover();
+    $("[data-toggle=popover]").popover();
 
     // Add slimscroll to element
     $('.full-height-scroll').slimscroll({
         height: '100%'
-    })
+    });
 });
-
 
 // Minimalize menu when screen is less than 768px
 $(window).bind("resize", function () {
     if ($(this).width() < 769) {
-        $('body').addClass('body-small')
+        $('body').addClass('body-small');
     } else {
-        $('body').removeClass('body-small')
+        $('body').removeClass('body-small');
     }
 });
 
@@ -219,7 +290,6 @@ $(document).ready(function () {
                 if (!body.hasClass('body-small')) {
                     body.addClass('mini-navbar');
                 }
-
             }
         }
 
@@ -240,22 +310,20 @@ $(document).ready(function () {
 
 // check if browser support HTML5 local storage
 function localStorageSupport() {
-    return (('localStorage' in window) && window['localStorage'] !== null)
+    return 'localStorage' in window && window['localStorage'] !== null;
 }
 
 // For demo purpose - animation css script
 function animationHover(element, animation) {
     element = $(element);
-    element.hover(
-        function () {
-            element.addClass('animated ' + animation);
-        },
-        function () {
-            //wait for animation to finish before removing classes
-            window.setTimeout(function () {
-                element.removeClass('animated ' + animation);
-            }, 2000);
-        });
+    element.hover(function () {
+        element.addClass('animated ' + animation);
+    }, function () {
+        //wait for animation to finish before removing classes
+        window.setTimeout(function () {
+            element.removeClass('animated ' + animation);
+        }, 2000);
+    });
 }
 
 function SmoothlyMenu() {
@@ -263,16 +331,14 @@ function SmoothlyMenu() {
         // Hide menu in order to smoothly turn on when maximize menu
         $('#side-menu').hide();
         // For smoothly turn on menu
-        setTimeout(
-            function () {
-                $('#side-menu').fadeIn(400);
-            }, 200);
+        setTimeout(function () {
+            $('#side-menu').fadeIn(400);
+        }, 200);
     } else if ($('body').hasClass('fixed-sidebar')) {
         $('#side-menu').hide();
-        setTimeout(
-            function () {
-                $('#side-menu').fadeIn(400);
-            }, 100);
+        setTimeout(function () {
+            $('#side-menu').fadeIn(400);
+        }, 100);
     } else {
         // Remove all inline style from jquery fadeIn function to reset menu state
         $('#side-menu').removeAttr('style');
@@ -284,15 +350,15 @@ function WinMove() {
     var element = "[class*=col]";
     var handle = ".ibox-title";
     var connect = "[class*=col]";
-    $(element).sortable(
-        {
-            handle: handle,
-            connectWith: connect,
-            tolerance: 'pointer',
-            forcePlaceholderSize: true,
-            opacity: 0.8
-        })
-        .disableSelection();
+    $(element).sortable({
+        handle: handle,
+        connectWith: connect,
+        tolerance: 'pointer',
+        forcePlaceholderSize: true,
+        opacity: 0.8
+    }).disableSelection();
 }
 
+/***/ })
 
+/******/ });

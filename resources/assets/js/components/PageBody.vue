@@ -1,6 +1,6 @@
 <template>
     <div id="page-body" class="swiper1">
-        <swiper :options="swiper1" ref="swiper">
+        <swiper :options="swiperOption1" ref="swiper">
             <swiper-slide class="menu" v-if="isNotLarge === true">
                 <sidenavbar></sidenavbar>
             </swiper-slide>
@@ -18,6 +18,38 @@
                 </main>
             </swiper-slide>
         </swiper>
+        <!--<v-app-->
+        <!--    height="100%"-->
+        <!--    dark-->
+        <!--    id="e3"-->
+        <!--    standalone-->
+        <!-->-->
+        <!--    <v-navigation-drawer-->
+        <!--        class="pb-0"-->
+        <!--        persistent-->
+        <!--        absolute-->
+        <!--        height="100%"-->
+        <!--        clipped-->
+        <!--        enable-resize-watcher-->
+        <!--        v-model="drawer"-->
+        <!--    >-->
+        <!--        <sidenavbar></sidenavbar>-->
+        <!--    </v-navigation-drawer>-->
+        <!--    <v-toolbar class="red">-->
+        <!--        <v-toolbar-title>-->
+        <!--            <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>-->
+        <!--            <v-icon class="ml-3">fa-youtube</v-icon>-->
+        <!--        </v-toolbar-title>-->
+        <!--        <v-spacer></v-spacer>-->
+        <!--        <v-text-field-->
+        <!--            label="Search..."-->
+        <!--            single-line-->
+        <!--            append-icon="search"-->
+        <!--            dark-->
+        <!--            hide-details-->
+        <!--        ></v-text-field>-->
+        <!--    </v-toolbar>-->
+        <!--</v-app>-->
         <!--<notification :id=user.id></notification>-->
         <!--<notification></notification>-->
     </div>
@@ -30,35 +62,36 @@
     export default {
         mixins: [displayMixin],
         data() {
-            let self = this
             return {
-                menuCross: false,
-                swiper1: {
+                swiperOption1: {
                     slidesPerView: 'auto',
                     initialSlide: 1,
                     resistanceRatio: 0,
                     slidesPerView: 'auto',
                     slideToClickedSlide: true,
+                    watchOverFlow: true,
+                    noSwipingSelector: "",
+                    nested: true,
                     debugger: true,
                     on: {
-                        slideChange() {
-                          if (this.activeIndex === 0) {
-                            self.menuCross = true
-                          } else {
-                            self.menuCross = false
-                          }
-                        }
-                  }
-                }
+                  touchStart: function () {
+                     console.log('init')
+                  },
+                 }
+                },
+                drawer: true,
             }
         },
         computed: {
+            user() {
+               return this.$store.state.user.user;
+            },
             swiper() {
                 return this.$refs.swiper.swiper
             },
-            user() {
-               return this.$store.state.user.user;
-           }
+            direction() {
+                return this.$refs.swiper.swiper.touches
+            }
         },
         methods: {
             ...mapActions({

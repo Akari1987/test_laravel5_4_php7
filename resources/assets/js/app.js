@@ -17,7 +17,7 @@ require('./plugins/auto-hiding-navigation/auto-hiding-navigation');
  */
 import VueRouter from 'vue-router';
 // import Axios from 'axios';
-// import Vuetify from 'vuetify';
+import Vuetify from 'vuetify';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import VueCoreImageUpload  from 'vue-core-image-upload';
 import VueScrollTO from "vue-scrollto";
@@ -39,10 +39,12 @@ import Streamboxnavbar from './components/sidenavbar/streambox/Streamboxnavbar.v
 
 Vue.use(VueRouter);
 // Vue.use(Axios);
+Vue.use(Vuetify);
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueCoreImageUpload);
 Vue.use(VueScrollTO);
 // Vue.component('example', require('./components/Example.vue').default);
+Vue.component('vuetify', require('./components/Vuetify.vue').default);
 Vue.component('notification', require('./components/modules/Notification.vue').default);
 Vue.component('topnavbar', require('./components/topnavbar/Topnavbar.vue').default);
 Vue.component('large-sidenavbar', require('./components/sidenavbar/LargeSidenavbar.vue').default);
@@ -51,9 +53,6 @@ Vue.component('top-nav-bar', require('./components/modules/TopNavBar.vue').defau
 Vue.component('feed', require('./components/home/home_center/Feed.vue').deafault);
 Vue.component('home-center', require('./components/home/home_center/HomeCenter.vue').default);
 Vue.component('profile-detail', require('./components/profile/ProfileDetail.vue').default);
-
-
-
 Vue.component('sidenavbar', require('./components/sidenavbar/Sidenavbar.vue').default);
 //Vue.component('app-vue-html-editor', require('vue-html-editor'));
 // Vue.component('SweetModal');

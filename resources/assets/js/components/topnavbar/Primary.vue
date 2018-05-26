@@ -1,8 +1,7 @@
 <template>
     <nav class="cd-primary-nav">
         <div>
-            <!--<a class="navbar-minimalize  btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>-->
-            <a class="btn btn-primary" href="#" @click="toggleMenu"><i class="fa fa-bars"></i></a>
+            <a class="btn btn-primary initSideBtn" href="#" @click="toggleMenu"><i class="fa fa-bars"></i></a>
         </div>
         <app-message-notification></app-message-notification>
 		<a href="#cd-navigation" class="nav-trigger">
@@ -67,12 +66,18 @@
                 }
             },
             toggleMenu() {
-                if (this.swiper.pageBodySwiper.activeIndex === 0) {
-                    this.swiper.pageBodySwiper.slideNext()
-                    this.swiper.pageBodySwiper.activeIndex = 1
+                if(this.isLarge === true) {
+                    $("body").toggleClass("mini-navbar");
+                    this.SmoothlyMenu();
+                    
                 } else {
-                    this.menuCross = false
-                    this.swiper.pageBodySwiper.slidePrev()
+                    if (this.swiper.pageBodySwiper.activeIndex === 0) {
+                        this.swiper.pageBodySwiper.slideNext()
+                        this.swiper.pageBodySwiper.activeIndex = 1
+                    } else {
+                        this.menuCross = false
+                        this.swiper.pageBodySwiper.slidePrev()
+                    }
                 }
             }
         },
@@ -89,5 +94,9 @@
         position: relative;
         top: 21px;
         left: 15px;
+    }
+    
+    .initSideBtn {
+        margin: 14px 5px 5px 20px;
     }
 </style>
