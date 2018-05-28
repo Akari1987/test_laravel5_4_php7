@@ -31,7 +31,7 @@ import Activity from './components/profile/Activity.vue';
 
 import Home from './components/home/Home.vue';
 
-import Stream from './components/sidenavbar/streambox/stream/Stream.vue';
+import Stream from './components/streambox/stream/Stream.vue';
 import Member from './components/sidenavbar/streambox/member/Members.vue';
 import Email from './components/sidenavbar/streambox/email/Email.vue';
 import Streamboxnavbar from './components/sidenavbar/streambox/Streamboxnavbar.vue';
