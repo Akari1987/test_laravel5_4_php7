@@ -34,8 +34,6 @@ import Home from './components/home/Home.vue';
 import Stream from './components/streambox/stream/Stream.vue';
 import Member from './components/sidenavbar/streambox/member/Members.vue';
 import Email from './components/sidenavbar/streambox/email/Email.vue';
-import Streamboxnavbar from './components/sidenavbar/streambox/Streamboxnavbar.vue';
-
 
 Vue.use(VueRouter);
 // Vue.use(Axios);
@@ -78,14 +76,11 @@ const routes = [
     
     { path: '/home', component: Profile },
     
-    { path: '/stream', components: { default: Stream,
-                                     streamboxnavbar: Streamboxnavbar}
+    { path: '/stream', components: { default: Stream }
     },
-    { path: '/member', components: { default: Member,
-                                     streamboxnavbar: Streamboxnavbar}
+    { path: '/member', components: { default: Member}
     },
-    { path: '/email', components: { default: Email,
-                                    streamboxnavbar: Streamboxnavbar}
+    { path: '/email', components: { default: Email}
     },
 ];
 
