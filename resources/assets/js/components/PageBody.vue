@@ -11,7 +11,6 @@
                 <!--<div class="isNotLarge z-index-10000" v-if="isNotLarge == true">-->
                 <topnavbar></topnavbar>
                 <main class="cd-main-content">
-                    <!--<router-view name="streamboxnavbar"></router-view>-->
                     <div class="wrapper wrapper-content">
                         <router-view></router-view>
                     </div>

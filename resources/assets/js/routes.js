@@ -12,14 +12,11 @@ const routes = [
     
     { path: '/testMongo', component: Example },
     
-    { path: '/stream', components: { default: Stream,
-                                     streamboxnavbar: Streamboxnavbar}
+    { path: '/stream', components: Stream
     },
-    { path: '/member', components: { default: Member,
-                                     streamboxnavbar: Streamboxnavbar}
+    { path: '/member', components: { default: Member }
     },
-    { path: '/email', components: { default: Email,
-                                    streamboxnavbar: Streamboxnavbar}
+    { path: '/email', components: { default: Email }
     },
 ];
 
