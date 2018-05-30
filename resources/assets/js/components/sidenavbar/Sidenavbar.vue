@@ -229,7 +229,7 @@
     import {getUserPicMixin} from '../../mixins/getUserPicMixin';
     
     import HomeLink from '../../components/home/HomeLink.vue';
-    import Streambox from '../streambox/Streambox.vue';
+    import Streambox from './MessageBoxSidenav.vue';
 
     export default {
         mixins: [getUserPicMixin],
