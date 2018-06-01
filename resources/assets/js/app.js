@@ -31,6 +31,7 @@ import Activity from './components/profile/Activity.vue';
 
 import Home from './components/home/Home.vue';
 
+import MessageBox from './components/messagebox/MessageBoxBody.vue';
 import Stream from './components/messagebox/stream/Stream.vue';
 import Member from './components/messagebox/member/Members.vue';
 import Email from './components/messagebox/email/Email.vue';
@@ -58,26 +59,25 @@ Vue.component('sidenavbar', require('./components/sidenavbar/Sidenavbar.vue').de
 
 const routes = [
     { path: '/user/:id',
-      component: Profile,
-        children: [
-            {
-                path: '', component: Activity,
-            },
-            
-            {
-                path: 'follow', component: Follows    
-            },
-            
-            {
-                path: 'activity', component: Activity
-            }    
-        ]
+        component: Profile,
+            children: [
+                { path: '', component: Activity },
+                { path: 'follow', component: Follows },
+                { path: 'activity', component: Activity }    
+            ]
     },
     
     { path: '/home', component: Profile },
     
-    { path: '/stream', components: { default: Stream }
+    { path: '/messagebox', 
+        component: MessageBox,
+            children: [
+                { path: 'stream', component: Stream },
+                { path: 'member', component: Member },
+                { path: 'email', component: Email }
+            ]
     },
+    
     { path: '/member', components: { default: Member}
     },
     { path: '/email', components: { default: Email}

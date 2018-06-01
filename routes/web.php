@@ -108,6 +108,10 @@ Route::group(['middleware' => ['auth']], function() {
         return view('home');
     });
     
+    Route::get('messagebox/{status_?}', function() {
+        return view('home');
+    });
+    
     Route::get('/res_follows_array/{id}', 'FollowController@res_follows_array');
     
     Route::get('/res_friends_array/{id}', 'FriendshipsController@res_friends_array');
@@ -136,17 +140,7 @@ Route::group(['middleware' => ['auth']], function() {
         return view('home');
     });
     
-    Route::get('/stream', function(){
-        return view('home');
-    });
-    
     Route::get('/members', 'UserController@member');
-    
-    Route::get('/email', function(){
-        return view('home');
-    });
-    
-    
     
 /*-------------------
 |  For User-Edit
