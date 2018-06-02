@@ -58,7 +58,7 @@ Route::get('/ch3', function() {
 -------------------------------------------*/
 Route::get('/testMongo/{menu?}', 'TestController@testMongo');
 
-Route::get('/getTalks', 'TestController@mongoTalks');
+Route::get('/getTalks', 'TestController@mongoTalks');  // return streamMessages->groups[_id, user_ids]+->users[name, avatar]
 
 Route::get('/getMessages', 'TestController@mongoMessages');
 
