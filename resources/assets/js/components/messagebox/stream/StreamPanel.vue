@@ -50,7 +50,9 @@
         <!--    </div>-->
         <!--</li>-->
         <div class="ibox-content">
-
+            <app-stream-message v-for="streamMessage in streamMessages.groups" 
+            :m="streamMessage"
+            :key="streamMessage.id"></app-stream-message>
             <div>
                 <div class="feed-activity-list">
 
@@ -176,12 +178,29 @@
 </template>
 
 <script>
+    import StreamMessage from './StreamMessage.vue';
+
     export default {
-        
+        components: {
+            'app-stream-message': StreamMessage 
+        },
+        data() {
+            return {
+                streamMessages: []
+            }
+        },
+        mounted() {
+            /* Get MongoTalks */
+            /* Get streamMessages->groups[_id, user_ids]+->users[name, avatar] */
+            axios.get('/getTalks').then(response => {
+                this.streamMessages = response.data;
+                console.log(this.streamMessages);
+            });
+        }
     }
 </script>
 
-<style type="text/css">
+<style scoped>
 stream-side-panel {
     border: medium none;
     border-radius: 3px;

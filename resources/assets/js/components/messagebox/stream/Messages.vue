@@ -41,7 +41,7 @@
     }
 </script>
 
-<style type="text/css">
+<style scoped>
 .feed-element img.img-circle,
 .icon img.img-circle {
   width: 38px;

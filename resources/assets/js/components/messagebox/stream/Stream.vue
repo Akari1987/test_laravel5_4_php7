@@ -17,7 +17,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .balloon {
         padding: 8px;
         padding-bottom: 28px;
@@ -57,13 +57,12 @@
         bottom: -15px;
         left: 35px;
     }    
+    
     .feed-element img.img-circle,
     .icon img.img-circle {
       width: 38px;
       height: 38px;
       margin-top: 15px;
-      margin-left: 60px;
-      
     }
     
     $balloon-composer-color:#CEE7F7;
