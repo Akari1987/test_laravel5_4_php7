@@ -3,12 +3,8 @@
 import {mapGetters} from 'vuex';
 
 const state = {
-    user: {
-
-    },
-    userDetail: {
-        
-    }
+    user: {},
+    userDetail: {}
 };
 
 const getters = {
@@ -56,6 +52,7 @@ export const userMixin = {
 }
 
 export default {
+    // namespace: true,
     state,
     getters,
     actions,

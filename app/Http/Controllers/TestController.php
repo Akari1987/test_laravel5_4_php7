@@ -51,7 +51,7 @@ class TestController extends Controller
         foreach($ids_value as $id_value)
             {
                 $user = User::where('id', $id_value)->first();
-                $user = array('name' => $user->name, 'avatar' => $user->avatar);
+                $user = array('id' => $user->id, 'name' => $user->name, 'avatar' => $user->avatar);
                 array_push($user_datas, $user);
             }
         $result['users'] = $user_datas;
