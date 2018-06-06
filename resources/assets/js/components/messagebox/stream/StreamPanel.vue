@@ -194,7 +194,7 @@
             /* Get streamMessages->groups[_id, user_ids]+->users[name, avatar] */
             axios.get('/getTalks').then(response => {
                 this.streamMessages = response.data;
-                console.log(this.streamMessages);
+                this.$store.commit('SET_USERS',response.data.users);
             });
         }
     }
