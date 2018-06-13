@@ -28,7 +28,7 @@ class TestController extends Controller
         
     }
     
-    public function mongoTalks()
+    public function mongoTalks()  // **return auth user's joining groups, user data and latest group messages**
     {
         $id = Auth::id();
     /* return MessageGroups contains auth user */
@@ -59,7 +59,13 @@ class TestController extends Controller
         return $result;
     }
     
-    public function mongoMessages()
+    public function getGroupStreamMessages(Request $request)  // **return clicked all group messages**
+    {
+        $group = MessageGroup::where('_id', $request->id)->first();
+        return $group->mongoMessages()->get();
+    }
+    
+    public function mongoMessages()  // **return All mongoMessages**
     {
         // $user_data = [];
         $mongoMessages = MongoMessage::get();

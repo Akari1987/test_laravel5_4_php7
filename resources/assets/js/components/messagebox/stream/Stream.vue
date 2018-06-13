@@ -1,17 +1,17 @@
 <template>
     <div class="stream">
         <app-stream-panel></app-stream-panel>
-        <app-messages></app-messages>
+        <app-stream-messages></app-stream-messages>
     </div>
 </template>
 
 <script>
-    import Messages from './Messages.vue';
+    import StreamMessages from './StreamMessages.vue';
     import StreamPanel from './StreamPanel.vue';
     
     export default {
         components: {
-            'app-messages': Messages,
+            'app-stream-messages': StreamMessages,
             'app-stream-panel': StreamPanel,
         },
     }

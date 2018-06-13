@@ -60,6 +60,8 @@ Route::get('/testMongo/{menu?}', 'TestController@testMongo');
 
 Route::get('/getTalks', 'TestController@mongoTalks');  // return streamMessages->groups[_id, user_ids]+->users[name, avatar]
 
+Route::get('/getGroupStreamMessages', 'TestController@getGroupStreamMessages');
+
 Route::get('/getMessages', 'TestController@mongoMessages');
 
 Route::get('/mongo', 'MessageController@index');

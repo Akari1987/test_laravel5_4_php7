@@ -26,10 +26,10 @@ class MessageGroup extends Moloquent
     //     return $this->belongsTo(User::class);
     // }
     
-    public function groupMessages()
-    {
-        return $this->hasMany(GroupMessage::class);
-    }
+    // public function groupMessages()
+    // {
+    //     return $this->hasMany(GroupMessage::class);
+    // }
     
     public function mongoMessages()
     {

@@ -11,13 +11,13 @@ const getters = {
 }
 
 const actions = {
-    setUsers({ commit }, payload) {
-        commit('SET_USERS', payload);
+    setMessageboxUsers({ commit }, payload) {
+        commit('SET_MESSAGEBOX_USERS', payload);
     }
 }
 
 const mutations = {
-    SET_USERS: (state, payload) => {
+    SET_MESSAGEBOX_USERS: (state, payload) => {
         state.messageboxUsers = payload
     }
 }

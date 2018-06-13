@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import messageboxUsers from './modules/messagebox/users.js';
+import messageboxStreamLogs from './modules/messagebox/streamLog.js';
 import activity from './modules/activity.js';
 import friends from './modules/friends.js';
 import follows from './modules/follows.js';
@@ -19,6 +20,7 @@ export default new Vuex.Store({
         friends,
         follows,
         messageboxUsers,
+        messageboxStreamLogs,
         profile,
         recommend,
         stream,
