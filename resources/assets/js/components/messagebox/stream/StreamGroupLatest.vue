@@ -3,11 +3,11 @@
         <div class="feed-element">
             <a href="#" @click="loadMessages()">
                 <a href="#" class="pull-left">
-                    <img :src="getUserPic(messageboxUsersData.avatar)" class="img-circle image-responsive m-b-md">
+                    <img :src="getUserPic(latestMessageUsersData.avatar)" class="img-circle image-responsive m-b-md">
                 </a>
                 <div class="media-body">
                     <small class="pull-right">{{ m.latestMessage.created_at }}</small>
-                    <strong>{{ messageboxUsersData.name }}</strong><br />
+                    <strong>{{ latestMessageUsersData.name }}</strong><br />
                     <div class="well">
                         {{ m.latestMessage.body }}
                     </div>
@@ -30,15 +30,14 @@
         mixins: [getUserPicMixin],
         data() {
             return {
-                messageboxUsersData: [],
-                streamMessageLogs: {}
+                latestMessageUsersData: [],
             }
         },
         mounted() {
             const id = this.m.latestMessage.user_id;
             const result = this.$store.state.messageboxUsers.messageboxUsers.find(obj => obj.id === id);
-            this.messageboxUsersData = result;
-            console.log(this.m);
+            this.latestMessageUsersData = result; //**latest message user data**//
+            // console.log(this.m);
         },
         methods: {
             loadMessages() {
@@ -46,8 +45,11 @@
                 axios.get('/getGroupStreamMessages', {params: {
                     id: this.m.group._id
                 }}).then(response => {
-                    this.streamMessageLogs = response.data;
-                    this.$store.commit('SET_STREAM_LOGS', response.data);
+                    const payload = {};
+                    payload['logs'] = response.data;
+                    // payload['users'] = this.store.state.str
+                    this.$store.commit('SET_STREAM_LOGS', payload);
+                    // this.$store.commit('SET_STREAM_LOGS', response.data);
                 });
             }
         }

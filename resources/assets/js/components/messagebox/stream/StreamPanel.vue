@@ -186,15 +186,78 @@
         },
         data() {
             return {
-                streamMessages: []
+                streamMessages: [],
+                messages: []
             }
         },
         mounted() {
             /* Get MongoTalks */
-            /* Get streamMessages->groups[_id, user_ids]+->users[name, avatar] */
+            /* Get streamMessages->groups[_id, user_ids]+->allUsers[name, avatar] */
             axios.get('/getTalks').then(response => {
                 this.streamMessages = response.data.groups;
-                this.$store.commit('SET_MESSAGEBOX_USERS',response.data.users);
+                this.$store.commit('SET_MESSAGEBOX_USERS', response.data.users);
+                const groupDatas = {};
+                // for(var i=0; i < response.data.groups.length; i++)
+                // {
+                //     const id = response.data.groups[i].group.user_id;
+                //     for(var i2=0; i2 < id.length; i2++)
+                //     {
+                //         const userData = this.$store.state.messageboxUsers.messageboxUsers.find(obj => obj.id === id[i2]);
+                //         groupDatas[i2] = userData;
+                //     }
+                // }
+                console.log(response.data);
+                const result = [];
+                const target = response.data.groups;
+                for(var i=0; i < response.data.groups.length; i++)
+                {
+                    // const group = response.data.groups[i].group;
+                    // console.log(group);
+                    // delete target[i].latestMessage;
+                    // const streamGroup = response.data.groups[i];
+                    // console.log(response.data.groups[i]);
+                    // console.log(response.data.groups[i].group.user_id);
+                    
+                    const ids = response.data.groups[i].group.user_id;
+                    const userDatas = [];
+                    // for(var user_id in ids)
+                    // {
+                    //     // console.log(ids[user_id]);
+                    //     const userData = this.$store.state.messageboxUsers.messageboxUsers.find(obj => obj.id === ids[user_id]);
+                    //     console.log(userData);
+                    //     userDatas.push(userData);
+                    // }
+                    for(var i2=0; i2 < ids.length; i2++)
+                    {
+                        const userData = this.$store.state.messageboxUsers.messageboxUsers.find(obj => obj.id === ids[i2]);
+                        userDatas[i2] = userData;
+                    }
+                    // for(var i2=0; i2 < ids.length; i++)
+                    // {
+                    //     const userData = this.$store.state.messageboxUsers.messageboxUsers.find(obj => obj.id === ids[i2]);
+                    //     userDatas[i2] = userData;
+                    // }
+                    // groupDatas[i] = userDatas;
+                    result[i] = userDatas;
+                    console.log(userDatas);
+                    // console.log(target);
+                }
+                console.log(result);
+                this.$store.commit('SET_STREAM_GROUP_USERS', groupDatas);
+                // this.$store.commit('SET_STREAM_GROUPS', response.data.groups);
+                // this.$store.commit('SET_STREAM_GROUPS', target);
+                // this.$store.commit('SET_STREAM_GROUPS', groupDatas);
+                return target;
+            }).then(response => {
+                const target = response;
+                for(var i=0; i < response.length; i++)
+                {
+                    // const target = response[i];
+                    delete target[i].latestMessage;
+                }
+                this.$store.commit('SET_STREAM_GROUPS', response);
+                this.messages = target;
+                console.log(response);
             });
         }
     }
