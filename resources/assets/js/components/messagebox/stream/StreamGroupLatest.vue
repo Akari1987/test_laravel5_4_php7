@@ -1,7 +1,7 @@
 <template>
     <div class="app-stream-group-latest">
         <div class="feed-element">
-            <a href="#" @click="loadMessages()">
+            <a href="#" @click="loadGroupMessages(m.group._id)">
                 <a href="#" class="pull-left">
                     <img :src="getUserPic(latestMessageUsersData.avatar)" class="img-circle image-responsive m-b-md">
                 </a>
@@ -31,10 +31,11 @@
 
 <script>
     import {getUserPicMixin} from '../../../mixins/getUserPicMixin';
+    import {loadGroupMessagesMixin} from '../../../mixins/loadGroupMessagesMixin';
     
     export default {
         props: ['m'],
-        mixins: [getUserPicMixin],
+        mixins: [getUserPicMixin, loadGroupMessagesMixin],
         data() {
             return {
                 latestMessageUsersData: [],
@@ -64,28 +65,7 @@
             const result = this.$store.state.messageboxUsers.messageboxUsers.find(obj => obj.id === id);
             this.latestMessageUsersData = result; //**latest message user data**//
             // console.log(this.m);
-            //
-            // var result = null;
-            // const groupId = this.m.group._id;
-            // const streamGroups = this.$store.state.messageboxStreamlogs.streamGroups;
-            // const streamGroups = this.$store.getters.getStreamGroups;
-            // this.result = streamGroups;
-            // return streamGroups;
         },
-        methods: {
-            loadMessages() {
-                // **load clicked messageGroup**
-                axios.get('/getGroupStreamMessages', {params: {
-                    id: this.m.group._id
-                }}).then(response => {
-                    const payload = {};
-                    payload['groupId'] = this.m.group._id;
-                    payload['logs'] = response.data;
-                    // payload['users'] = this.store.state.str
-                    this.$store.commit('SET_STREAM_LOGS', payload);
-                });
-            }
-        }
     }
 </script>
 
