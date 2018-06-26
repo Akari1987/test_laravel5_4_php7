@@ -13,6 +13,7 @@
                         <v-flex sm6 xs12>
                             <v-card class="pa-3 mb-3">
                                 <app-log></app-log>
+                                <app-mongo-form></app-mongo-form>
                             </v-card>
                         </v-flex>
                     </v-layout>

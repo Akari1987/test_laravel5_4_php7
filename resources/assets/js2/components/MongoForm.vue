@@ -38,9 +38,9 @@
             }),
             sendMessage: function () {
                 const message = {
-                    messageText: this.messageText,
-                    user: this.$store.state.user.user.name,
-                    avatar: this.$store.state.user.user.avatar
+                    body: this.messageText,
+                    // user: this.$store.state.user.user.name,
+                    // avatar: this.$store.state.user.user.avatar
                 };
                 if (this.messageText)
                 {
