@@ -58,7 +58,7 @@ Route::get('/ch3', function() {
 -------------------------------------------*/
 Route::get('/testMongo/{menu?}', 'TestController@testMongo');
 
-Route::get('/getTalks', 'TestController@mongoTalks');  // return streamMessages->groups[_id, user_ids]+->users[name, avatar]
+Route::get('/getTalks', 'TestController@mongoGroupChats');  // return streamMessages->groups[_id, user_ids]+->users[name, avatar]
 
 Route::get('/getGroupStreamMessages', 'TestController@getGroupStreamMessages');
 
@@ -67,6 +67,8 @@ Route::get('/getMessages', 'TestController@mongoMessages');
 Route::get('/mongo', 'MessageController@index');
 
 Route::get('/mongoInsert', 'TestController@mongoInsert');
+
+Route::post('/createGroupStreamMessage', 'TestController@createGroupMongoMessage');
 
 Route::post('/cMongoMessage', 'TestController@cMongoMessage');
 

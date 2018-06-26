@@ -47,4 +47,7 @@
     .vue-message {
         padding: 15px;
     }
+    .img-circle {
+        width: 5rem;
+    }
 </style>

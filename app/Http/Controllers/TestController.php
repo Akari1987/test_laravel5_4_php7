@@ -28,7 +28,7 @@ class TestController extends Controller
         
     }
     
-    public function mongoTalks()  // **return auth user's joining groups, user data and latest group messages**
+    public function mongoGroupChats()  // **return auth user's joining groups, user data and latest group messages**
     {
         $id = Auth::id();
     /* return MessageGroups contains auth user */
@@ -43,8 +43,11 @@ class TestController extends Controller
         {
             $user_ids = $group->user_id;
             $merged_ids = array_merge($merged_ids, $user_ids);
-            $withLatest = array('group' => $group, 'latestMessage' => $group->mongoMessages()->latest()->first());
-            array_push($groups_datas, $withLatest);
+            $withLatest = array('group' => $group, 'latestMessage' => $group->mongoMessages()->latest()->first()); // if not return null.
+            if($withLatest["latestMessage"])
+            {
+                array_push($groups_datas, $withLatest);
+            }
         }
         $unique_ids = array_unique($merged_ids);
         $ids_value = array_values($unique_ids);
@@ -105,12 +108,27 @@ class TestController extends Controller
         GroupMessage::create($mongoInsert);
     }
     /* Receive POST request */
+    public function createGroupMongoMessage (Request $request)
+    {
+        // return $request->body;
+        $user = Auth::user();
+        $group = MessageGroup::where('_id', $request->groupId)->first();
+        $message = MongoMessage::create(["body" => $request->body]);
+        $message = $user->mongoMessages()->save($message);
+        $message = $group->mongoMessages()->save($message);
+        return 1;
+        // $request = $request->toArray();
+        // $user->mongoMessages()->create($request);
+        // $groupId = $request.groupId;
+        // return $groupId;
+    }
+    
     public function cMongoMessage (Request $request)
     {
         return $request;
         $user = Auth::user();
         $request = $request->toArray();
-        $user->mongoMessages()->create($request);
+        // $user->mongoMessages()->create($request);
     }
     
     // public function testUpdate ()

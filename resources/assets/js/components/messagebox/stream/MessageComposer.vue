@@ -1,12 +1,12 @@
 <template>
     <div class="app-messageComposer">
-            <div class="balloon">
-                <div class="box" :class="{danger: noMessage, animated: noMessage, rubberBand: noMessage}">
-                    <div class="vue-message">
-                       <input type="text" v-model="messageText" @keyup.enter="sendMessage" :placeholder="placeholder":class="{danger: noMessage}" />
-                    </div>
+        <div class="balloon well">
+            <div class="box" :class="{danger: noMessage, animated: noMessage, rubberBand: noMessage}">
+                <div class="vue-message">
+                   <input type="text" v-model="messageText" @keyup.enter="sendMessage" :placeholder="placeholder":class="{danger: noMessage}" />
                 </div>
             </div>
+        </div>
         <div class="mail-text h-200"  :class="{ hide: active }">
             <div class="summernote" >
                 <h3>Hello Jonathan! </h3>
@@ -34,11 +34,13 @@
 <script>
     //import "../../../../plugins/summernote/bootstrap.js";
     // import "../../../../plugins/summernote2/summernote.js";
-
+    import {loadGroupMessagesMixin} from '../../../mixins/loadGroupMessagesMixin';
+    
     import {mapActions} from 'vuex';
     //import {mapGetters} from 'vuex';
     
     export default {
+        mixins: [loadGroupMessagesMixin],
         data() {
             return {
                 //summernote: false
@@ -69,12 +71,17 @@
             },
             sendMessage() {
                 const message = {
-                    messageText: this.messageText,
-                    user: this.$store.state.user.user.name,
-                    avatar: this.$store.state.user.user.avatar
+                    body: this.messageText,
+                    groupId: this.$store.state.messageboxStreamLogs.streamLogs.groupId
                 };
                 if (this.messageText) {
-                    this.callSendMessage(message);
+                    // this.callSendMessage(message);
+                    axios.post('/createGroupStreamMessage', message).then( (r) => {
+                        if(r)
+                        {
+                            this.loadGroupMessages(message.groupId);
+                        }
+                    });
                     this.messageText = "";
                     if (this.noMessage) {
                         this.placeholder = "Start typing your message...";
@@ -84,25 +91,19 @@
                     this.placeholder = "Please type your message...";
                     this.noMessage = true;
                 }
-            }        
+            },
         }
     }
     
 </script>
 
 <style scoped lang="scss">
-    $balloon-composer-color:#CEE7F7;
-    
     .vue-message {
         padding: 15px;
     }
     
    .hide {
        display: none;
-   }
-   
-   .box {
-       background-color: $balloon-composer-color;
    }
    
    .box:before {
