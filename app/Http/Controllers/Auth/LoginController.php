@@ -90,4 +90,11 @@ class LoginController extends Controller
             'avatar' => $user->getAvatar(),
         ]);
     }
+    
+    /* MyCustom */
+    public function logOut()
+    {
+        Auth::logout();
+        return 1;
+    }
 }

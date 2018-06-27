@@ -24,7 +24,7 @@
                             <li><a href="mailbox.html">Mailbox</a></li>
                             <li><router-link to="/stream">Stream</router-link></li>
                             <li class="divider"></li>
-                            <li><a href="login.html">Logout</a></li>
+                            <li><a href="#" @click="logOut">Logout</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
@@ -254,6 +254,13 @@
                 loadRecommends: 'loadRecommends',
                 // clearRecommends: 'clearRecommends',
             }),
+            logOut() {
+                axios.post('/logout').then( (r) => {
+                    if(r) {
+                        location.href="/login";
+                    }
+                });
+            }
         },
         created() {
             axios.get('/user').then(response => {

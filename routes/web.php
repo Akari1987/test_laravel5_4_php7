@@ -83,6 +83,10 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 
 Auth::routes();
 
+Route::get('/log-out',[
+    'uses'=>'Auth\LoginController@logOut',
+]);
+
 Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => ['auth']], function() {
