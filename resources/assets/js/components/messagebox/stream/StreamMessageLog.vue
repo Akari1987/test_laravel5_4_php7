@@ -24,6 +24,11 @@
                     <strong>{{ log.name }}</strong><br />
                     <div class="well">
                         {{ log.body }}
+                        <div class="pull-right">
+                            <a href="#" @click="deleteMessage(log._id)">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <br />
@@ -34,9 +39,10 @@
 
 <script>
     import {getUserPicMixin} from '../../../mixins/getUserPicMixin';
+    import {loadGroupMessagesMixin} from '../../../mixins/loadGroupMessagesMixin';
     
     export default {
-        mixins: [getUserPicMixin],
+        mixins: [getUserPicMixin, loadGroupMessagesMixin],
         computed: {
             groupMembers() {
                 var result = null;
@@ -78,6 +84,20 @@
                 return ob;
             },
         },
+        methods: {
+            deleteMessage(message_id) {
+                const messageId = {
+                    messageId: message_id
+                };
+                const groupId = this.$store.state.messageboxStreamLogs.streamLogs.groupId;
+                axios.post('/deleteStreamMessage', messageId).then( (r) => {
+                    if(r.data === 1)
+                    {
+                        this.loadGroupMessages(groupId);
+                    }
+                });
+            }
+        }
     }
 </script>
 

@@ -77,7 +77,7 @@
                 if (this.messageText) {
                     // this.callSendMessage(message);
                     axios.post('/createGroupStreamMessage', message).then( (r) => {
-                        if(r)
+                        if(r.data === 1)
                         {
                             this.loadGroupMessages(message.groupId);
                         }

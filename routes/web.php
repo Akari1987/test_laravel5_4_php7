@@ -72,6 +72,8 @@ Route::post('/createGroupStreamMessage', 'TestController@createGroupMongoMessage
 
 Route::post('/cMongoMessage', 'TestController@cMongoMessage');
 
+Route::post('/deleteStreamMessage', 'TestController@deleteStreamMessage');
+
 Route::get('/testtest', 'TestController@testUpdate');
 
 /*-------------------

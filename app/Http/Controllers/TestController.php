@@ -125,10 +125,18 @@ class TestController extends Controller
     
     public function cMongoMessage (Request $request)
     {
-        return $request;
+        // return $request;
         $user = Auth::user();
         $request = $request->toArray();
         // $user->mongoMessages()->create($request);
+    }
+    
+    public function deleteStreamMessage (Request $request)
+    {
+        // return $request;
+        $message = MongoMessage::where('_id', $request->messageId)->first();
+        $message->delete();
+        return 1;
     }
     
     // public function testUpdate ()
