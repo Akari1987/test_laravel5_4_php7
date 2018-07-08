@@ -92,7 +92,10 @@
                     this.noMessage = true;
                 }
             },
-        }
+        },
+        sockets: {
+                
+            }
     }
     
 </script>

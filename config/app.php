@@ -169,6 +169,7 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Jenssegers\Mongodb\MongodbServiceProvider::class,
+        // Barryvdh\Cors\ServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -16,7 +16,9 @@ require('./plugins/auto-hiding-navigation/auto-hiding-navigation');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 import VueRouter from 'vue-router';
-// import Axios from 'axios';
+
+import VueSocketIo from 'vue-socket.io';
+
 import Vuetify from 'vuetify';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import VueCoreImageUpload  from 'vue-core-image-upload';
@@ -37,7 +39,9 @@ import Member from './components/messagebox/member/Members.vue';
 import Email from './components/messagebox/email/Email.vue';
 
 Vue.use(VueRouter);
-// Vue.use(Axios);
+
+Vue.use(VueSocketIo, 'https://test-laravel5-4-php7-akariozora.c9users.io:8081');
+
 Vue.use(Vuetify);
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueCoreImageUpload);

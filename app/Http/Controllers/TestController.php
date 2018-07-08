@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use MongoDB\BSON\ObjectId;
+use Redis;
 
 use App\User;
 use App\GroupMessage;
@@ -108,7 +109,7 @@ class TestController extends Controller
         GroupMessage::create($mongoInsert);
     }
     /* Receive POST request */
-    public function createGroupMongoMessage (Request $request)
+    public function createGroupStreamMessage (Request $request)
     {
         // return $request->body;
         $user = Auth::user();
@@ -116,6 +117,8 @@ class TestController extends Controller
         $message = MongoMessage::create(["body" => $request->body]);
         $message = $user->mongoMessages()->save($message);
         $message = $group->mongoMessages()->save($message);
+        $redis = Redis::connection();
+        $redis->publish('message', $message);
         return 1;
         // $request = $request->toArray();
         // $user->mongoMessages()->create($request);

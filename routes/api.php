@@ -27,3 +27,7 @@ Route::post('/user', [
 Route::post('/user/signin', [
     'uses' => 'UserController@signin'
 ]);
+
+Route::get('/api/test', function(){
+    return response;
+});

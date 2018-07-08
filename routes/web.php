@@ -25,9 +25,14 @@ Route::get('/redis', function()
     // $redis = app()->make('redis');
     $redis = Redis::connection();
     // $redis->set("key1", "testValue");
-    // print_r(app()->make('redis'));
+    print_r(app()->make('redis'));
     // return $redis->get("key1");
+    $message = 'test';
+    // $redis = Redis::connection();
+    //     $redis->publish('message', $message);
 });
+
+Route::get('/redisTest', 'TestController@redisTest');
 
 // Route::get('/mongo', function()
 // {
@@ -68,7 +73,7 @@ Route::get('/mongo', 'MessageController@index');
 
 Route::get('/mongoInsert', 'TestController@mongoInsert');
 
-Route::post('/createGroupStreamMessage', 'TestController@createGroupMongoMessage');
+Route::post('/createGroupStreamMessage', 'TestController@createGroupStreamMessage');
 
 Route::post('/cMongoMessage', 'TestController@cMongoMessage');
 
