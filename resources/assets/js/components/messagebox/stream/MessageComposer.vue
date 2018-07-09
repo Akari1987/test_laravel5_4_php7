@@ -34,13 +34,11 @@
 <script>
     //import "../../../../plugins/summernote/bootstrap.js";
     // import "../../../../plugins/summernote2/summernote.js";
-    import {loadGroupMessagesMixin} from '../../../mixins/loadGroupMessagesMixin';
     
     import {mapActions} from 'vuex';
     //import {mapGetters} from 'vuex';
     
     export default {
-        mixins: [loadGroupMessagesMixin],
         data() {
             return {
                 //summernote: false
@@ -76,12 +74,7 @@
                 };
                 if (this.messageText) {
                     // this.callSendMessage(message);
-                    axios.post('/createGroupStreamMessage', message).then( (r) => {
-                        if(r.data === 1)
-                        {
-                            this.loadGroupMessages(message.groupId);
-                        }
-                    });
+                    axios.post('/createGroupStreamMessage', message);
                     this.messageText = "";
                     if (this.noMessage) {
                         this.placeholder = "Start typing your message...";
@@ -97,6 +90,7 @@
                 message(data) {
                     let message = JSON.parse(data)
                     console.log('message', message)
+                    this.$store.dispatch('newMessageNotification', message)
                 }
             }
     }

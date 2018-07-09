@@ -2,7 +2,7 @@
 
 const state = {
     streamGroups: {},
-    streamLogs: {logs: {}},
+    streamLogs: {logs: []},
     notifications: []
     // streamGroupUsers: {}
 }
@@ -40,7 +40,7 @@ const mutations = {
     },
     NEW_STREAM_MESSAGE_NOTIFICATION(state, payload)
     {
-        
+        state.streamLogs.logs.push(payload)
     }
 }
 
