@@ -36,11 +36,6 @@
     export default {
         props: ['m'],
         mixins: [getUserPicMixin, loadGroupMessagesMixin],
-        data() {
-            return {
-                latestMessageUsersData: [],
-            }
-        },
         computed: {
             groupMembers() {
                 var result = null;
@@ -58,13 +53,11 @@
                     }
                 }
                 return result.group.userData;
+            },
+            latestMessageUsersData() {
+                const id = this.m.latestMessage.user_id;
+                return this.$store.state.messageboxUsers.messageboxUsers.find(obj => obj.id === id);
             }
-        },
-        mounted() {
-            const id = this.m.latestMessage.user_id;
-            const result = this.$store.state.messageboxUsers.messageboxUsers.find(obj => obj.id === id);
-            this.latestMessageUsersData = result; //**latest message user data**//
-            // console.log(this.m);
         },
     }
 </script>

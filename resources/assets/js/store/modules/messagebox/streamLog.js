@@ -1,13 +1,17 @@
 // **Stock loaded stream logs from StreamGroupLatest.vue**
 
 const state = {
+    streamLatests: [],
     streamGroups: {},
     streamLogs: {logs: []},
-    notifications: []
+    notifications: [],
     // streamGroupUsers: {}
 }
 
 const getters = {
+    getStreamLatests: state => {
+        return state.streamLatests;
+    },
     getCurrentStreamGroup: state => {
         return state.streamLogs.groupId;
     },
@@ -20,6 +24,9 @@ const getters = {
 }
 
 const actions = {
+    setStreamLatest({ commit }, payload) {
+        commit('SET_STREAM_LATEST', payload);
+    },
     setStreamLogs({ commit }, payload) {
         commit('SET_STREAM_LOGS', payload);
     },
@@ -29,6 +36,10 @@ const actions = {
 }
 
 const mutations = {
+    SET_STREAM_LATEST(state, payload)
+    {
+        state.streamLatests = payload
+    },
     SET_STREAM_LOGS: (state, payload) => {
         state.streamLogs = payload
     },
@@ -41,6 +52,19 @@ const mutations = {
     NEW_STREAM_MESSAGE_NOTIFICATION(state, payload)
     {
         state.streamLogs.logs.push(payload)
+        const groupId = state.streamLogs.groupId;
+        let result = null;
+        for(var i=0; i < state.streamLatests.length; i++)
+        {
+            if(state.streamLatests[i].group._id === groupId)
+            {
+                state.streamLatests[i].latestMessage = payload;
+                result = 1
+            }
+            if(result) {
+                break;
+            }
+        }
     }
 }
 

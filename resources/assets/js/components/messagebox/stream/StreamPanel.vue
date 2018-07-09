@@ -51,9 +51,10 @@
         <!--</li>-->
         <div class="ibox-content">
             <div class="feed-activity-list">
-                <app-stream-group-latest v-for="streamMessage in streamMessages" 
-                :m="streamMessage"
-                :key="streamMessage.id"></app-stream-group-latest>
+                <!--<app-stream-group-latest v-for="streamMessage in streamMessages"-->
+                <app-stream-group-latest v-for="streamLatest in streamLatests"
+                :m="streamLatest"
+                :key="streamLatest.id"></app-stream-group-latest>
             </div>
             <div class="feed-activity-list">
 
@@ -186,8 +187,12 @@
         },
         data() {
             return {
-                streamMessages: [],
-                messages: []
+                messages: [],
+            }
+        },
+        computed: {
+            streamLatests() {
+                return this.$store.getters.getStreamLatests
             }
         },
         mounted() {
@@ -196,6 +201,7 @@
             axios.get('/getTalks').then(response => {
                 this.streamMessages = response.data.groups;
                 this.$store.commit('SET_MESSAGEBOX_USERS', response.data.users);
+                this.$store.commit('SET_STREAM_LATEST', response.data.groups);
                 console.log(response.data);
                 let target = response.data.groups;
                 for(var i=0; i < response.data.groups.length; i++)
