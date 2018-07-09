@@ -94,7 +94,10 @@
             },
         },
         sockets: {
-                
+                message(data) {
+                    let message = JSON.parse(data)
+                    console.log('message', message)
+                }
             }
     }
     

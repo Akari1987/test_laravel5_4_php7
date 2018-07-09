@@ -13,6 +13,7 @@ io.on('connection', function(socket) {
     redisClient.subscribe('message');
     redisClient.on('message', function(channel, message) {
         console.log('New message queue.', channel, message)
+        socket.emit(channel, message)
     })
 });
 

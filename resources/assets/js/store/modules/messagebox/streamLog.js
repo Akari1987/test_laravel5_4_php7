@@ -3,6 +3,7 @@
 const state = {
     streamGroups: {},
     streamLogs: {logs: {}},
+    notifications: []
     // streamGroupUsers: {}
 }
 
@@ -21,6 +22,9 @@ const getters = {
 const actions = {
     setStreamLogs({ commit }, payload) {
         commit('SET_STREAM_LOGS', payload);
+    },
+    newMessageNotification({ commit }, payload) {
+        commit('NEW_STREAM_MESSAGE_NOTIFICATION', payload);
     }
 }
 
@@ -33,6 +37,10 @@ const mutations = {
     },
     SET_STREAM_GROUPS: (state, payload) => {
         state.streamGroups = payload
+    },
+    NEW_STREAM_MESSAGE_NOTIFICATION(state, payload)
+    {
+        
     }
 }
 
