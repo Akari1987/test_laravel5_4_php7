@@ -47,8 +47,7 @@
                     {
                         result = streamGroups[i];
                     }
-                    if(result)
-                    {
+                    if(result) {
                         break;   
                     }
                 }

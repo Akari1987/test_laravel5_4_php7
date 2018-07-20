@@ -3,7 +3,7 @@
         <div class="balloon well">
             <div class="box" :class="{danger: noMessage, animated: noMessage, rubberBand: noMessage}">
                 <div class="vue-message">
-                   <input type="text" v-model="messageText" @keyup.enter="sendMessage" :placeholder="placeholder":class="{danger: noMessage}" />
+                   <input type="text" v-model="messageText" @keyup.enter="sendMessage" :placeholder="placeholder" :class="{danger: noMessage}" />
                 </div>
             </div>
         </div>

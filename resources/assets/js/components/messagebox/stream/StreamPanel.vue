@@ -51,7 +51,6 @@
         <!--</li>-->
         <div class="ibox-content">
             <div class="feed-activity-list">
-                <!--<app-stream-group-latest v-for="streamMessage in streamMessages"-->
                 <app-stream-group-latest v-for="streamLatest in streamLatests"
                 :m="streamLatest"
                 :key="streamLatest.id"></app-stream-group-latest>
@@ -199,12 +198,11 @@
             /* Get MongoTalks */
             /* Get streamMessages->groups[_id, user_ids]+->allUsers[name, avatar] */
             axios.get('/getTalks').then(response => {
-                this.streamMessages = response.data.groups;
                 this.$store.commit('SET_MESSAGEBOX_USERS', response.data.users);
                 this.$store.commit('SET_STREAM_LATEST', response.data.groups);
                 console.log(response.data);
                 let target = response.data.groups;
-                for(var i=0; i < response.data.groups.length; i++)
+                for(var i=0; i < target.length; i++)
                 {
                     const ids = target[i].group.user_id;
                     const userDatas = [];
@@ -216,19 +214,7 @@
                     target[i].group.userData = userDatas;
                 }
                 this.$store.commit('SET_STREAM_GROUPS', target);
-                // return target;
             })
-            // }).then(response => {
-            //     let target = response;
-            //     for(var i=0; i < response.length; i++)
-            //     {
-            //         // const target = response[i];
-            //         delete target[i].latestMessage;
-            //     }
-            //     this.$store.commit('SET_STREAM_GROUPS', target);
-            //     this.messages = target;
-            //     console.log(response);
-            // });
         }
     }
 </script>
