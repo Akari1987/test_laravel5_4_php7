@@ -18,6 +18,7 @@ require('./plugins/auto-hiding-navigation/auto-hiding-navigation');
 import VueRouter from 'vue-router';
 
 import VueSocketIo from 'vue-socket.io';
+import Socket from 'socket.io-client';
 
 import Vuetify from 'vuetify';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
@@ -40,7 +41,13 @@ import Email from './components/messagebox/email/Email.vue';
 
 Vue.use(VueRouter);
 
-Vue.use(VueSocketIo, 'https://test-laravel5-4-php7-akariozora.c9users.io:8081');
+let sck = Socket('https://test-laravel5-4-php7-akariozora.c9users.io:8081', {
+    reconnection: true,
+    reconnectionDeray: 500,
+    reconnectionAttempts: 5,
+});
+
+Vue.use(VueSocketIo, sck);
 
 Vue.use(Vuetify);
 Vue.use(VueAwesomeSwiper);
