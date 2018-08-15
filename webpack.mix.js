@@ -1,9 +1,12 @@
 let mix = require('laravel-mix');
+
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 // let webpack = require('webpack');
 
-// mix.webpackConfig({ 
+mix.webpackConfig({ 
 //     devtool: "inline-source-map",
-//     plugins: [
+    plugins: [
+        new VueLoaderPlugin()
 //         // new webpack.ProvidePlugin({
 //         //     $: 'jquery',
 //         //     jquery: 'jquery',
@@ -11,8 +14,8 @@ let mix = require('laravel-mix');
 //         //     'window.$': 'jquery',
 //         //     jQuery: 'jquery'
 //         // })
-//     ]
-// });
+    ]
+});
 
 /*
  |--------------------------------------------------------------------------
